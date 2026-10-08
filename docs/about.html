@@ -1,0 +1,84 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>About Daily Finds UK</title><meta name="description" content="Who runs Daily Finds UK and how the site is funded."><link rel="icon" href="logo.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap"><style>
+/* Layout: sticky slim header, filter chips, responsive card grid; price tag motif for discounts. */
+:root{
+  --bg:#F3F6F4;--surface:#FFFFFF;--fg:#14201C;--muted:#5A6964;--line:#DCE4E0;
+  --brand:#0E6B5C;--brand-ink:#FFFFFF;--gold:#F4B23E;--gold-ink:#3A2600;--was:#8A9792;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1614;--surface:#18211E;--fg:#E7EDEA;--muted:#9AA9A3;--line:#2B3733;
+  --brand:#4FC2A9;--brand-ink:#0B1B17;--gold:#F4B23E;--gold-ink:#3A2600;--was:#7D8A85;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1614;--surface:#18211E;--fg:#E7EDEA;--muted:#9AA9A3;--line:#2B3733;
+  --brand:#4FC2A9;--brand-ink:#0B1B17;--gold:#F4B23E;--gold-ink:#3A2600;--was:#7D8A85;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 var(--body)}
+a{color:var(--brand)}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);
+  border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg)}
+.brand img{width:36px;height:36px;border-radius:50%}
+.brand b{font:800 20px/1 var(--display);letter-spacing:-.01em}
+nav.links{display:flex;gap:16px;font-weight:600;font-size:15px}
+nav.links a{color:var(--muted);text-decoration:none}
+nav.links a:hover,nav.links a:focus-visible{color:var(--fg)}
+.hero{padding-block:28px 8px;display:grid;gap:8px}
+.hero h1{font:800 clamp(30px,6vw,46px)/1.05 var(--display);margin:0;letter-spacing:-.02em;text-wrap:balance}
+.hero p{margin:0;color:var(--muted);max-width:60ch}
+.disclose{font-size:14px;color:var(--muted)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-block:16px}
+.chip{font:600 14px var(--body);border:1px solid var(--line);background:var(--surface);color:var(--fg);
+  border-radius:99px;padding:6px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.chip:focus-visible,.search:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.search{flex:1 1 220px;min-width:0;font:16px var(--body);padding:8px 14px;border-radius:99px;
+  border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;padding-block:4px 40px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  display:flex;flex-direction:column;min-width:0}
+.pic{position:relative;aspect-ratio:1/1;background:#fff;max-width:100%}
+.pic img{width:100%;height:100%;object-fit:contain;display:block}
+.tag{position:absolute;top:10px;left:10px;background:var(--gold);color:var(--gold-ink);
+  font:800 15px/1 var(--display);padding:7px 10px 7px 16px;
+  clip-path:polygon(9px 0,100% 0,100% 100%,9px 100%,0 50%)}
+.num{position:absolute;top:10px;right:10px;background:rgba(20,32,28,.78);color:#fff;
+  font:700 12px/1 var(--body);padding:5px 8px;border-radius:99px;font-variant-numeric:tabular-nums}
+.body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cat{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.title{font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.price{display:flex;align-items:baseline;gap:8px;font-variant-numeric:tabular-nums;margin-top:auto}
+.now{font:800 22px/1 var(--display)}
+.was{color:var(--was);text-decoration:line-through}
+.meta{font-size:13px;color:var(--muted)}
+.btn{display:block;text-align:center;background:var(--brand);color:var(--brand-ink);text-decoration:none;
+  font-weight:700;padding:10px;border-radius:10px;margin-top:6px}
+.empty{padding:40px 0;color:var(--muted);text-align:center}
+.page{max-width:720px;padding-block:28px 56px;display:grid;gap:22px}
+.page h1{font:800 clamp(28px,5vw,40px)/1.1 var(--display);margin:0}
+.page h2{font:700 20px var(--display);margin:0;color:var(--brand)}
+.page section{display:grid;gap:8px;border-top:1px solid var(--line);padding-top:18px}
+.page p,.page ul{margin:0}
+footer{border-top:1px solid var(--line);padding-block:20px 32px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+@media (max-width:560px){nav.links{gap:12px;font-size:14px}.brand b{font-size:17px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.body{padding:10px}.now{font-size:19px}
+  .was{font-size:14px}.btn{padding:8px;font-size:14px}.tag{font-size:13px}.title{font-size:14px}}
+</style></head><body><header class="top"><div class="wrap"><a class="brand" href="index.html"><img src="logo.png" alt=""><b>Daily Finds UK</b></a><nav class="links"><a href="index.html">Deals</a><a href="about.html">About</a><a href="privacy.html">Privacy</a></nav></div></header><main class="wrap page">
+<h1>About Daily Finds UK</h1>
+<p>Daily Finds UK shares genuine discounts from UK shops, every day. We look for real price drops,
+mostly 25% off or more, on new items from trusted retailers and well-rated sellers.</p>
+<section><h2>Where to find us</h2>
+<p>Deals are posted to our <a href="https://www.pinterest.com/dailyfinds_uk" target="_blank" rel="noopener">Pinterest boards</a>,
+in short videos on Instagram and YouTube, and on this website.</p></section>
+<section><h2>How we make money</h2>
+<p>Links to shops are affiliate links. If you buy something after clicking one, the shop pays us a small
+commission. You pay the same price. We are a member of the eBay Partner Network and the Awin network.</p></section>
+<section><h2>Prices</h2>
+<p>Prices and stock change quickly. Every deal was correct when we posted it, but please check the price
+on the shop's page before you buy.</p></section>
+<section><h2>Contact</h2><p>dailyfindsukme21@gmail.com</p></section>
+</main><footer><div class="wrap"><span>&copy; 2026 Daily Finds UK. We may earn a commission from links on this site, at no extra cost to you.</span><span><a href="https://www.pinterest.com/dailyfinds_uk" rel="noopener" target="_blank">Pinterest</a> · <a href="privacy.html">Privacy</a> · dailyfindsukme21@gmail.com</span></div></footer></body></html>

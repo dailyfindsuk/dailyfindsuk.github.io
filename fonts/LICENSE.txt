@@ -1,0 +1,5 @@
+Poppins font files (Poppins-Bold.ttf, Poppins-Medium.ttf)
+Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins)
+
+These fonts are licensed under the SIL Open Font License, Version 1.1.
+The full licence text is available at https://openfontlicense.org

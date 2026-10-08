@@ -1,0 +1,142 @@
+# Deal bot settings. Edit this file to change what it looks for.
+
+# How many pins to post per run. The workflow runs 4 times a day,
+# so 1 per run = 4 pins a day, a safe pace for a new Pinterest account.
+# After a few weeks you can raise this to 2.
+pins_per_run: 1
+
+# Only post items discounted by at least this much.
+min_discount_percent: 30
+
+# eBay seller quality filters.
+min_seller_feedback_percent: 98.0
+min_seller_feedback_score: 100
+
+# Price range for posted items, in GBP.
+min_price: 10
+max_price: 400
+
+# eBay: only new items, Buy It Now, located in the UK.
+condition: NEW
+
+# One entry per Pinterest board.
+#   board_id  comes from: python dealbot.py --create-boards
+#   source    "ebay" (default) or "awin"
+#   keywords  eBay searches; the bot rotates through them
+# Any setting above can be overridden for a single category.
+categories:
+
+  # ----- eBay categories -----
+
+  - name: Home & Kitchen
+    board_id: "REPLACE_ME"
+    hashtags: "#homedeals #kitchen #ukdeals"
+    keywords: [air fryer, coffee machine, cordless vacuum, bedding set, kitchen knife set, led lamp, storage baskets, cookware set]
+
+  - name: Tech & Gadgets
+    board_id: "REPLACE_ME"
+    hashtags: "#techdeals #gadgets #ukdeals"
+    keywords: [wireless earbuds, smart watch, power bank, bluetooth speaker, mechanical keyboard, webcam, smart plug, portable monitor]
+
+  - name: Gift Ideas
+    board_id: "REPLACE_ME"
+    hashtags: "#giftideas #gifts #ukdeals"
+    keywords: [gift set, lego, board game, mens watch, jewellery box, personalised gift, gift hamper]
+
+  - name: Gym & Fitness
+    board_id: "REPLACE_ME"
+    hashtags: "#homegym #fitness #ukdeals"
+    keywords: [adjustable dumbbells, kettlebell, resistance bands, yoga mat, gym bag, foam roller, pull up bar, weight bench]
+
+  - name: Car Accessories
+    board_id: "REPLACE_ME"
+    hashtags: "#caraccessories #cars #ukdeals"
+    keywords: [dash cam, car jump starter, car vacuum cleaner, tyre inflator, car phone holder, car seat organiser, car pressure washer]
+
+  - name: Clothes & Trainers
+    board_id: "REPLACE_ME"
+    hashtags: "#fashiondeals #trainers #ukdeals"
+    # Branded clothing on eBay has more fakes, so only use big, established sellers.
+    min_seller_feedback_percent: 99.0
+    min_seller_feedback_score: 5000
+    keywords: [mens trainers, womens trainers, mens jacket, womens coat, hoodie, running shoes, jeans, gym leggings]
+
+  - name: Pets
+    board_id: "REPLACE_ME"
+    hashtags: "#dogsofpinterest #catlovers #petdeals"
+    keywords: [dog bed, cat tree, pet camera, automatic pet feeder, dog harness, cat litter box, pet water fountain, dog crate]
+
+  - name: Garden & Outdoor
+    board_id: "REPLACE_ME"
+    hashtags: "#gardenideas #outdoorliving #ukdeals"
+    keywords: [garden furniture set, solar garden lights, bbq grill, pressure washer, garden hose reel, parasol, fire pit, raised garden bed]
+
+  - name: DIY & Tools
+    board_id: "REPLACE_ME"
+    hashtags: "#diy #tools #ukdeals"
+    keywords: [cordless drill, tool kit, impact driver, laser level, tool box, multi tool, workbench, wet dry vacuum]
+
+  - name: Gaming
+    board_id: "REPLACE_ME"
+    hashtags: "#gamingsetup #gaming #ukdeals"
+    keywords: [gaming headset, gaming chair, ps5 controller, gaming mouse, gaming keyboard, xbox controller, gaming desk, capture card]
+
+  - name: Camping & Travel
+    board_id: "REPLACE_ME"
+    hashtags: "#camping #travelessentials #ukdeals"
+    keywords: [camping tent, portable power station, cabin luggage, sleeping bag, camping chair, hiking backpack, cool box, travel pillow]
+
+  # ----- Awin categories (official retailer feeds) -----
+  # Each uses a feed link from Awin's Create-a-Feed tool, saved as a GitHub secret.
+  # Until the secret exists, the bot simply skips the category.
+
+  - name: Beauty & Fragrance
+    source: awin
+    feed_secret: AWIN_FEED_BEAUTY
+    board_id: "REPLACE_ME"
+    hashtags: "#perfume #beautydeals #fragrance"
+    min_discount_percent: 25
+    min_price: 12
+    max_price: 250
+    # Skip tiny samples and refills that make poor pins.
+    exclude_words: [sample, vial, refill, tester]
+
+  - name: Baby & Kids
+    source: awin
+    feed_secret: AWIN_FEED_KIDS
+    board_id: "REPLACE_ME"
+    hashtags: "#babyessentials #momlife #kidsdeals"
+    min_discount_percent: 25
+    min_price: 10
+    max_price: 400
+    # Skip spare parts and adaptors that make poor pins.
+    exclude_words: [replacement, spare, adaptor]
+
+  # ----- Seasonal boards -----
+  # These switch on and off by date (MM-DD) and post more often while live
+  # (weight 3 = three times as often as a normal board).
+
+  - name: Halloween
+    board_id: "REPLACE_ME"
+    hashtags: "#halloween #halloweendecor #halloweencostume"
+    active_from: "09-15"
+    active_until: "10-31"
+    weight: 2
+    min_discount_percent: 25
+    keywords: [halloween decorations, halloween costume adult, kids halloween costume, halloween lights, pumpkin decoration, halloween party supplies, halloween inflatable]
+
+  - name: Christmas Gift Ideas
+    board_id: "REPLACE_ME"
+    hashtags: "#christmasgifts #giftideas #christmas2026"
+    active_from: "10-01"
+    active_until: "12-23"
+    weight: 3
+    keywords: [christmas gifts for him, christmas gifts for her, stocking fillers, advent calendar, christmas gift set, secret santa gift, gifts for dad, gifts for mum]
+
+  - name: Christmas Decor
+    board_id: "REPLACE_ME"
+    hashtags: "#christmasdecor #christmastree #christmas2026"
+    active_from: "10-15"
+    active_until: "12-20"
+    weight: 2
+    keywords: [christmas tree, christmas lights outdoor, christmas decorations, christmas wreath, christmas village, christmas table decorations, christmas jumper]

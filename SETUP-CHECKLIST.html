@@ -1,0 +1,295 @@
+<title>Deal Bot Setup Checklist</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Layout: one reading column; phases as numbered groups because the order matters; copy blocks set off as the only "objects". */
+:root {
+  --bg: #F4F6F4;
+  --surface: #FFFFFF;
+  --fg: #18211E;
+  --muted: #5B6863;
+  --line: #D9E0DC;
+  --accent: #0E6B5C;
+  --accent-soft: #DCEFE9;
+  --warn: #8A5A00;
+  --warn-soft: #FBF0D9;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111816; --surface: #19221F; --fg: #E6ECE9; --muted: #9AA8A2; --line: #2C3833;
+  --accent: #5CC7B0; --accent-soft: #1D3A33; --warn: #F0C46B; --warn-soft: #3A2F17; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111816; --surface: #19221F; --fg: #E6ECE9; --muted: #9AA8A2; --line: #2C3833;
+  --accent: #5CC7B0; --accent-soft: #1D3A33; --warn: #F0C46B; --warn-soft: #3A2F17; color-scheme: dark }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 17px/1.55 var(--body); padding-inline: 16px; padding-block: 32px 64px; }
+.wrap { max-width: 720px; margin: 0 auto; display: grid; gap: 40px; }
+h1, h2 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(30px, 6vw, 42px); line-height: 1.1; }
+h2 { font-size: 24px; line-height: 1.2; }
+p { margin: 0; }
+a { color: var(--accent); text-underline-offset: 2px; }
+.lede { color: var(--muted); max-width: 62ch; margin-top: 10px; }
+header { display: grid; gap: 18px; }
+
+.progress { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.bar { flex: 1; height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.bar span { display: block; height: 100%; width: 0; background: var(--accent); transition: width .3s; }
+
+.phase { display: grid; gap: 16px; }
+.phase-head { display: grid; gap: 4px; }
+.when { font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.phase-head p { color: var(--muted); }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.step { display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid var(--line); }
+.step input { width: 20px; height: 20px; margin: 3px 0 0; accent-color: var(--accent); cursor: pointer; }
+.step-body { display: grid; gap: 8px; min-width: 0; }
+.step-title { font-weight: 600; cursor: pointer; }
+.step.done .step-title { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--line); }
+.step-body ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; color: var(--fg); }
+.note { font-size: 15px; color: var(--muted); }
+
+.copy { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.copy-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 6px 6px 12px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.copy pre { margin: 0; padding: 12px; font: 14px/1.55 var(--mono); white-space: pre-wrap; word-break: break-word; }
+.copy button { font: 600 13px var(--body); color: var(--accent); background: var(--accent-soft); border: 0; border-radius: 6px; padding: 5px 12px; cursor: pointer; }
+.copy button:focus-visible, .step input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.callout { background: var(--warn-soft); color: var(--fg); border-radius: 8px; padding: 14px 16px; display: grid; gap: 6px; font-size: 16px; }
+.callout strong { color: var(--warn); }
+
+.have { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px 24px; margin: 0; padding: 0; list-style: none; }
+.have li { padding-left: 18px; position: relative; }
+.have li::before { content: ""; position: absolute; left: 0; top: .65em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+
+.boards { display: flex; flex-wrap: wrap; gap: 6px; }
+.boards span { background: var(--surface); border: 1px solid var(--line); border-radius: 99px; padding: 3px 12px; font-size: 15px; }
+
+footer { color: var(--muted); font-size: 15px; border-top: 1px solid var(--line); padding-top: 20px; }
+@media (prefers-reduced-motion: reduce) { .bar span { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Deal Bot Setup Checklist</h1>
+      <p class="lede">Everything you need to get the deal bot live, in the right order. Tick each step as you go; your ticks are saved in this browser. The copy boxes hold ready-written answers for the application forms.</p>
+    </div>
+    <div class="progress"><div class="bar"><span id="bar"></span></div><span id="count">0 of 0 done</span></div>
+  </header>
+
+  <section class="phase">
+    <div class="phase-head">
+      <span class="when">Before you start</span>
+      <h2>Have these to hand</h2>
+    </div>
+    <ul class="have">
+      <li>An email address for the accounts</li>
+      <li>Your mobile, for verification codes</li>
+      <li>Bank details, so the networks can pay you</li>
+      <li>The <strong>dealbot.zip</strong> folder, unzipped</li>
+    </ul>
+    <div class="callout">
+      <strong>Tax</strong>
+      <p>Affiliate commission counts as income. In the UK, if your trading income goes over £1,000 in a tax year (the trading allowance), you need to register for Self Assessment and declare it. Keep the payout statements from eBay and Awin.</p>
+    </div>
+  </section>
+
+  <section class="phase">
+    <div class="phase-head">
+      <span class="when">Phase 1 · Tonight, about 40 minutes</span>
+      <h2>Set up Pinterest, then apply to the networks</h2>
+      <p>Pinterest goes first because eBay Partner Network and Awin both ask for the profile you'll promote on.</p>
+    </div>
+    <ol class="steps">
+      <li class="step"><input type="checkbox" id="s-pin-account"><div class="step-body">
+        <label class="step-title" for="s-pin-account">Create a Pinterest business account</label>
+        <ul>
+          <li>Go to <a href="https://www.pinterest.co.uk/business/create/" target="_blank" rel="noopener">pinterest.co.uk/business/create</a>. Use a fresh account rather than your personal one.</li>
+          <li>Don't use "eBay" or "Amazon" in the name. Their affiliate rules don't allow it.</li>
+        </ul>
+        <div class="copy"><div class="copy-top">Name ideas (check one is free)<button type="button">Copy</button></div><pre>Deal Spotter UK
+The Bargain Board UK
+Daily Finds UK</pre></div>
+        <div class="copy"><div class="copy-top">Profile bio<button type="button">Copy</button></div><pre>Real UK deals, checked every day. New finds across home, beauty, pets, tech, gifts and more. Pins contain affiliate links (#ad).</pre></div>
+      </div></li>
+
+      <li class="step"><input type="checkbox" id="s-boards"><div class="step-body">
+        <label class="step-title" for="s-boards">Create the 16 boards by hand, with these exact names</label>
+        <p class="note">Boards made by hand are public straight away. Setup will find them by name later and link them to the bot, so spelling matters. Add a few pins of your own to each so the profile doesn't look empty when the networks review it.</p>
+        <div class="boards">
+          <span>Home &amp; Kitchen</span><span>Tech &amp; Gadgets</span><span>Gift Ideas</span><span>Gym &amp; Fitness</span><span>Car Accessories</span><span>Clothes &amp; Trainers</span><span>Pets</span><span>Garden &amp; Outdoor</span><span>DIY &amp; Tools</span><span>Gaming</span><span>Camping &amp; Travel</span><span>Beauty &amp; Fragrance</span><span>Baby &amp; Kids</span><span>Halloween</span><span>Christmas Gift Ideas</span><span>Christmas Decor</span>
+        </div>
+        <div class="copy"><div class="copy-top">Board description (same for each, swap in the board name)<button type="button">Copy</button></div><pre>Hand-picked deals from UK shops, checked for real discounts. Contains affiliate links.</pre></div>
+      </div></li>
+
+      <li class="step"><input type="checkbox" id="s-ebay-dev"><div class="step-body">
+        <label class="step-title" for="s-ebay-dev">Sign up for an eBay developer account</label>
+        <ul>
+          <li><a href="https://developer.ebay.com/" target="_blank" rel="noopener">developer.ebay.com</a> → Register. Approval is usually within a day.</li>
+          <li>Then go to <strong>Application Keysets</strong> and create a <strong>Production</strong> keyset (not Sandbox). Keep the App ID and Cert ID for later.</li>
+        </ul>
+        <div class="copy"><div class="copy-top">If asked how you'll use the API<button type="button">Copy</button></div><pre>Personal project. A small script searches eBay UK listings through the Browse API to find discounted, brand-new items, and shares them on my own Pinterest boards with eBay Partner Network links.</pre></div>
+      </div></li>
+
+      <li class="step"><input type="checkbox" id="s-epn"><div class="step-body">
+        <label class="step-title" for="s-epn">Apply to eBay Partner Network</label>
+        <ul>
+          <li><a href="https://partnernetwork.ebay.com/" target="_blank" rel="noopener">partnernetwork.ebay.com</a> → Join. Choose the UK. Give your Pinterest profile link as your website.</li>
+          <li>Once approved, create a campaign called "Pinterest" and note its 10-digit <strong>Campaign ID</strong>. Add your bank details.</li>
+        </ul>
+        <div class="copy"><div class="copy-top">How you'll promote eBay<button type="button">Copy</button></div><pre>I run a Pinterest profile that curates discounted, brand-new products from eBay UK across home, tech, gifts, pets, garden and more. Each pin shows the current price and the saving, and links directly to the eBay listing. All pins are labelled #ad. I post a few pins a day, organically, with no paid ads.</pre></div>
+      </div></li>
+
+      <li class="step"><input type="checkbox" id="s-awin"><div class="step-body">
+        <label class="step-title" for="s-awin">Apply to Awin as a publisher</label>
+        <ul>
+          <li><a href="https://www.awin.com/gb" target="_blank" rel="noopener">awin.com</a> → Join as a publisher. Promotional type: social media. Give your Pinterest profile link.</li>
+          <li>Retailers come later, once Awin approves you (Phase 4).</li>
+        </ul>
+        <div class="copy"><div class="copy-top">Describe your promotional space<button type="button">Copy</button></div><pre>A Pinterest profile curating genuine discounts from UK retailers, organised into boards such as Beauty & Fragrance, Baby & Kids, Home and Gifts. Each pin shows the current and previous price and links directly to the retailer through my Awin tracking link. All pins are labelled #ad. Organic posting only: no paid search and no brand bidding.</pre></div>
+      </div></li>
+
+      <li class="step"><input type="checkbox" id="s-pin-app"><div class="step-body">
+        <label class="step-title" for="s-pin-app">Create a Pinterest developer app</label>
+        <ul>
+          <li>Logged in as your business account, go to <a href="https://developers.pinterest.com/apps/" target="_blank" rel="noopener">developers.pinterest.com/apps</a> → Connect app.</li>
+          <li>Once it's created, add <code>https://localhost/</code> under Redirect URIs, and keep the App ID and App secret key.</li>
+        </ul>
+        <div class="copy"><div class="copy-top">App description<button type="button">Copy</button></div><pre>Deal curation tool for my own Pinterest business account. It creates a small number of pins a day on my own boards, featuring discounted products from UK retailers (eBay UK and Awin retailers) with clearly disclosed affiliate links. It only manages my own account and has no other users.</pre></div>
+      </div></li>
+    </ol>
+  </section>
+
+  <section class="phase">
+    <div class="phase-head">
+      <span class="when">Phase 2 · When your eBay and Pinterest keys arrive</span>
+      <h2>Run setup and record the demo</h2>
+    </div>
+    <ol class="steps">
+      <li class="step"><input type="checkbox" id="s-python"><div class="step-body">
+        <label class="step-title" for="s-python">Install Python</label>
+        <ul><li><a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org/downloads</a>. On the first screen, tick <strong>Add python.exe to PATH</strong>.</li></ul>
+      </div></li>
+      <li class="step"><input type="checkbox" id="s-setup1"><div class="step-body">
+        <label class="step-title" for="s-setup1">Double-click setup.bat and paste in your keys</label>
+        <ul><li>It checks your eBay keys work. When it asks whether Pinterest has approved Standard access, answer <strong>no</strong>.</li></ul>
+      </div></li>
+      <li class="step"><input type="checkbox" id="s-demo"><div class="step-body">
+        <label class="step-title" for="s-demo">Record demo.bat and request Standard access</label>
+        <ul>
+          <li>Start a screen recording (<strong>Win + Alt + R</strong>), double-click <strong>demo.bat</strong>, and let it post its test pin.</li>
+          <li>The first time, it asks for a sandbox token. Generate one on your app's page at developers.pinterest.com.</li>
+          <li>On your app's page, click <strong>Upgrade to Standard</strong> and upload the video.</li>
+        </ul>
+        <div class="copy"><div class="copy-top">Standard access request<button type="button">Copy</button></div><pre>This app posts curated UK deals to my own Pinterest boards, around 4 to 6 pins a day. The video shows the app finding a discounted product through eBay's official Browse API, then creating a pin through POST /v5/pins with a title, description, affiliate disclosure (#ad) and destination link. It only accesses my own account.</pre></div>
+      </div></li>
+    </ol>
+  </section>
+
+  <section class="phase">
+    <div class="phase-head">
+      <span class="when">Phase 3 · After Pinterest approves Standard access</span>
+      <h2>Finish setup and go live</h2>
+    </div>
+    <ol class="steps">
+      <li class="step"><input type="checkbox" id="s-setup2"><div class="step-body">
+        <label class="step-title" for="s-setup2">Run setup.bat again and answer yes</label>
+        <ul><li>It connects your Pinterest account, links your 16 boards, does a test run, and then lists every secret for GitHub.</li></ul>
+      </div></li>
+      <li class="step"><input type="checkbox" id="s-github"><div class="step-body">
+        <label class="step-title" for="s-github">Upload the folder to a public GitHub repository</label>
+        <ul>
+          <li>Create an account at <a href="https://github.com/signup" target="_blank" rel="noopener">github.com</a> and a <strong>public</strong> repository named <code>YOUR-USERNAME.github.io</code>. Public is needed for the free website; your keys stay hidden in GitHub Secrets.</li>
+          <li>Use <a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop</a> to upload everything. It skips the private <code>.env</code> file automatically and includes the hidden <code>.github</code> folder.</li>
+        </ul>
+      </div></li>
+      <li class="step"><input type="checkbox" id="s-secrets"><div class="step-body">
+        <label class="step-title" for="s-secrets">Add the secrets setup showed you</label>
+        <ul><li>In the repo: Settings → Secrets and variables → Actions → New repository secret. Add one per name.</li></ul>
+      </div></li>
+      <li class="step"><input type="checkbox" id="s-live"><div class="step-body">
+        <label class="step-title" for="s-live">Do a test run, then a real one</label>
+        <ul><li>Actions → Deal bot → Run workflow. Tick <strong>Dry run</strong> first, then run it again without the tick and check the pin appears on Pinterest.</li></ul>
+        <p class="note">After this it runs four times a day without you.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section class="phase">
+    <div class="phase-head">
+      <span class="when">Phase 4 · When Awin approves you</span>
+      <h2>Switch on Beauty &amp; Fragrance and Baby &amp; Kids</h2>
+    </div>
+    <ol class="steps">
+      <li class="step"><input type="checkbox" id="s-retailers"><div class="step-body">
+        <label class="step-title" for="s-retailers">Apply to retailers</label>
+        <ul>
+          <li>Advertisers → Join programmes. Start with Scentsational Perfumes, The Fragrance Counter, Perfume Market UK, Beauté Boulevard and Mamas &amp; Papas.</li>
+          <li>Search "beauty", "fragrance", "baby", "toys" and "kids" for more. Apply to plenty, as some will decline.</li>
+        </ul>
+        <div class="copy"><div class="copy-top">Message to retailers, if there's a box<button type="button">Copy</button></div><pre>I curate genuine discounts on Pinterest for UK shoppers, with a dedicated board for this category. Pins show the current and previous price, link straight to your product page and are clearly labelled #ad. Organic only, with no brand bidding.</pre></div>
+      </div></li>
+      <li class="step"><input type="checkbox" id="s-feeds"><div class="step-body">
+        <label class="step-title" for="s-feeds">Make two feed links with Create-a-Feed</label>
+        <ul>
+          <li>Toolbox → Create-a-Feed. One feed with your beauty and fragrance retailers, one with your baby and kids retailers. Format: CSV.</li>
+          <li>Tick these columns:</li>
+        </ul>
+        <div class="copy"><div class="copy-top">Columns to tick<button type="button">Copy</button></div><pre>aw_product_id, product_name, brand_name, merchant_name, search_price, rrp_price, product_price_old, in_stock, currency, aw_deep_link, merchant_image_url, large_image</pre></div>
+      </div></li>
+      <li class="step"><input type="checkbox" id="s-feed-secrets"><div class="step-body">
+        <label class="step-title" for="s-feed-secrets">Add the links to GitHub</label>
+        <ul><li>Save them as the secrets <code>AWIN_FEED_BEAUTY</code> and <code>AWIN_FEED_KIDS</code>. The bot picks them up on its next run.</li></ul>
+      </div></li>
+    </ol>
+  </section>
+
+  <footer>Stuck on a step? Paste the error or a screenshot into the chat and I'll sort it out.</footer>
+</div>
+
+<script>
+(function () {
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.step input[type=checkbox]'));
+  var KEY = 'dealbot-checklist';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { saved = {}; }
+
+  function update() {
+    var done = 0;
+    boxes.forEach(function (b) {
+      b.closest('.step').classList.toggle('done', b.checked);
+      if (b.checked) done++;
+    });
+    document.getElementById('count').textContent = done + ' of ' + boxes.length + ' done';
+    document.getElementById('bar').style.width = (done / boxes.length * 100) + '%';
+  }
+  boxes.forEach(function (b) {
+    b.checked = !!saved[b.id];
+    b.addEventListener('change', function () {
+      saved[b.id] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      update();
+    });
+  });
+  update();
+
+  document.querySelectorAll('.copy button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var pre = btn.closest('.copy').querySelector('pre');
+      function selectIt() {
+        var r = document.createRange(); r.selectNodeContents(pre);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = 'Selected, press Ctrl+C';
+      }
+      function done() { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); }
+      try {
+        navigator.clipboard.writeText(pre.textContent).then(done, selectIt);
+      } catch (e) { selectIt(); }
+    });
+  });
+})();
+</script>
