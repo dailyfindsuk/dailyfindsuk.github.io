@@ -1,6 +1,20 @@
 {
- "next_number": 102,
+ "next_number": 103,
  "deals": [
+  {
+   "number": 102,
+   "id": "awin:46424957242",
+   "title": "Azzaro Sport 100ml Eau de Toilette Spray",
+   "category": "Beauty & Fragrance",
+   "store": "Scentsational",
+   "now": 23.95,
+   "was": 70.0,
+   "ref": "RRP",
+   "discount": 66,
+   "image": "https://www.scentsational.com/images/products/1787659290-95822700.png",
+   "link": "https://www.awin1.com/pclick.php?p=46424957242&a=3117788&m=22373",
+   "posted": "2026-10-31T12:16+00:00"
+  },
   {
    "number": 101,
    "id": "awin:44509006065",
