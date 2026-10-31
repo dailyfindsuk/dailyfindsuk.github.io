@@ -1,6 +1,20 @@
 {
- "next_number": 104,
+ "next_number": 105,
  "deals": [
+  {
+   "number": 104,
+   "id": "awin:44191203433",
+   "title": "BraZen Valor Mid Back PC Gaming Chair",
+   "category": "Gaming",
+   "store": "Stormforce Gaming",
+   "now": 99.99,
+   "was": 124.99,
+   "ref": "RRP",
+   "discount": 20,
+   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2025/10/BraZen-Valor-Mid-Back-PC-Gaming-Chair.webp",
+   "link": "https://www.awin1.com/pclick.php?p=44191203433&a=3117788&m=24882",
+   "posted": "2026-10-31T20:15+00:00"
+  },
   {
    "number": 103,
    "id": "awin:45505647856",
