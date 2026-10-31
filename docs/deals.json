@@ -1,6 +1,20 @@
 {
- "next_number": 101,
+ "next_number": 102,
  "deals": [
+  {
+   "number": 101,
+   "id": "awin:44509006065",
+   "title": "Calvin Klein Obsession For Men - 75ml Eau De Toilette Spray",
+   "category": "Gifts for Him",
+   "store": "Scentsational",
+   "now": 16.99,
+   "was": 60.0,
+   "ref": "RRP",
+   "discount": 72,
+   "image": "https://www.scentsational.com/images/products/1776337214-58616200.png",
+   "link": "https://www.awin1.com/pclick.php?p=44509006065&a=3117788&m=22373",
+   "posted": "2026-10-31T08:27+00:00"
+  },
   {
    "number": 100,
    "id": "awin:43614758419",
