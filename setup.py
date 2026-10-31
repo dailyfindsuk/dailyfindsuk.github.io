@@ -27,6 +27,7 @@ KEYS = [
     ("PINTEREST_APP_ID", "Pinterest App ID", True),
     ("PINTEREST_APP_SECRET", "Pinterest App secret key", True),
     ("AWIN_FEED_ALL", "Awin feed link with ALL your joined shops (press Enter to skip for now)", False),
+    ("AWIN_FEED_GOOGLE", "Awin feed link for GOOGLE-format shops (press Enter to skip for now)", False),
     ("AWIN_FEED_BEAUTY", "Awin beauty/fragrance feed link (press Enter to skip for now)", False),
     ("AWIN_FEED_GAMING", "Awin GamingKit feed link (press Enter to skip for now)", False),
     ("AWIN_FEED_KIDS", "Awin baby/kids feed link (press Enter to skip for now)", False),
@@ -69,7 +70,7 @@ def main():
     print("Paste each key and press Enter. Keys already saved are skipped.")
     for key, label, required in KEYS:
         if vals.get(key):
-            if key == "AWIN_FEED_ALL":
+            if key in ("AWIN_FEED_ALL", "AWIN_FEED_GOOGLE"):
                 # This link changes whenever a new shop accepts you.
                 v = input(f"  {label}: already saved. Paste a NEW link to replace it, "
                           "or press Enter to keep it: ").strip()

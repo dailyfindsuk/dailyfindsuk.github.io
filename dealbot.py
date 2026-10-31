@@ -237,8 +237,64 @@ def awin_rows(feed_url):
     sample = text[:5000]
     delim = "|" if sample.count("|") > sample.count(",") else ","
     rows = list(csv.DictReader(io.StringIO(text), delimiter=delim))
+    if rows and "title" in rows[0] and "advertiser_name" in rows[0]:
+        rows = [google_row(r) for r in rows]
     _feed_cache[feed_url] = rows
     return rows
+
+
+def _money(v):
+    """'53.99 GBP' -> (53.99, 'GBP')."""
+    m = re.match(r"\s*([\d.,]+)\s*([A-Z]{3})?", v or "")
+    if not m:
+        return 0.0, ""
+    return to_float(m.group(1).replace(",", "")), (m.group(2) or "")
+
+
+def google_row(r):
+    """Translate an Awin 'Google format' feed row into the classic Awin column names
+    the rest of the bot uses. In this format a discount is a sale_price below price,
+    and price is the shop's own normal price (so it's shown as "was", not "RRP")."""
+    price, cur = _money(r.get("price"))
+    sale, cur2 = _money(r.get("sale_price"))
+    on_sale = 0 < sale < price
+    avail = (r.get("availability") or "").lower().replace("_", " ")
+    return {
+        "aw_product_id": "g" + (r.get("id") or ""),
+        "product_name": r.get("title") or "",
+        "brand_name": r.get("brand") or "",
+        "merchant_name": r.get("advertiser_name") or "",
+        "aw_deep_link": r.get("aw_deep_link") or "",
+        "merchant_image_url": r.get("image_link") or "",
+        "large_image": r.get("lifestyle_image_link") or "",
+        "search_price": str(sale if on_sale else price),
+        "product_price_old": str(price) if on_sale else "",
+        "rrp_price": "",
+        "currency": cur2 if on_sale and cur2 else (cur or "GBP"),
+        "in_stock": "1" if avail in ("in stock", "preorder", "backorder") else "0",
+    }
+
+
+def clean_title(title):
+    """Tidy shop product names: drop stock codes and barcodes ("- 821971 - 5060388017149")
+    and repeated colour parts ("Cervia - Cervia Dark Grey")."""
+    if re.search("[\u00c2\u00c3\u00e2][\u0080-\u00bf\u20ac\u201a-\u2122]", title):
+        try:  # repair text that was double-encoded by the shop ("Bedsâ„¢" -> "Beds™")
+            title = title.encode("cp1252").decode("utf-8")
+        except (UnicodeEncodeError, UnicodeDecodeError):
+            pass
+    title = title.replace("™", "").replace("®", "")
+    parts = [p.strip() for p in re.split(r"\s+-\s+", title.strip()) if p.strip()]
+    keep = []
+    for p in parts:
+        if re.fullmatch(r"[\d\s/]{4,}", p):          # pure number: SKU / EAN
+            continue
+        if keep and (p.lower() in keep[-1].lower() or keep[-1].lower() in p.lower()):
+            if len(p) > len(keep[-1]):
+                keep[-1] = p                             # keep the fuller version
+            continue
+        keep.append(p)
+    return " - ".join(keep) or title.strip()
 
 
 def awin_deal(row, rules, posted):
@@ -275,7 +331,7 @@ def awin_deal(row, rules, posted):
     if not image.startswith("http") or not link.startswith("http"):
         return None
     # Feeds sometimes contain HTML codes such as "Ralph&#039;s" instead of "Ralph's".
-    title = html.unescape(html.unescape(row.get("product_name") or "")).strip()
+    title = clean_title(html.unescape(html.unescape(row.get("product_name") or "")))
     brand = html.unescape(row.get("brand_name") or "").strip()
     if brand and brand.lower() not in title.lower():
         title = f"{brand} {title}"
@@ -291,7 +347,7 @@ def awin_deal(row, rules, posted):
 
 # Every Awin feed link the bot knows about. Each category reads all of them (each feed
 # is downloaded once per run) and keeps only products from its own shops.
-ALL_FEED_SECRETS = ["AWIN_FEED_ALL", "AWIN_FEED_BEAUTY", "AWIN_FEED_KIDS"]
+ALL_FEED_SECRETS = ["AWIN_FEED_ALL", "AWIN_FEED_GOOGLE", "AWIN_FEED_BEAUTY", "AWIN_FEED_KIDS"]
 
 
 def word_re(words):
@@ -307,9 +363,10 @@ def feed_secrets(cat):
         return [fs] if isinstance(fs, str) else list(fs)
     # The ALL-shops link replaces the older single-shop links (Scentsational is in it,
     # and GamingKit has no discounts), so don't download those twice.
+    # AWIN_FEED_GOOGLE holds the shops that only offer Awin's newer "Google format" feed.
     if env("AWIN_FEED_ALL", required=False):
-        return ["AWIN_FEED_ALL", "AWIN_FEED_KIDS"]
-    return ["AWIN_FEED_BEAUTY", "AWIN_FEED_KIDS"]
+        return ["AWIN_FEED_ALL", "AWIN_FEED_GOOGLE", "AWIN_FEED_KIDS"]
+    return ["AWIN_FEED_BEAUTY", "AWIN_FEED_GOOGLE", "AWIN_FEED_KIDS"]
 
 
 def awin_all_rows(cat):
