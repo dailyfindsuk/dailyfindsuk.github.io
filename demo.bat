@@ -1,9 +1,11 @@
 @echo off
 cd /d "%~dp0"
 title Deal bot demo for Pinterest
-echo Start your screen recording now, then press any key.
+echo Before you start:
+echo  - Log in to Pinterest in your browser as Daily Finds UK.
+echo  - Start your screen recording (whole screen), then press any key.
 pause >nul
 python dealbot.py --demo
 echo.
-echo Stop the recording. Upload the video when you request Standard access.
+echo Show the product image and your Pinterest profile for a few seconds, then stop the recording.
 pause

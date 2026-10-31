@@ -37,7 +37,7 @@ You can do this later. The bot skips these two categories until it's set up.
    - **Format:** CSV. Any delimiter and compression setting works.
    - Click **Generate link** and copy the link.
 4. Do the same again with your baby and kids retailers to get a second link.
-5. Paste them when setup.bat asks, and add them as GitHub secrets (Step 7): `AWIN_FEED_BEAUTY` and `AWIN_FEED_KIDS`.
+5. Paste them when setup.bat asks, and add them as GitHub secrets (Step 7): `AWIN_FEED_BEAUTY`, `AWIN_FEED_GAMING` and `AWIN_FEED_KIDS`.
 
 When you join more retailers later, regenerate the feed link to include them and update the secret.
 
@@ -90,6 +90,8 @@ Double-click **setup.bat** again and answer **yes**. It will:
 | `PINTEREST_APP_SECRET` | Pinterest app |
 | `PINTEREST_REFRESH_TOKEN` | Created by setup.bat |
 | `AWIN_FEED_BEAUTY` | Awin feed link (add once Awin is set up) |
+| `AWIN_FEED_ALL` | One Awin feed link with all your joined shops (the main one) |
+| `AWIN_FEED_GAMING` | Awin GamingKit feed link |
 | `AWIN_FEED_KIDS` | Awin feed link (add once Awin is set up) |
 
 4. Go to **Actions → Deal bot → Run workflow** and tick **Dry run** to check it finds deals. Then run it once without the tick to post a real pin.
@@ -128,3 +130,17 @@ Amazon's product API (the Creators API) requires 10 qualifying Amazon sales in t
 - Prices are labelled "correct when posted".
 - Each item is posted only once, and posts are paced to avoid Pinterest's spam filters.
 - Don't use "eBay" in your Pinterest account name. eBay Partner Network doesn't allow it.
+
+## Adding shops (Awin)
+
+All boards read from your Awin feed links and keep only their own shops (see `merchants:` in
+config.yaml). The main link is **AWIN_FEED_ALL**: in Awin go to Toolbox > Create-a-Feed, select
+every shop you've joined (leave out GamingKit and PcNova), tick brand_name, rrp_price,
+product_price_old, in_stock and large_image, choose CSV / comma / gzip, and copy the Download URL.
+When a new shop accepts you, make the link again with that shop added and replace the old one
+(in setup and in the GitHub secret). Run `feedcheck.bat` on a new shop's link first to make
+sure its discounts are real.
+
+Gift titles ("🎁 Gift for him under £30 · 40% off: ...") switch on automatically from
+1 November to Christmas Eve, and "Black Friday" titles in Black Friday week. Seasonal boards
+(Christmas, Valentine's, Mother's Day, Father's Day, Halloween) switch on and off by date.

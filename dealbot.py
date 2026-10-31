@@ -27,9 +27,11 @@ Optional:
 
 import argparse
 import base64
+import collections
 import csv
 import datetime
 import gzip
+import html
 import io
 import json
 import os
@@ -72,6 +74,13 @@ def load_env_file():
 
 load_env_file()
 
+# Windows terminals can't always print emoji (🎁): never crash over it.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 
 # ---------- helpers ----------
 
@@ -83,20 +92,20 @@ def env(name, required=True):
 
 
 def load_config():
-    with open(CONFIG_FILE) as f:
+    with open(CONFIG_FILE, encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 
 def load_state():
     if STATE_FILE.exists():
-        return json.loads(STATE_FILE.read_text())
+        return json.loads(STATE_FILE.read_text(encoding="utf-8"))
     return {"posted": [], "next_category": 0}
 
 
 def save_state(state):
     state["posted"] = state["posted"][-5000:]  # keep the file small
     STATE_FILE.parent.mkdir(exist_ok=True)
-    STATE_FILE.write_text(json.dumps(state, indent=1))
+    STATE_FILE.write_text(json.dumps(state, indent=1), encoding="utf-8")
 
 
 def to_float(v):
@@ -196,9 +205,14 @@ def ebay_deal(item, rules, posted):
 
 
 def ebay_candidates(cat, rules, posted):
+    if not env("EBAY_CLIENT_ID", required=False):
+        print(f"[{cat['name']}] skipped: no eBay keys set")
+        return []
     keyword = random.choice(cat["keywords"])
     items = ebay_search(keyword, rules)
     deals = [d for d in (ebay_deal(i, rules, posted) for i in items) if d]
+    blocked = [w.lower() for w in cat.get("exclude_words", [])]
+    deals = [d for d in deals if not any(w in d["title"].lower() for w in blocked)]
     print(f"[{cat['name']}] eBay '{keyword}': {len(items)} items, {len(deals)} deals")
     return deals
 
@@ -210,6 +224,8 @@ _feed_cache = {}
 
 def awin_rows(feed_url):
     """Download an Awin Create-a-Feed CSV (plain or gzipped) and return its rows."""
+    # Never include adult products: Pinterest doesn't allow them.
+    feed_url = feed_url.replace("/adultcontent/1", "/adultcontent/0")
     if feed_url in _feed_cache:
         return _feed_cache[feed_url]
     r = requests.get(feed_url, timeout=180)
@@ -235,51 +251,131 @@ def awin_deal(row, rules, posted):
     if row.get("currency", "GBP").strip().upper() not in ("GBP", ""):
         return None
     now = to_float(row.get("search_price") or row.get("store_price"))
-    was = max(to_float(row.get("rrp_price")), to_float(row.get("product_price_old")))
-    if now <= 0 or was <= now or not price_ok(now, rules):
+    rrp, old = to_float(row.get("rrp_price")), to_float(row.get("product_price_old"))
+    was = max(rrp, old)
+    # UK pricing rules: say "was" only for the shop's own previous price; a
+    # recommended retail price must be called "RRP".
+    ref = "was" if old and old >= rrp else "RRP"
+    if now <= 0 or not price_ok(now, rules):
         return None
-    discount = (was - now) / was * 100
+    discount = (was - now) / was * 100 if was > now else 0
+    if discount == 0 or discount < rules["min_discount_percent"]:
+        # Gift boards may post a full-price gift (never shown as a discount).
+        if not rules.get("full_price_ok"):
+            return None
+        was, discount = now, 0
     # Ignore silly "discounts" that are usually feed errors.
-    if discount < rules["min_discount_percent"] or discount > 85:
+    if discount > 85:
         return None
     image = (row.get("large_image") or row.get("merchant_image_url")
              or row.get("aw_image_url") or "").strip()
+    # Some shops (e.g. Stormforce) list several images joined with "|": use the first.
+    image = image.split("|")[0].strip()
     link = (row.get("aw_deep_link") or "").strip()
     if not image.startswith("http") or not link.startswith("http"):
         return None
-    title = (row.get("product_name") or "").strip()
-    brand = (row.get("brand_name") or "").strip()
+    # Feeds sometimes contain HTML codes such as "Ralph&#039;s" instead of "Ralph's".
+    title = html.unescape(html.unescape(row.get("product_name") or "")).strip()
+    brand = html.unescape(row.get("brand_name") or "").strip()
     if brand and brand.lower() not in title.lower():
         title = f"{brand} {title}"
     return {
         "id": f"awin:{pid}",
         "title": title,
-        "now": now, "was": was, "discount": round(discount),
+        "now": now, "was": was, "ref": ref, "discount": round(discount),
         "image": image, "link": link,
         "affiliate": "awin1.com" in link or "awin" in link,
         "store": (row.get("merchant_name") or "the retailer").strip(),
     }
 
 
+# Every Awin feed link the bot knows about. Each category reads all of them (each feed
+# is downloaded once per run) and keeps only products from its own shops.
+ALL_FEED_SECRETS = ["AWIN_FEED_ALL", "AWIN_FEED_BEAUTY", "AWIN_FEED_KIDS"]
+
+
+def word_re(words):
+    """Match whole words/phrases only, so 'men' doesn't match 'women'."""
+    if not words:
+        return None
+    return re.compile(r"\b(" + "|".join(re.escape(w.lower()) for w in words) + r")\b")
+
+
+def feed_secrets(cat):
+    fs = cat.get("feed_secret")
+    if fs:
+        return [fs] if isinstance(fs, str) else list(fs)
+    # The ALL-shops link replaces the older single-shop links (Scentsational is in it,
+    # and GamingKit has no discounts), so don't download those twice.
+    if env("AWIN_FEED_ALL", required=False):
+        return ["AWIN_FEED_ALL", "AWIN_FEED_KIDS"]
+    return ["AWIN_FEED_BEAUTY", "AWIN_FEED_KIDS"]
+
+
+def awin_all_rows(cat):
+    rows, seen, used = [], set(), []
+    for secret in feed_secrets(cat):
+        url = env(secret, required=False)
+        if not url:
+            continue
+        used.append(secret)
+        for row in awin_rows(url):
+            pid = row.get("aw_product_id") or row.get("merchant_product_id")
+            if pid in seen:
+                continue
+            seen.add(pid)
+            rows.append(row)
+    return rows, used
+
+
+def drop_fake_rrp_shops(deals, label):
+    """If most of a shop's 'deals' share one discount, its RRPs are a fixed markup,
+    not real discounts (e.g. every item exactly 28% off). Drop that shop."""
+    by_shop = collections.defaultdict(list)
+    for d in deals:
+        if d["discount"] == 0:
+            continue  # full-price gifts aren't claiming a discount
+        by_shop[d["store"]].append(d)
+    keep = []
+    for shop, items in by_shop.items():
+        if len(items) >= 30:
+            common, count = collections.Counter(d["discount"] for d in items).most_common(1)[0]
+            if count / len(items) > 0.6:
+                print(f"[{label}] skipped {shop}: {count} of {len(items)} 'deals' are all "
+                      f"{common}% off, which looks like a made-up RRP")
+                continue
+        keep.extend(items)
+    return keep + [d for d in deals if d["discount"] == 0]
+
+
 def awin_candidates(cat, rules, posted):
-    feed_url = env(cat["feed_secret"], required=False)
-    if not feed_url:
-        print(f"[{cat['name']}] skipped: secret {cat['feed_secret']} not set yet")
+    rows, used = awin_all_rows(cat)
+    if not used:
+        print(f"[{cat['name']}] skipped: no Awin feed links set yet")
         return []
-    rows = awin_rows(feed_url)
-    words = [w.lower() for w in cat.get("include_words", [])]
-    blocked = [w.lower() for w in cat.get("exclude_words", [])]
+    words = word_re(cat.get("include_words"))
+    blocked = word_re(cat.get("exclude_words"))
+    shops = word_re(cat.get("merchants"))
+    # include_words_for: {Shop: [words]} applies a word filter to that shop only,
+    # e.g. Rarewaves sells music and books too, but Stormforce is all gaming.
+    shop_words = [(word_re([m]), word_re(w)) for m, w in (cat.get("include_words_for") or {}).items()]
     deals = []
     for row in rows:
-        name = (row.get("product_name") or "").lower()
-        if words and not any(w in name for w in words):
+        shop = (row.get("merchant_name") or "").lower()
+        if shops and not shops.search(shop):
             continue
-        if any(w in name for w in blocked):
+        name = (row.get("product_name") or "").lower()
+        if words and not words.search(name):
+            continue
+        if any(m.search(shop) and not w.search(name) for m, w in shop_words):
+            continue
+        if blocked and blocked.search(name):
             continue
         d = awin_deal(row, rules, posted)
         if d:
             deals.append(d)
-    print(f"[{cat['name']}] Awin feed: {len(rows)} products, {len(deals)} deals")
+    deals = drop_fake_rrp_shops(deals, cat["name"])
+    print(f"[{cat['name']}] Awin: {len(rows)} products checked, {len(deals)} deals")
     # Shuffle the top deals so posts vary between retailers and runs.
     deals.sort(key=lambda d: d["discount"], reverse=True)
     top = deals[:30]
@@ -289,8 +385,41 @@ def awin_candidates(cat, rules, posted):
 
 # ---------- deal selection ----------
 
+def easter(year):
+    """Easter Sunday (Gregorian), used for the UK's Mothering Sunday."""
+    a, b, c = year % 19, year // 100, year % 100
+    d, e = b // 4, b % 4
+    f = (b + 8) // 25
+    g = (b - f + 1) // 3
+    h = (19 * a + b - d - g + 15) % 30
+    i, k = c // 4, c % 4
+    l = (32 + 2 * e + 2 * i - h - k) % 7
+    m = (a + 11 * h + 22 * l) // 451
+    month = (h + l - 7 * m + 114) // 31
+    day = (h + l - 7 * m + 114) % 31 + 1
+    return datetime.date(year, month, day)
+
+
+def season_day(name, year):
+    if name == "mothers_day":   # UK Mothering Sunday: 3 weeks before Easter
+        return easter(year) - datetime.timedelta(days=21)
+    if name == "fathers_day":   # third Sunday in June
+        d = datetime.date(year, 6, 1)
+        return d + datetime.timedelta(days=(6 - d.weekday()) % 7 + 14)
+    if name == "black_friday":  # Friday after the fourth Thursday in November
+        d = datetime.date(year, 11, 1)
+        return d + datetime.timedelta(days=(3 - d.weekday()) % 7 + 22)
+    raise ValueError(f"unknown season {name}")
+
+
 def in_season(cat, today):
-    """Seasonal boards only run between active_from and active_until (MM-DD)."""
+    """Seasonal boards only run in their window. Either fixed dates
+    (active_from / active_until as MM-DD) or a named UK season that moves each year
+    (season: mothers_day / fathers_day, starting season_lead_days before the day)."""
+    if cat.get("season"):
+        day = season_day(cat["season"], today.year)
+        lead = int(cat.get("season_lead_days", 35))
+        return day - datetime.timedelta(days=lead) <= today <= day
     start, end = cat.get("active_from"), cat.get("active_until")
     if not start or not end:
         return True
@@ -381,46 +510,141 @@ def pin_request(method, path, token, **kw):
     return r.json() if r.text else {}
 
 
-def make_pin_text(deal):
-    title = f"{deal['discount']}% off: {deal['title']}"
+FOR_HIM = word_re(["men", "mens", "men's", "him", "his", "homme", "pour homme", "boyfriend",
+                   "husband", "dad", "father", "aftershave", "beard", "shaving", "gentleman"])
+FOR_HER = word_re(["women", "womens", "women's", "her", "ladies", "femme", "pour femme",
+                   "girlfriend", "wife", "mum", "mother", "mom"])
+FOR_KIDS = word_re(["kids", "kid's", "children", "childrens", "children's", "child", "baby",
+                    "toddler", "boys", "girls", "junior"])
+PRICE_BANDS = [10, 15, 20, 30, 50, 75, 100, 150, 200]
+
+
+def gift_season(today):
+    """1 Nov to Christmas Eve: frame deals as gifts."""
+    return datetime.date(today.year, 11, 1) <= today <= datetime.date(today.year, 12, 24)
+
+
+def black_friday_week(today):
+    bf = season_day("black_friday", today.year)
+    return bf - datetime.timedelta(days=7) <= today <= bf + datetime.timedelta(days=3)
+
+
+def gift_for(deal):
+    """'for him' / 'for her' / 'for kids' from the product title, else the board's default."""
+    t = deal["title"].lower()
+    him, her = FOR_HIM.search(t), FOR_HER.search(t)
+    if him and not her:
+        return "for him"
+    if her and not him:
+        return "for her"
+    if FOR_KIDS.search(t):
+        return "for kids"
+    return deal["category"].get("gift_for", "")
+
+
+def price_band(now):
+    for band in PRICE_BANDS:
+        if now <= band:
+            return f"under £{band}"
+    return ""
+
+
+def make_pin_text(deal, today=None):
+    today = today or datetime.date.today()
+    cat = deal["category"]
+    rrp = deal.get("ref") == "RRP"
+    off = (f"{deal['discount']}% off" + (" RRP" if rrp else "")) if deal["discount"] else ""
+    giftable = cat.get("gift") or (gift_season(today) and cat.get("giftable", True)) or not off
+    if off and black_friday_week(today):
+        # Black Friday week: lead with the event people are searching for.
+        title = f"Black Friday · {off}: {deal['title']}"
+    elif giftable:
+        # "Gift for him under £30 · 40% off: ..." gets far more engagement than a bare product.
+        who, band = gift_for(deal), price_band(deal["now"])
+        lead = " ".join(x for x in ("🎁 Gift" if off else "🎁 Gift idea", who, band) if x)
+        title = f"{lead} · {off}: {deal['title']}" if off else f"{lead}: {deal['title']}"
+    else:
+        title = f"{off}: {deal['title']}"
     if len(title) > 100:
         title = title[:97].rstrip() + "..."
-    tags = deal["category"].get("hashtags", "#ukdeals")
+    tags = cat.get("hashtags", "#ukdeals")
+    gift_line = ""
+    if giftable:
+        who, band = gift_for(deal), price_band(deal["now"])
+        gift_line = " ".join(x for x in ("Great gift idea", who, band) if x) + ". "
+    price = (f"Now £{deal['now']:.2f} ({deal.get('ref', 'was')} £{deal['was']:.2f}) at {deal['store']}, "
+             f"save {deal['discount']}%{' on RRP' if rrp else ''}. ") if off else f"£{deal['now']:.2f} at {deal['store']}. "
     desc = (
-        f"Now £{deal['now']:.2f} (was £{deal['was']:.2f}) at {deal['store']}, "
-        f"save {deal['discount']}%. Price correct when posted and may change. "
+        f"{price}{gift_line}Price correct when posted and may change. "
         f"#ad This pin contains an affiliate link. {tags}"
     )
     return title, desc[:500]
 
 
+def branded_media(deal, today=None):
+    """Make the tall 2:3 branded pin image. Returns a Pinterest media_source,
+    or None if it can't be made (then the plain product photo is used)."""
+    if os.environ.get("PIN_STYLE", "branded") != "branded":
+        return None
+    try:
+        import tempfile
+        import pin_image
+        today = today or datetime.date.today()
+        who = gift_for(deal) if not deal["discount"] else ""
+        with tempfile.TemporaryDirectory() as tmp:
+            path = pin_image.make_pin_image(deal, Path(tmp) / "pin.jpg",
+                                            black_friday=black_friday_week(today), who=who)
+            data = base64.b64encode(path.read_bytes()).decode()
+        return {"source_type": "image_base64", "content_type": "image/jpeg", "data": data}
+    except Exception as e:  # never lose a pin over the image
+        print(f"Branded image failed ({e}); using the plain product photo.")
+        return None
+
+
 def post_pin(token, deal):
     title, desc = make_pin_text(deal)
+    media = branded_media(deal) or {"source_type": "image_url", "url": deal["image"]}
     body = {
         "board_id": deal["category"]["board_id"],
         "title": title,
         "description": desc,
         "link": deal["link"],
         "alt_text": deal["title"][:500],
-        "media_source": {"source_type": "image_url", "url": deal["image"]},
+        "media_source": media,
     }
-    return pin_request("POST", "/pins", token, json=body)
+    try:
+        return pin_request("POST", "/pins", token, json=body)
+    except RuntimeError as e:
+        if media.get("source_type") != "image_base64":
+            raise
+        print(f"Branded pin was refused ({e}); retrying with the plain photo.")
+        body["media_source"] = {"source_type": "image_url", "url": deal["image"]}
+        return pin_request("POST", "/pins", token, json=body)
 
 
 # ---------- commands ----------
 
-def cmd_auth():
+def oauth_connect():
+    """Full Pinterest OAuth flow. Returns the token data (access + refresh token)."""
+    import webbrowser
     app_id = env("PINTEREST_APP_ID")
     url = "https://www.pinterest.com/oauth/?" + urllib.parse.urlencode({
         "client_id": app_id, "redirect_uri": PIN_REDIRECT,
         "response_type": "code", "scope": PIN_SCOPES,
     })
-    print("1. Open this link while logged in to your Pinterest business account:\n")
+    print("Opening Pinterest's permission page in your browser:\n")
     print(url)
-    print("\n2. Click Allow. Your browser will go to a page that fails to load.")
-    print("   That's expected. Copy the whole address from the address bar.\n")
-    pasted = input("3. Paste it here: ").strip()
+    try:
+        webbrowser.open(url)
+    except Exception:
+        pass
+    print("\n1. If it didn't open, copy the link above into your browser.")
+    print("2. Check you're logged in as Daily Finds UK, then click 'Give access'.")
+    print("3. The browser goes to a page that fails to load. That's expected.")
+    print("   Copy the whole address from the address bar.\n")
+    pasted = input("4. Paste it here: ").strip()
     code = urllib.parse.parse_qs(urllib.parse.urlparse(pasted).query).get("code", [pasted])[0]
+    print("\nSwapping the one-time code for an access token...")
     r = requests.post(
         f"{PIN_LIVE}/oauth/token",
         headers={"Authorization": pin_basic_auth(),
@@ -432,9 +656,31 @@ def cmd_auth():
     if r.status_code != 200:
         sys.exit(f"Failed ({r.status_code}): {r.text}")
     data = r.json()
+    print(f"Access granted. Scopes: {data.get('scope', PIN_SCOPES)}")
+    return data
+
+
+def save_env_value(key, value):
+    lines = []
+    if ENV_FILE.exists():
+        lines = [l for l in ENV_FILE.read_text(encoding="utf-8").splitlines()
+                 if not l.startswith(key + "=")]
+    lines.append(f"{key}={value}")
+    ENV_FILE.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    os.environ[key] = value
+
+
+def cmd_auth():
+    data = oauth_connect()
     days = int(data.get("refresh_token_expires_in", 0)) // 86400
     print("\nPinterest connected." + (f" (Renew in about {days} days.)" if days else ""))
     return data["refresh_token"]
+
+
+def board_key(name):
+    """Compare board names loosely: Pinterest may return '&' as '&amp;'."""
+    import html
+    return " ".join(html.unescape(html.unescape(name)).lower().split())
 
 
 def existing_boards(token):
@@ -445,7 +691,7 @@ def existing_boards(token):
             params["bookmark"] = bookmark
         page = pin_request("GET", "/boards", token, params=params)
         for b in page.get("items", []):
-            boards[b["name"].strip().lower()] = b["id"]
+            boards[board_key(b["name"])] = b["id"]
         bookmark = page.get("bookmark")
         if not bookmark:
             return boards
@@ -475,7 +721,7 @@ def cmd_create_boards(cfg, only=None):
     for cat in cfg["categories"]:
         if only and cat["name"].lower() != only.lower():
             continue
-        bid = have.get(cat["name"].strip().lower())
+        bid = have.get(board_key(cat["name"]))
         if bid:
             print(f"Already exists: {cat['name']}")
         else:
@@ -492,17 +738,29 @@ def cmd_create_boards(cfg, only=None):
     print("Board IDs saved into config.yaml.")
 
 
-def cmd_run(cfg, dry_run):
+def cmd_run(cfg, dry_run, count=None):
     state = load_state()
-    deals = find_deals(cfg, state, cfg.get("pins_per_run", 1))
+    deals = find_deals(cfg, state, count or cfg.get("pins_per_run", 1))
     if not deals:
         print("No new deals this run.")
         return
     if dry_run:
-        for d in deals:
+        preview = ROOT / "videos" / "pin-preview"
+        preview.mkdir(parents=True, exist_ok=True)
+        for old_file in preview.glob("*.jpg"):
+            old_file.unlink()
+        for i, d in enumerate(deals, 1):
             title, desc = make_pin_text(d)
             print(f"\n--- {d['category']['name']} ---\n{title}\n{desc}\n"
                   f"link: {d['link']}\nimage: {d['image']}\naffiliate link: {d['affiliate']}")
+            try:
+                import pin_image
+                who = gift_for(d) if not d["discount"] else ""
+                pin_image.make_pin_image(d, preview / f"pin-{i:02d}.jpg",
+                                         black_friday=black_friday_week(datetime.date.today()), who=who)
+            except Exception as e:
+                print(f"(preview image failed: {e})")
+        print(f"\nPreview pin images saved in {preview}")
         return
     ready = []
     for d in deals:
@@ -517,7 +775,10 @@ def cmd_run(cfg, dry_run):
         return
     token = pin_token()
     done = []
+    number = site_builder.next_number()
     for d in ready:
+        d["number"] = number   # shown on the pin image and the website
+        number += 1
         try:
             pin = post_pin(token, d)
             print(f"Posted pin {pin.get('id')}: {d['title'][:60]}")
@@ -533,37 +794,107 @@ def cmd_run(cfg, dry_run):
 
 
 def cmd_demo(cfg):
-    """Post one real deal to Pinterest's sandbox, for the Standard-access video."""
-    token = env("PINTEREST_SANDBOX_TOKEN", required=False)
-    if not token:
-        print("On developers.pinterest.com open your app, find 'Sandbox' and")
-        print("click to generate a sandbox access token, then paste it here.")
-        token = input("Sandbox token: ").strip()
-        with open(ENV_FILE, "a", encoding="utf-8") as f:
-            f.write(f"\nPINTEREST_SANDBOX_TOKEN={token}\n")
-    os.environ["PINTEREST_SANDBOX"] = "1"
-    print("\nStep 1: finding a deal on eBay UK...")
-    state = {"posted": [], "next_category": random.randrange(len(cfg["categories"]))}
-    ebay_only = {**cfg, "categories": [c for c in cfg["categories"]
-                                       if c.get("source", "ebay") == "ebay"]}
-    deals = find_deals(ebay_only, state, 1)
+    """Screen-recorded demo for Pinterest's Standard-access review:
+    full OAuth flow, then a real pin created through the v5 API and opened on Pinterest."""
+    import time
+    import webbrowser
+    def usable(c):
+        if c.get("source", "ebay") == "awin":
+            return any(env(x, required=False) for x in feed_secrets(c))
+        return bool(env("EBAY_CLIENT_ID", required=False))
+    cats = [c for c in cfg["categories"] if usable(c)]
+    if not cats:
+        sys.exit("No deal source set up yet. Add an Awin feed link (run setup.bat) first.")
+
+    print("=" * 60)
+    print("Daily Finds UK Deal Bot: Pinterest API demo")
+    print("=" * 60)
+    print("\nSTEP 1 of 4: Connect the Daily Finds UK Pinterest account (OAuth)\n")
+    data = oauth_connect()
+    token = data["access_token"]
+    if data.get("refresh_token"):
+        save_env_value("PINTEREST_REFRESH_TOKEN", data["refresh_token"])
+    me = pin_request("GET", "/user_account", token)
+    print(f"Connected to Pinterest as @{me.get('username')} "
+          f"({me.get('account_type', 'account')})")
+
+    print("\nSTEP 2 of 4: Find a real deal from our Awin retailer feeds\n")
+    state = {"posted": [], "next_category": random.randrange(len(cats))}
+    deals = find_deals({**cfg, "categories": cats, "active_from": None}, state, 1)
     if not deals:
         sys.exit("No deal found this time. Run the demo again.")
     d = deals[0]
-    print(f"Found: {d['title']} (£{d['now']:.2f}, was £{d['was']:.2f})")
-    print("\nStep 2: creating the pin through the Pinterest API...")
+    print(f"\nFound: {d['title']}")
+    print(f"  Now £{d['now']:.2f}, {d.get('ref', 'was')} £{d['was']:.2f} ({d['discount']}% off) at {d['store']}")
+
+    print("\nSTEP 3 of 4: Create the pin with the Pinterest API (POST /v5/pins)\n")
     boards = existing_boards(token)
-    bid = boards.get("deal bot demo") or pin_request(
-        "POST", "/boards", token, json={"name": "Deal bot demo"})["id"]
+    print("Boards on the connected account (GET /v5/boards):")
+    for name in boards:
+        print(f"  - {name}")
+    # Trial apps may only create pins in Pinterest's API sandbox.
+    os.environ["PINTEREST_SANDBOX"] = "1"
+    print("\nThis app has Trial access, so the pin is created in Pinterest's API sandbox")
+    print("(https://api-sandbox.pinterest.com). With Standard access it goes to the live board.\n")
+    sb_token, sb_boards = None, None
+    for cand in (token, env("PINTEREST_SANDBOX_TOKEN", required=False)):
+        if not cand:
+            continue
+        try:
+            sb_boards, sb_token = existing_boards(cand), cand
+            break
+        except RuntimeError:
+            pass
+    while sb_token is None:
+        print("Pinterest needs a fresh Sandbox token: on developers.pinterest.com,")
+        print("your app > Manage > Generate access tokens > tick Sandbox > Generate token.")
+        cand = input("Sandbox token: ").strip()
+        try:
+            sb_boards, sb_token = existing_boards(cand), cand
+            save_env_value("PINTEREST_SANDBOX_TOKEN", cand)
+        except RuntimeError as e:
+            print(f"That token didn't work: {e}\n")
+    name = d["category"]["name"]
+    bid = sb_boards.get(board_key(name))
+    if not bid:
+        try:
+            bid = pin_request("POST", "/boards", sb_token, json={"name": name})["id"]
+        except RuntimeError:
+            # A board by that name exists but wasn't matched: re-read, else use a demo board.
+            sb_boards = existing_boards(sb_token)
+            bid = sb_boards.get(board_key(name))
+            if not bid:
+                name = f"{name} demo {datetime.datetime.now():%H%M%S}"
+                bid = pin_request("POST", "/boards", sb_token, json={"name": name})["id"]
     d["category"] = {**d["category"], "board_id": bid}
-    pin = post_pin(token, d)
-    print(f"\nSuccess. Pinterest created pin {pin.get('id')} on board 'Deal bot demo':")
-    print(json.dumps({k: pin.get(k) for k in ("id", "title", "link", "board_id")}, indent=2))
+    title, desc = make_pin_text(d)
+    print(f"  Board: {name}")
+    print(f"  Title: {title}")
+    print(f"  Description: {desc}")
+    print(f"  Link: {d['link'][:80]}...")
+    print(f"  Image: {d['image'][:80]}")
+    pin = post_pin(sb_token, d)
+    print(f"\nPinterest created pin {pin.get('id')}.")
+
+    print("\nSTEP 4 of 4: Read the new pin back from Pinterest (GET /v5/pins/{id})\n")
+    got = pin_request("GET", f"/pins/{pin.get('id')}", sb_token)
+    print(json.dumps({k: got.get(k) for k in
+                      ("id", "board_id", "title", "description", "link", "created_at")},
+                     indent=2, ensure_ascii=False))
+    time.sleep(2)
+    try:
+        webbrowser.open(d["image"])
+        webbrowser.open(f"https://www.pinterest.co.uk/{me.get('username')}/")
+    except Exception:
+        pass
+    print("\nDone. In normal use the bot repeats steps 2 and 3 a few times a day,")
+    print("using the saved refresh token instead of asking for access again.")
 
 
 def main():
     p = argparse.ArgumentParser(description="Deal bot")
     p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--count", type=int, help="with --dry-run: how many example pins to show")
     p.add_argument("--auth", action="store_true")
     p.add_argument("--list-boards", action="store_true")
     p.add_argument("--create-boards", action="store_true")
@@ -580,7 +911,7 @@ def main():
     elif a.create_boards:
         cmd_create_boards(cfg, a.only)
     else:
-        cmd_run(cfg, a.dry_run)
+        cmd_run(cfg, a.dry_run, a.count if a.dry_run else None)
 
 
 if __name__ == "__main__":

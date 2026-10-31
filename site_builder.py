@@ -132,6 +132,11 @@ def load_deals():
     return {"next_number": 100, "deals": []}
 
 
+def next_number():
+    """The #number the next posted deal will get (shown on its pin image)."""
+    return load_deals()["next_number"]
+
+
 def add_deals(deals):
     """Store newly posted deals. Returns them with their site number attached."""
     data = load_deals()
@@ -139,12 +144,13 @@ def add_deals(deals):
     for d in deals:
         if any(x["id"] == d["id"] for x in data["deals"]):
             continue
-        d["number"] = data["next_number"]
-        data["next_number"] += 1
+        if not d.get("number"):
+            d["number"] = data["next_number"]
+        data["next_number"] = max(data["next_number"], d["number"] + 1)
         data["deals"].insert(0, {
             "number": d["number"], "id": d["id"], "title": d["title"],
             "category": d["category"]["name"], "store": d["store"],
-            "now": d["now"], "was": d["was"], "discount": d["discount"],
+            "now": d["now"], "was": d["was"], "ref": d.get("ref", "was"), "discount": d["discount"],
             "image": d["image"], "link": d["link"], "posted": now,
         })
     cutoff = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=FRESH_DAYS)
@@ -174,11 +180,13 @@ def card(x):
             f'data-text="{esc((x["title"] + " " + x["store"]).lower())} #{x["number"]} {x["number"]}" '
             f'id="deal-{x["number"]}">'
             f'<div class="pic"><img src="{esc(x["image"])}" alt="{esc(x["title"])}" loading="lazy">'
-            f'<span class="tag">-{int(x["discount"])}%</span><span class="num">#{x["number"]}</span></div>'
+            + (f'<span class="tag">-{int(x["discount"])}%</span>' if x["discount"] else '<span class="tag">Gift idea</span>')
+            + f'<span class="num">#{x["number"]}</span></div>'
             f'<div class="body"><span class="cat">{esc(x["category"])}</span>'
             f'<span class="title">{esc(x["title"])}</span>'
             f'<div class="price"><span class="now">£{x["now"]:.2f}</span>'
-            f'<span class="was">£{x["was"]:.2f}</span></div>'
+            + (f'<span class="was">{"RRP " if x.get("ref") == "RRP" else ""}£{x["was"]:.2f}</span>' if x["discount"] else '')
+            + '</div>'
             f'<span class="meta">{esc(x["store"])} · {ago(x["posted"])}</span>'
             f'<a class="btn" href="{esc(x["link"])}" rel="sponsored nofollow noopener" target="_blank">'
             f'Shop this deal</a></div></article>')

@@ -15,7 +15,7 @@ import textwrap
 from pathlib import Path
 
 import requests
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).parent
 FONT_BOLD = str(ROOT / "fonts" / "Poppins-Bold.ttf")
@@ -65,6 +65,24 @@ def progress(t, start, dur):
 
 # ---------- assets ----------
 
+def trim_whitespace(im, tol=18, margin=0.04):
+    """Crop away plain white/transparent borders that many shop photos have,
+    so the product fills the card. Leaves the photo alone if nothing to trim."""
+    rgb = Image.new("RGB", im.size, (255, 255, 255))
+    rgb.paste(im, mask=im.getchannel("A"))
+    diff = ImageChops.difference(rgb, Image.new("RGB", im.size, (255, 255, 255))).convert("L")
+    box = diff.point(lambda v: 255 if v > tol else 0).getbbox()
+    if not box:
+        return im
+    l, t, r, b = box
+    pad = int(max(r - l, b - t) * margin)
+    l, t = max(0, l - pad), max(0, t - pad)
+    r, b = min(im.width, r + pad), min(im.height, b + pad)
+    if (r - l) * (b - t) > 0.92 * im.width * im.height:
+        return im  # already fills the frame (e.g. a lifestyle photo)
+    return rgb.crop((l, t, r, b)).convert("RGBA")
+
+
 def load_product(image):
     """image: URL or local path. Returns an RGBA image on a white square."""
     if str(image).startswith("http"):
@@ -73,7 +91,11 @@ def load_product(image):
     else:
         im = Image.open(image)
     im = im.convert("RGBA")
-    im.thumbnail((820, 820), Image.LANCZOS)
+    im = trim_whitespace(im)
+    im.thumbnail((780, 780), Image.LANCZOS)
+    if max(im.size) < 780:  # small photos: scale up so the product fills the card
+        k = 780 / max(im.size)
+        im = im.resize((max(1, int(im.width * k)), max(1, int(im.height * k))), Image.LANCZOS)
     tile = Image.new("RGBA", (860, 860), WHITE + (255,))
     tile.alpha_composite(im, ((860 - im.width) // 2, (860 - im.height) // 2))
     return tile
@@ -137,7 +159,7 @@ def draw_frame(t, deal, base, product, logo):
     # Hook: "DEAL ALERT" + category (slides in, then stays small)
     a = ease_out(progress(t, 0.0, 0.6))
     hook_y = 300 + int((1 - a) * 60)
-    hook = "DEAL ALERT" + (f"  ·  #{num}" if num else "")
+    hook = ("DEAL ALERT" if deal["discount"] else "GIFT IDEA") + (f"  ·  #{num}" if num else "")
     hw = text_w(d, hook, font(54))
     d.rounded_rectangle([70, hook_y - 8, 70 + hw + 56, hook_y + 74], 41, fill=GOLD)
     d.text((98, hook_y + 33), hook, font=font(54), fill=(58, 38, 0), anchor="lm")
@@ -160,7 +182,7 @@ def draw_frame(t, deal, base, product, logo):
 
     # Discount tag pops onto the card's corner
     p = progress(t, 6.2, 0.5)
-    if p > 0:
+    if p > 0 and deal["discount"]:
         tag = price_tag(f"-{int(deal['discount'])}%", pop(p))
         frame.alpha_composite(tag, (cx - size // 2 - 20, cy - size // 2 + 30))
 
@@ -179,12 +201,12 @@ def draw_frame(t, deal, base, product, logo):
     # Prices: WAS appears, gets struck through, NOW pops in
     py = 1445
     a = ease_out(progress(t, 3.2, 0.5))
-    if a > 0:
+    if a > 0 and deal["discount"]:
         was = f"£{deal['was']:.2f}"
         wf = font(56, False)
         ww = text_w(d, was, wf)
         wx = W // 2 - 250
-        d.text((wx, py), "was", font=font(34, False), fill=SOFT + (int(255 * a),), anchor="mm")
+        d.text((wx, py), deal.get("ref", "was"), font=font(34, False), fill=SOFT + (int(255 * a),), anchor="mm")
         d.text((wx, py + 58), was, font=wf, fill=SOFT + (int(255 * a),), anchor="mm")
         s = progress(t, 4.3, 0.4)
         if s > 0:
@@ -237,7 +259,7 @@ def make_video(deal, out_path):
 def video_caption(deal, tags):
     num = f" (deal #{deal['number']})" if deal.get("number") else ""
     return (f"{deal['discount']}% off: {deal['title']}\n"
-            f"Now £{deal['now']:.2f}, was £{deal['was']:.2f} at {deal['store']}{num}.\n"
+            f"Now £{deal['now']:.2f}, {deal.get('ref', 'was')} £{deal['was']:.2f} at {deal['store']}{num}.\n"
             f"Link in bio: search the deal number on our site. Prices can change.\n"
             f"#ad {tags} #dealsuk #ukdeals")
 
