@@ -1,6 +1,20 @@
 {
- "next_number": 105,
+ "next_number": 106,
  "deals": [
+  {
+   "number": 105,
+   "id": "awin:42931845919",
+   "title": "Sara Miller Vanity Case - Black Bamboo",
+   "category": "Camping & Travel",
+   "store": "Case Luggage",
+   "now": 34.0,
+   "was": 85.0,
+   "ref": "RRP",
+   "discount": 60,
+   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-vanity-case-black-bamboo-black-bamboo-798655-5060388015992-67086092271997.jpg?v=1775638645",
+   "link": "https://www.awin1.com/pclick.php?p=42931845919&a=3117788&m=121020",
+   "posted": "2026-11-01T08:29+00:00"
+  },
   {
    "number": 104,
    "id": "awin:44191203433",
