@@ -1,6 +1,20 @@
 {
- "next_number": 107,
+ "next_number": 108,
  "deals": [
+  {
+   "number": 107,
+   "id": "awin:43577705253",
+   "title": "Bunches Cheese and Wine Slate",
+   "category": "Gift Ideas",
+   "store": "Bunches.co.uk",
+   "now": 42.75,
+   "was": 42.75,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://media.bunches.co.uk/products/570x570/h82304-1.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=43577705253&a=3117788&m=488",
+   "posted": "2026-11-01T17:15+00:00"
+  },
   {
    "number": 106,
    "id": "awin:38847034504",
