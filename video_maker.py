@@ -244,7 +244,10 @@ def make_video(deal, out_path):
     cmd = ["ffmpeg", "-y", "-loglevel", "error",
            "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
            "-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100",
-           "-shortest", "-c:v", "libx264", "-preset", "medium", "-crf", "21",
+           # Upscaled to 1440x2560 and encoded at high quality: YouTube gives
+           # uploads above 1080p its sharper encoding, so text stays crisp.
+           "-shortest", "-vf", "scale=1440:2560:flags=lanczos",
+           "-c:v", "libx264", "-preset", "slow", "-crf", "14", "-tune", "animation",
            "-pix_fmt", "yuv420p", "-profile:v", "high", "-movflags", "+faststart",
            "-c:a", "aac", "-b:a", "128k", str(out_path)]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)

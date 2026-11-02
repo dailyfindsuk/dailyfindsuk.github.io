@@ -5,6 +5,7 @@ The bot calls add_deals() after posting, then build_site(). Pages:
   docs/index.html    today's deals: the "link in bio" page for Instagram/YouTube
   docs/about.html    who we are + affiliate disclosure
   docs/privacy.html  privacy policy (needed by Pinterest, Meta and Google apps)
+  docs/terms.html    terms of use (needed for the YouTube API audit)
 Every deal gets a short number (e.g. #124) so a Reel can say "deal #124, link in bio"
 and viewers can type that number into the site's search box.
 """
@@ -23,6 +24,7 @@ FRESH_DAYS = 14     # older deals drop off (prices change)
 SITE_NAME = "Daily Finds UK"
 CONTACT = "dailyfindsukme21@gmail.com"
 PINTEREST = "https://www.pinterest.com/dailyfinds_uk"
+YOUTUBE = "https://www.youtube.com/@dailyfindsukdeals"
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
@@ -113,6 +115,7 @@ def head(title, desc):
             f'<header class="top"><div class="wrap">'
             f'<a class="brand" href="index.html"><img src="logo.png" alt=""><b>{SITE_NAME}</b></a>'
             f'<nav class="links"><a href="index.html">Deals</a><a href="about.html">About</a>'
+            f'<a href="{YOUTUBE}" rel="noopener" target="_blank">YouTube</a>'
             f'<a href="privacy.html">Privacy</a></nav></div></header>')
 
 
@@ -120,8 +123,10 @@ def foot():
     year = datetime.date.today().year
     return (f'<footer><div class="wrap"><span>&copy; {year} {SITE_NAME}. '
             f'We may earn a commission from links on this site, at no extra cost to you.</span>'
-            f'<span><a href="{PINTEREST}" rel="noopener" target="_blank">Pinterest</a> · '
-            f'<a href="privacy.html">Privacy</a> · {esc(CONTACT)}</span></div></footer></body></html>')
+            f'<span><a href="{YOUTUBE}" rel="noopener" target="_blank">YouTube</a> · '
+            f'<a href="{PINTEREST}" rel="noopener" target="_blank">Pinterest</a> · '
+            f'<a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · '
+            f'{esc(CONTACT)}</span></div></footer></body></html>')
 
 
 # ---------- deal storage ----------
@@ -267,13 +272,21 @@ def privacy_page():
     body = f"""<main class="wrap page">
 <h1>Privacy policy</h1>
 <p>This policy covers the {SITE_NAME} website, our social media accounts, and the app we use to publish
-deals to our own Pinterest, Instagram and YouTube accounts. Last updated 8 October 2026.</p>
+deals to our own Pinterest, Instagram and YouTube accounts. Last updated 2 November 2026.</p>
 <section><h2>Who we are</h2>
 <p>{SITE_NAME} is an independent deals curator based in the United Kingdom. Contact: {esc(CONTACT)}.</p></section>
 <section><h2>Our publishing app</h2>
 <p>Our app uses the Pinterest API, the Instagram Graph API and the YouTube Data API only to publish posts to
 our own {SITE_NAME} accounts. It does not access, read or post to anyone else's account, and it does not
 collect data about the people who view our posts.</p></section>
+<section><h2>YouTube API Services</h2>
+<p>Our app uses YouTube API Services to upload short deal videos to our own {SITE_NAME} YouTube channel.
+By watching or interacting with our videos you agree to the
+<a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>, and Google's handling of data is
+covered by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+<p>The app stores only an authorisation token for our own channel, kept as an encrypted secret. It does not
+store, share or use any YouTube data about other users. Access can be withdrawn at any time from the
+<a href="https://myaccount.google.com/connections">Google security settings page</a>.</p></section>
 <section><h2>Information we collect</h2>
 <ul><li>This website has no sign-up, no forms and no analytics tracking. We do not collect personal information.</li>
 <li>The website is hosted by GitHub Pages, which may keep standard server logs (such as IP addresses) for security.</li>
@@ -289,12 +302,40 @@ Commissioner's Office (ico.org.uk).</p></section>
     return head(f"Privacy policy | {SITE_NAME}", f"How {SITE_NAME} handles data.") + body + foot()
 
 
+def terms_page():
+    body = f"""<main class="wrap page">
+<h1>Terms of use</h1>
+<p>These terms cover the {SITE_NAME} website, our social media accounts (including our YouTube channel and
+Pinterest boards) and the deal posts and short videos we publish. Last updated 2 November 2026.</p>
+<section><h2>What we offer</h2>
+<p>We share discounts from UK shops for information only. We are not the seller of any product. When you buy,
+your contract is with the shop, and the shop's own terms, delivery and returns policies apply.</p></section>
+<section><h2>Prices and accuracy</h2>
+<p>Every deal was correct when we posted it, but prices and stock change quickly. Please check the price on the
+shop's page before you buy. Reference prices are shown as "RRP" (the recommended retail price given by the shop)
+or "was" (the shop's own previous price).</p></section>
+<section><h2>Affiliate links</h2>
+<p>Links to shops are affiliate links through the eBay Partner Network and Awin. If you buy after clicking one,
+we may earn a commission at no extra cost to you. Posts that contain affiliate links are marked #ad.</p></section>
+<section><h2>YouTube</h2>
+<p>Our videos are published on YouTube using YouTube API Services. By watching them you also agree to the
+<a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>. See our
+<a href="privacy.html">privacy policy</a> for how we handle data.</p></section>
+<section><h2>Liability</h2>
+<p>We are not responsible for products, delivery or customer service provided by shops. Nothing in these terms
+limits your rights under UK consumer law.</p></section>
+<section><h2>Contact</h2><p>{esc(CONTACT)}</p></section>
+</main>"""
+    return head(f"Terms of use | {SITE_NAME}", f"Terms for using {SITE_NAME}.") + body + foot()
+
+
 def build_site():
     DOCS.mkdir(exist_ok=True)
     data = load_deals()
     (DOCS / "index.html").write_text(index_page(data), encoding="utf-8")
     (DOCS / "about.html").write_text(about_page(), encoding="utf-8")
     (DOCS / "privacy.html").write_text(privacy_page(), encoding="utf-8")
+    (DOCS / "terms.html").write_text(terms_page(), encoding="utf-8")
     (DOCS / ".nojekyll").write_text("", encoding="utf-8")
     return DOCS / "index.html"
 
