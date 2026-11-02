@@ -1,6 +1,20 @@
 {
- "next_number": 115,
+ "next_number": 116,
  "deals": [
+  {
+   "number": 115,
+   "id": "awin:43577705262",
+   "title": "Bunches Cheese and Wine Gift Tray",
+   "category": "Gift Ideas",
+   "store": "Bunches.co.uk",
+   "now": 52.95,
+   "was": 52.95,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://media.bunches.co.uk/products/570x570/h82286-1.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=43577705262&a=3117788&m=488",
+   "posted": "2026-11-02T23:04+00:00"
+  },
   {
    "number": 114,
    "id": "awin:28876755253",
