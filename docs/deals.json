@@ -1,6 +1,20 @@
 {
- "next_number": 110,
+ "next_number": 111,
  "deals": [
+  {
+   "number": 110,
+   "id": "awin:44331691819",
+   "title": "Revlon Restart Colour Gift Set - Protective Micellar Shampoo 250ml + Balayage Care Cream 150ml",
+   "category": "Christmas Gift Ideas",
+   "store": "Scentsational",
+   "now": 15.0,
+   "was": 35.0,
+   "ref": "RRP",
+   "discount": 57,
+   "image": "https://www.scentsational.com/images/products/1774628701-32657300.png",
+   "link": "https://www.awin1.com/pclick.php?p=44331691819&a=3117788&m=22373",
+   "posted": "2026-11-02T12:36+00:00"
+  },
   {
    "number": 109,
    "id": "awin:42538052702",
