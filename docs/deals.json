@@ -1,6 +1,20 @@
 {
- "next_number": 109,
+ "next_number": 110,
  "deals": [
+  {
+   "number": 109,
+   "id": "awin:42538052702",
+   "title": "Vera Wang For Women - 100ml Eau De Parfum Spray",
+   "category": "Beauty & Fragrance",
+   "store": "Scentsational",
+   "now": 19.5,
+   "was": 82.0,
+   "ref": "RRP",
+   "discount": 76,
+   "image": "https://www.scentsational.com/images/products/1777370946-55295000.png",
+   "link": "https://www.awin1.com/pclick.php?p=42538052702&a=3117788&m=22373",
+   "posted": "2026-11-02T08:45+00:00"
+  },
   {
    "number": 108,
    "id": "awin:46381318120",
