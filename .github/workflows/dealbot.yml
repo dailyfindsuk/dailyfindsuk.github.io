@@ -32,6 +32,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
+      - name: Make sure ffmpeg is available (for YouTube Shorts)
+        run: which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
       - name: Run bot
         env:
           EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
@@ -45,6 +47,9 @@ jobs:
           AWIN_FEED_BEAUTY: ${{ secrets.AWIN_FEED_BEAUTY }}
           AWIN_FEED_GAMING: ${{ secrets.AWIN_FEED_GAMING }}
           AWIN_FEED_KIDS: ${{ secrets.AWIN_FEED_KIDS }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
         run: python dealbot.py ${{ inputs.dry_run && '--dry-run' || '' }}
       - name: Save list of posted items
         run: |
