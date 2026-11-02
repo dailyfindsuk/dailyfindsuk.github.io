@@ -848,6 +848,44 @@ def cmd_run(cfg, dry_run, count=None):
         site_builder.add_deals(done)   # gives each deal its #number for videos
         site_builder.build_site()
         print(f"Website updated with {len(done)} new deal(s).")
+        post_youtube_short(done[0])
+
+
+def youtube_text(deal):
+    """Title and description for a YouTube Short (descriptions may carry the link)."""
+    num = f" #{deal['number']}" if deal.get("number") else ""
+    if deal["discount"]:
+        head = f"{deal['discount']}% off {deal['title']}"
+        price = f"Now £{deal['now']:.2f} ({deal.get('ref', 'was')} £{deal['was']:.2f}) at {deal['store']}."
+    else:
+        head = f"Gift idea: {deal['title']}"
+        price = f"£{deal['now']:.2f} at {deal['store']}."
+    title = head[:88].rstrip(" ,.-") + " #Shorts"
+    desc = (f"#ad Deal{num}: {deal['title']}\n{price}\n\n"
+            f"Shop it here: {deal['link']}\n\n"
+            "All our deals: https://dailyfindsuk.github.io\n"
+            "Prices can change at any time, so check before you buy. "
+            "We may earn a commission if you buy through the link, at no extra cost to you.\n\n"
+            "#ukdeals #dealsuk #dailyfindsuk")
+    tags = ["uk deals", "deals uk", "daily finds uk", deal["category"]["name"].lower(), deal["store"]]
+    return title, desc, tags
+
+
+def post_youtube_short(deal):
+    """One Short per run (YouTube's free quota allows about 6 uploads a day).
+    Skipped quietly when YouTube isn't connected; never stops the pins."""
+    if not os.environ.get("YT_REFRESH_TOKEN"):
+        return
+    try:
+        import video_maker
+        import youtube
+        path = ROOT / "videos" / f"short-{deal.get('number', 'deal')}.mp4"
+        video_maker.make_video(deal, path)
+        title, desc, tags = youtube_text(deal)
+        vid = youtube.upload_short(path, title, desc, tags)
+        print(f"Uploaded YouTube Short {vid}: {title}")
+    except Exception as e:
+        print(f"YouTube Short skipped: {e}")
 
 
 def cmd_demo(cfg):
