@@ -848,7 +848,7 @@ def cmd_run(cfg, dry_run, count=None):
         site_builder.add_deals(done)   # gives each deal its #number for videos
         site_builder.build_site()
         print(f"Website updated with {len(done)} new deal(s).")
-        post_youtube_short(done[0])
+        post_videos(done[0])
 
 
 def youtube_text(deal):
@@ -871,21 +871,53 @@ def youtube_text(deal):
     return title, desc, tags
 
 
-def post_youtube_short(deal):
-    """One Short per run (YouTube's free quota allows about 6 uploads a day).
-    Skipped quietly when YouTube isn't connected; never stops the pins."""
-    if not os.environ.get("YT_REFRESH_TOKEN"):
+def instagram_caption(deal):
+    num = f"#{deal['number']}" if deal.get("number") else ""
+    if deal["discount"]:
+        head = f"{deal['discount']}% off: {deal['title']}"
+        price = f"Now £{deal['now']:.2f} ({deal.get('ref', 'was')} £{deal['was']:.2f}) at {deal['store']}."
+    else:
+        head = f"🎁 Gift idea: {deal['title']}"
+        price = f"£{deal['now']:.2f} at {deal['store']}."
+    # Instagram allows at most 5 hashtags: the board's 3 topic tags + 2 of ours.
+    tags = [t for t in deal["category"].get("hashtags", "").split() if t.startswith("#")]
+    tags = list(dict.fromkeys(tags + ["#ukdeals", "#dailyfindsuk"]))[:5]
+    # "Ad" up front (UK ad rules) without using one of the 5 hashtag slots.
+    return (f"Ad · {head}\n{price}\n\n"
+            f"👉 Link in bio: search deal {num} on our site.\n"
+            "Prices can change, so check before you buy. We may earn a commission.\n\n"
+            + " ".join(tags))
+
+
+def post_videos(deal):
+    """One video per run, shared as a YouTube Short and an Instagram Reel.
+    Each is skipped quietly when not connected; failures never stop the pins."""
+    yt = bool(os.environ.get("YT_REFRESH_TOKEN"))
+    ig = bool(os.environ.get("IG_ACCESS_TOKEN"))
+    if not (yt or ig):
         return
     try:
         import video_maker
-        import youtube
         path = ROOT / "videos" / f"short-{deal.get('number', 'deal')}.mp4"
         video_maker.make_video(deal, path)
-        title, desc, tags = youtube_text(deal)
-        vid = youtube.upload_short(path, title, desc, tags)
-        print(f"Uploaded YouTube Short {vid}: {title}")
     except Exception as e:
-        print(f"YouTube Short skipped: {e}")
+        print(f"Video skipped: {e}")
+        return
+    if yt:
+        try:
+            import youtube
+            title, desc, tags = youtube_text(deal)
+            print(f"Uploaded YouTube Short {youtube.upload_short(path, title, desc, tags)}: {title}")
+        except Exception as e:
+            print(f"YouTube Short skipped: {e}")
+    if ig:
+        try:
+            import instagram
+            days = instagram.refresh()
+            print(f"Posted Instagram Reel {instagram.post_reel(path, instagram_caption(deal))}"
+                  + (f" (token good for {days} days)" if days else ""))
+        except Exception as e:
+            print(f"Instagram Reel skipped: {e}")
 
 
 def cmd_demo(cfg):
