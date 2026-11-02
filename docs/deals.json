@@ -1,6 +1,20 @@
 {
- "next_number": 111,
+ "next_number": 112,
  "deals": [
+  {
+   "number": 111,
+   "id": "awin:44364161667",
+   "title": "ELIE SAAB Girl of Now 50ml EDP+10ml gift set",
+   "category": "Christmas Gift Ideas",
+   "store": "Scentsational",
+   "now": 41.6,
+   "was": 70.0,
+   "ref": "RRP",
+   "discount": 41,
+   "image": "https://www.scentsational.com/images/products/1774955814-40260400.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=44364161667&a=3117788&m=22373",
+   "posted": "2026-11-02T17:40+00:00"
+  },
   {
    "number": 110,
    "id": "awin:44331691819",
