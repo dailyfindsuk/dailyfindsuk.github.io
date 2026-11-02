@@ -1,6 +1,20 @@
 {
- "next_number": 112,
+ "next_number": 113,
  "deals": [
+  {
+   "number": 112,
+   "id": "awin:44191203426",
+   "title": "Razer BlackWidow V4 X Gaming Keyboard",
+   "category": "Gaming",
+   "store": "Stormforce Gaming",
+   "now": 119.99,
+   "was": 149.99,
+   "ref": "RRP",
+   "discount": 20,
+   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2025/03/Hero-Image-Razer-BlackWidow-V4-X-Gaming-Keyboard.webp",
+   "link": "https://www.awin1.com/pclick.php?p=44191203426&a=3117788&m=24882",
+   "posted": "2026-11-02T20:28+00:00"
+  },
   {
    "number": 111,
    "id": "awin:44364161667",
