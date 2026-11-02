@@ -1,6 +1,20 @@
 {
- "next_number": 113,
+ "next_number": 114,
  "deals": [
+  {
+   "number": 113,
+   "id": "awin:42931845306",
+   "title": "Sara Miller Phone Pouch - Chelsea Pink Capsule",
+   "category": "Camping & Travel",
+   "store": "Case Luggage",
+   "now": 16.0,
+   "was": 40.0,
+   "ref": "RRP",
+   "discount": 60,
+   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-phone-pouch-chelsea-pink-capsule-chelsea-pink-822756-5060388016654-67087517352317.jpg?v=1775634130",
+   "link": "https://www.awin1.com/pclick.php?p=42931845306&a=3117788&m=121020",
+   "posted": "2026-11-02T22:21+00:00"
+  },
   {
    "number": 112,
    "id": "awin:44191203426",
