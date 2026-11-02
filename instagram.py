@@ -97,7 +97,7 @@ def post_reel(video_path, caption):
     r = requests.post(f"{API}/{user}/media", params={"access_token": tok}, data={
         "media_type": "REELS", "upload_type": "resumable", "caption": caption[:2200],
         "share_to_feed": "true",
-        "thumb_offset": "8000"}, timeout=60)
+        "thumb_offset": "10000"}, timeout=60)
     if r.status_code != 200:
         raise RuntimeError(f"Instagram container failed ({r.status_code}): {r.text[:300]}")
     container = r.json()["id"]
