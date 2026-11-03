@@ -1,6 +1,20 @@
 {
- "next_number": 120,
+ "next_number": 121,
  "deals": [
+  {
+   "number": 120,
+   "id": "awin:46535933486",
+   "title": "DKNY Mini Gift Set - 2X Be Delicious 7ml & 2X 24/7 7ml",
+   "category": "Christmas Gift Ideas",
+   "store": "Scentsational",
+   "now": 24.95,
+   "was": 43.99,
+   "ref": "RRP",
+   "discount": 43,
+   "image": "https://www.scentsational.com/images/products/1793443693-45508100.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=46535933486&a=3117788&m=22373",
+   "posted": "2026-11-03T20:29+00:00"
+  },
   {
    "number": 119,
    "id": "awin:46535933484",
