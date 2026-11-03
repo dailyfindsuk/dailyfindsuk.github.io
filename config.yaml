@@ -81,6 +81,18 @@ categories:
     include_words: [men, mens, "men's", homme, "pour homme", aftershave, beard, shaving, cologne, "for him", wallet, cufflinks]
     exclude_words: [women, womens, "women's", ladies, femme, sample, vial, tester, refill, replacement]
 
+  - name: Gifts for Her
+    source: awin
+    board_id: "1113515145309165103"
+    hashtags: "#giftsforher #giftideas #ukdeals"
+    gift: true
+    gift_for: "for her"
+    min_discount_percent: 20
+    # Any joined shop, but only products clearly for women. Pinterest's audience is
+    # mostly women, and "gifts for her" is one of its biggest searches in Nov-Dec.
+    include_words: [women, womens, "women's", ladies, femme, "pour femme", "for her", handbag, purse, jewellery, necklace, bracelet, earrings, "vanity case", "make up", makeup]
+    exclude_words: [men, mens, "men's", homme, "pour homme", "for him", sample, vial, tester, refill, replacement]
+
   - name: Beauty & Fragrance
     source: awin
     board_id: "1113515145309063337"
