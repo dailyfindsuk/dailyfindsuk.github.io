@@ -25,6 +25,7 @@ SITE_NAME = "Daily Finds UK"
 CONTACT = "dailyfindsukme21@gmail.com"
 PINTEREST = "https://www.pinterest.com/dailyfinds_uk"
 YOUTUBE = "https://www.youtube.com/@dailyfindsukdeals"
+INSTAGRAM = "https://www.instagram.com/dailyfinds.ukdeals"
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
@@ -56,7 +57,7 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;g
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg)}
 .brand img{width:36px;height:36px;border-radius:50%}
 .brand b{font:800 20px/1 var(--display);letter-spacing:-.01em}
-nav.links{display:flex;gap:16px;font-weight:600;font-size:15px}
+nav.links{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px 16px;font-weight:600;font-size:15px}
 nav.links a{color:var(--muted);text-decoration:none}
 nav.links a:hover,nav.links a:focus-visible{color:var(--fg)}
 .hero{padding-block:28px 8px;display:grid;gap:8px}
@@ -116,6 +117,8 @@ def head(title, desc):
             f'<a class="brand" href="index.html"><img src="logo.png" alt=""><b>{SITE_NAME}</b></a>'
             f'<nav class="links"><a href="index.html">Deals</a><a href="about.html">About</a>'
             f'<a href="{YOUTUBE}" rel="noopener" target="_blank">YouTube</a>'
+            f'<a href="{INSTAGRAM}" rel="noopener" target="_blank">Instagram</a>'
+            f'<a href="{PINTEREST}" rel="noopener" target="_blank">Pinterest</a>'
             f'<a href="privacy.html">Privacy</a></nav></div></header>')
 
 
@@ -124,6 +127,7 @@ def foot():
     return (f'<footer><div class="wrap"><span>&copy; {year} {SITE_NAME}. '
             f'We may earn a commission from links on this site, at no extra cost to you.</span>'
             f'<span><a href="{YOUTUBE}" rel="noopener" target="_blank">YouTube</a> · '
+            f'<a href="{INSTAGRAM}" rel="noopener" target="_blank">Instagram</a> · '
             f'<a href="{PINTEREST}" rel="noopener" target="_blank">Pinterest</a> · '
             f'<a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · '
             f'{esc(CONTACT)}</span></div></footer></body></html>')
@@ -256,7 +260,8 @@ def about_page():
 mostly 25% off or more, on new items from trusted retailers and well-rated sellers.</p>
 <section><h2>Where to find us</h2>
 <p>Deals are posted to our <a href="{PINTEREST}" target="_blank" rel="noopener">Pinterest boards</a>,
-in short videos on Instagram and YouTube, and on this website.</p></section>
+in short videos on <a href="{INSTAGRAM}" target="_blank" rel="noopener">Instagram</a> and
+<a href="{YOUTUBE}" target="_blank" rel="noopener">YouTube</a>, and on this website.</p></section>
 <section><h2>How we make money</h2>
 <p>Links to shops are affiliate links. If you buy something after clicking one, the shop pays us a small
 commission. You pay the same price. We are a member of the eBay Partner Network and the Awin network.</p></section>
