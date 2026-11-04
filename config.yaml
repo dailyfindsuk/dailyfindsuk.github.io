@@ -100,7 +100,7 @@ categories:
     min_discount_percent: 25
     min_price: 12
     max_price: 250
-    merchants: [Scentsational, Cult Beauty, Nails Inc]
+    merchants: [Scentsational, Perfume Click, Cult Beauty, Nails Inc]
     # Skip tiny samples and refills that make poor pins.
     exclude_words: [sample, vial, refill, tester]
 
