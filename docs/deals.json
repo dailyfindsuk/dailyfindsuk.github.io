@@ -1,6 +1,20 @@
 {
- "next_number": 124,
+ "next_number": 125,
  "deals": [
+  {
+   "number": 124,
+   "id": "awin:46527733642",
+   "title": "Santa Maria Novella Tabacco Toscano Liquid Soap 250ml",
+   "category": "Christmas Decor",
+   "store": "Perfume Click",
+   "now": 38.95,
+   "was": 50.0,
+   "ref": "RRP",
+   "discount": 22,
+   "image": "https://images2.productserve.com/noimage.gif",
+   "link": "https://www.awin1.com/pclick.php?p=46527733642&a=3117788&m=6561",
+   "posted": "2026-11-04T17:37+00:00"
+  },
   {
    "number": 123,
    "id": "awin:42761661365",
