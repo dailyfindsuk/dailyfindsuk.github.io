@@ -1,6 +1,20 @@
 {
- "next_number": 123,
+ "next_number": 124,
  "deals": [
+  {
+   "number": 123,
+   "id": "awin:42761661365",
+   "title": "Thameen Rivi\u00e8re Gift Set 50ml EDP + 50ml Hair Fragrance Mist",
+   "category": "Christmas Gift Ideas",
+   "store": "Perfume Click",
+   "now": 91.25,
+   "was": 250.0,
+   "ref": "RRP",
+   "discount": 64,
+   "image": "https://bgstatic.net/photos/193257_ml.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=42761661365&a=3117788&m=6561",
+   "posted": "2026-11-04T12:29+00:00"
+  },
   {
    "number": 122,
    "id": "awin:46157669463",
