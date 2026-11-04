@@ -1,6 +1,20 @@
 {
- "next_number": 125,
+ "next_number": 126,
  "deals": [
+  {
+   "number": 125,
+   "id": "awin:42804681098",
+   "title": "Bunches Pink Rose Plant",
+   "category": "Gift Ideas",
+   "store": "Bunches.co.uk",
+   "now": 20.75,
+   "was": 20.75,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://media.bunches.co.uk/products/570x570/prose-1.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=42804681098&a=3117788&m=488",
+   "posted": "2026-11-04T20:34+00:00"
+  },
   {
    "number": 124,
    "id": "awin:46527733642",
