@@ -227,8 +227,20 @@ SCRIPT = """
 """
 
 
+HIDDEN_FILE = ROOT / "state" / "hidden.txt"
+
+
+def hidden_numbers():
+    """Deal numbers listed in state/hidden.txt (one per line) are left off the website."""
+    if not HIDDEN_FILE.exists():
+        return set()
+    return {int(t) for t in HIDDEN_FILE.read_text(encoding="utf-8").replace(",", " ").split()
+            if t.strip("#").isdigit() for t in [t.strip("#")]}
+
+
 def index_page(data):
-    deals = data["deals"]
+    hide = hidden_numbers()
+    deals = [x for x in data["deals"] if x.get("number") not in hide]
     cats = []
     for x in deals:
         if x["category"] not in cats:
