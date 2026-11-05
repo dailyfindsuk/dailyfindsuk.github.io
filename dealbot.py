@@ -405,6 +405,38 @@ def drop_fake_rrp_shops(deals, label):
     return keep + [d for d in deals if d["discount"] == 0]
 
 
+# Shops put a "No image available" picture on products without a photo. The same
+# picture is then used by many different products, so an image URL shared by 6 or
+# more products is treated as a placeholder and those products are skipped.
+PLACEHOLDER_WORDS = ("noimage", "no_image", "no-image", "placeholder", "image-coming",
+                     "imagecomingsoon", "coming-soon", "comingsoon", "image_not", "notavailable",
+                     "not-available", "default-image", "missing-image")
+_shared_cache = {}
+
+
+def row_image(row):
+    img = (row.get("large_image") or row.get("merchant_image_url") or row.get("aw_image_url") or "")
+    return img.split("|")[0].strip()
+
+
+def shared_images(rows):
+    key = id(rows)
+    if key not in _shared_cache:
+        seen = collections.defaultdict(set)
+        for r in rows:
+            img = row_image(r)
+            if img:
+                seen[img].add(r.get("aw_product_id") or r.get("product_name"))
+        _shared_cache.clear()
+        _shared_cache[key] = {img for img, ids in seen.items() if len(ids) >= 6}
+    return _shared_cache[key]
+
+
+def bad_image(url, shared=()):
+    u = (url or "").lower()
+    return url in shared or any(w in urllib.parse.unquote(u) for w in PLACEHOLDER_WORDS)
+
+
 def awin_candidates(cat, rules, posted):
     rows, used = awin_all_rows(cat)
     if not used:
@@ -416,6 +448,7 @@ def awin_candidates(cat, rules, posted):
     # include_words_for: {Shop: [words]} applies a word filter to that shop only,
     # e.g. Rarewaves sells music and books too, but Stormforce is all gaming.
     shop_words = [(word_re([m]), word_re(w)) for m, w in (cat.get("include_words_for") or {}).items()]
+    shared = shared_images(rows)
     deals = []
     for row in rows:
         shop = (row.get("merchant_name") or "").lower()
@@ -429,7 +462,7 @@ def awin_candidates(cat, rules, posted):
         if blocked and blocked.search(name):
             continue
         d = awin_deal(row, rules, posted)
-        if d:
+        if d and not bad_image(d["image"], shared):
             deals.append(d)
     deals = drop_fake_rrp_shops(deals, cat["name"])
     print(f"[{cat['name']}] Awin: {len(rows)} products checked, {len(deals)} deals")

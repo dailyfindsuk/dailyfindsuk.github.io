@@ -100,7 +100,7 @@ categories:
     min_discount_percent: 25
     min_price: 12
     max_price: 250
-    merchants: [Scentsational, Perfume Click, Cult Beauty, Nails Inc]
+    merchants: [Scentsational, Perfume Click, LENA Nail Polish, Cult Beauty, Nails Inc]
     # Skip tiny samples and refills that make poor pins.
     exclude_words: [sample, vial, refill, tester]
 
@@ -212,7 +212,7 @@ categories:
     full_price_ok: true
     min_discount_percent: 20
     include_words: [gift, "gift set", giftset, hamper, "advent calendar", stocking, "selection box", personalised, christmas]
-    exclude_words: [tree, wreath, bauble, "gift card", "gift wrap", sample, vial, tester, refill, replacement]
+    exclude_words: [tree, wreath, bauble, "gift card", "gift wrap", sample, vial, tester, refill, replacement, "santa maria"]
 
   - name: Christmas Decor
     source: awin
@@ -224,7 +224,9 @@ categories:
     giftable: false
     min_discount_percent: 20
     include_words: [christmas, xmas, festive, bauble, baubles, wreath, garland, nativity, santa, reindeer, snowman, "fairy lights"]
-    exclude_words: [jumper, hamper, chocolate, "gift set", "advent calendar"]
+    # "Santa" also matches brands like Santa Maria Novella, so skip toiletries and perfume.
+    exclude_words: [jumper, hamper, chocolate, "gift set", "advent calendar", "santa maria", soap,
+                    shampoo, lotion, perfume, parfum, toilette, cologne, cream, candle wax]
 
   - name: Valentine's Day
     source: awin
