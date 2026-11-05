@@ -1,6 +1,20 @@
 {
- "next_number": 129,
+ "next_number": 130,
  "deals": [
+  {
+   "number": 129,
+   "id": "awin:36375336681",
+   "title": "Skin Chemists Advanced Anti-Ageing Epidermal Growth Factor Cell Regrowth Mask 50ml",
+   "category": "Beauty & Fragrance",
+   "store": "Perfume Click",
+   "now": 14.95,
+   "was": 89.0,
+   "ref": "RRP",
+   "discount": 83,
+   "image": "https://bgstatic.net/photos/169312_ml.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=36375336681&a=3117788&m=6561",
+   "posted": "2026-11-05T20:30+00:00"
+  },
   {
    "number": 128,
    "id": "awin:44908122783",
