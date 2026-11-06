@@ -1,6 +1,20 @@
 {
- "next_number": 133,
+ "next_number": 134,
  "deals": [
+  {
+   "number": 133,
+   "id": "awin:42931844621",
+   "title": "Bric's 82cm Spinner Suitcase - Amalfi - Silver",
+   "category": "Camping & Travel",
+   "store": "Case Luggage",
+   "now": 285.0,
+   "was": 570.0,
+   "ref": "RRP",
+   "discount": 50,
+   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/bric-s-82cm-spinner-suitcase-amalfi-basic-blue-751575-8016623103716-67084684362109.jpg?v=1775635706",
+   "link": "https://www.awin1.com/pclick.php?p=42931844621&a=3117788&m=121020",
+   "posted": "2026-11-06T20:29+00:00"
+  },
   {
    "number": 132,
    "id": "awin:44191203513",
