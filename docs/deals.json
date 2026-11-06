@@ -1,6 +1,20 @@
 {
- "next_number": 130,
+ "next_number": 131,
  "deals": [
+  {
+   "number": 130,
+   "id": "awin:45887838344",
+   "title": "Q-KI Festive Cheer Vanity Case",
+   "category": "Christmas Decor",
+   "store": "Perfume Click",
+   "now": 14.7,
+   "was": 24.99,
+   "ref": "RRP",
+   "discount": 41,
+   "image": "https://bgstatic.net/photos/193375_ml.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=45887838344&a=3117788&m=6561",
+   "posted": "2026-11-06T08:39+00:00"
+  },
   {
    "number": 129,
    "id": "awin:36375336681",
