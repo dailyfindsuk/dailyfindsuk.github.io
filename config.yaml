@@ -183,7 +183,7 @@ categories:
     hashtags: "#babyessentials #kidsdeals #parenting"
     gift_for: "for kids"
     min_discount_percent: 20
-    merchants: [Baker Ross, Bedz4kids, Sleeping Stars, QUICKPLAY, The Entertainer, Kiddies Kingdom, Medela]
+    merchants: [PlayPress, Baker Ross, Bedz4kids, Sleeping Stars, QUICKPLAY, The Entertainer, Kiddies Kingdom, Medela]
     exclude_words: [replacement, spare, adaptor]
 
   # ----- Seasonal boards -----
