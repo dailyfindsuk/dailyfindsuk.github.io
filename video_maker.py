@@ -216,8 +216,11 @@ def draw_frame(t, deal, base, product, logo):
     if p > 0:
         sc = pop(p)
         now = f"£{deal['now']:.2f}"
-        d.text((W // 2 + 170, py), "now", font=font(34, False), fill=GOLD, anchor="mm")
-        d.text((W // 2 + 170, py + 62), now, font=font(int(96 * sc)), fill=WHITE, anchor="mm")
+        # Deals sit to the right of the crossed-out price; gift ideas (no old price) are centred.
+        nx = W // 2 + 170 if deal["discount"] else W // 2
+        label = "now" if deal["discount"] else "gift idea"
+        d.text((nx, py), label, font=font(34, False), fill=GOLD, anchor="mm")
+        d.text((nx, py + 62), now, font=font(int(96 * sc)), fill=WHITE, anchor="mm")
 
     # Call to action slides up for the last seconds
     a = ease_out(progress(t, 8.6, 0.6))
