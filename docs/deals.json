@@ -1,6 +1,20 @@
 {
- "next_number": 141,
+ "next_number": 142,
  "deals": [
+  {
+   "number": 141,
+   "id": "awin:44191203506",
+   "title": "Cherry XTRFY MX 10.1 Wireless Keyboard",
+   "category": "Gaming",
+   "store": "Stormforce Gaming",
+   "now": 89.99,
+   "was": 179.99,
+   "ref": "RRP",
+   "discount": 50,
+   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/03/1910-4048.png",
+   "link": "https://www.awin1.com/pclick.php?p=44191203506&a=3117788&m=24882",
+   "posted": "2026-11-08T17:19+00:00"
+  },
   {
    "number": 140,
    "id": "awin:33616404755",
