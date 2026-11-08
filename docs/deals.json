@@ -1,6 +1,20 @@
 {
- "next_number": 142,
+ "next_number": 143,
  "deals": [
+  {
+   "number": 142,
+   "id": "awin:44466866206",
+   "title": "Sara Miller Duffle - Quilted Travel - Botanic Paradise",
+   "category": "Camping & Travel",
+   "store": "Case Luggage",
+   "now": 34.0,
+   "was": 85.0,
+   "ref": "RRP",
+   "discount": 60,
+   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-duffle-quilted-travel-botanic-paradise-810173-5060388016746-67086636712317.jpg?v=1775638171",
+   "link": "https://www.awin1.com/pclick.php?p=44466866206&a=3117788&m=121020",
+   "posted": "2026-11-08T20:18+00:00"
+  },
   {
    "number": 141,
    "id": "awin:44191203506",
