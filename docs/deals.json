@@ -1,6 +1,20 @@
 {
- "next_number": 145,
+ "next_number": 146,
  "deals": [
+  {
+   "number": 145,
+   "id": "awin:40095123584",
+   "title": "Issey Miyake L'Eau d'Issey pour Homme Solar Lavender Intense Eau de Toilette 100ml Spray",
+   "category": "Gifts for Him",
+   "store": "Perfume Click",
+   "now": 30.6,
+   "was": 101.0,
+   "ref": "RRP",
+   "discount": 70,
+   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Abgstatic.net%2Fphotos%2F177271_ml.jpg&feedId=12281&k=c8de44b93aa7266e61d3425b84e4ee7a9fc51528",
+   "link": "https://www.awin1.com/pclick.php?p=40095123584&a=3117788&m=6561",
+   "posted": "2026-11-09T21:38+00:00"
+  },
   {
    "number": 144,
    "id": "awin:43577705256",
