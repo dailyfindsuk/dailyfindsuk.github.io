@@ -1,6 +1,20 @@
 {
- "next_number": 144,
+ "next_number": 145,
  "deals": [
+  {
+   "number": 144,
+   "id": "awin:43577705256",
+   "title": "Bunches The Perfect Picnic Hamper",
+   "category": "Gift Ideas",
+   "store": "Bunches.co.uk",
+   "now": 145.0,
+   "was": 145.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://media.bunches.co.uk/products/h82310-1.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=43577705256&a=3117788&m=488",
+   "posted": "2026-11-09T16:58+00:00"
+  },
   {
    "number": 143,
    "id": "awin:42102874919",
