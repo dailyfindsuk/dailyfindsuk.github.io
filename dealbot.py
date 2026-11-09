@@ -828,8 +828,33 @@ def cmd_create_boards(cfg, only=None):
     print("Board IDs saved into config.yaml.")
 
 
+# Safety net: GitHub sometimes skips scheduled runs. The workflow also runs at backup
+# times; a scheduled run only posts if nothing was posted in the last MIN_GAP_HOURS,
+# so a missed slot is caught up without doubling the number of posts.
+MIN_GAP_HOURS = 2.75
+
+
+def too_soon(state):
+    if os.environ.get("GITHUB_EVENT_NAME") != "schedule":
+        return False   # manual runs and local runs always post
+    last = state.get("last_post")
+    if not last:
+        return False
+    try:
+        then = datetime.datetime.fromisoformat(last)
+    except ValueError:
+        return False
+    hours = (datetime.datetime.now(datetime.timezone.utc) - then).total_seconds() / 3600
+    if hours < MIN_GAP_HOURS:
+        print(f"Posted {hours:.1f} hours ago, so this backup slot is skipped.")
+        return True
+    return False
+
+
 def cmd_run(cfg, dry_run, count=None):
     state = load_state()
+    if not dry_run and too_soon(state):
+        return
     deals = find_deals(cfg, state, count or cfg.get("pins_per_run", 1))
     if not deals:
         print("No new deals this run.")
@@ -873,6 +898,7 @@ def cmd_run(cfg, dry_run, count=None):
             pin = post_pin(token, d)
             print(f"Posted pin {pin.get('id')}: {d['title'][:60]}")
             state["posted"].append(d["id"])
+            state["last_post"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
             done.append(d)
         except RuntimeError as e:
             print(e)

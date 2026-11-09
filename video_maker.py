@@ -145,6 +145,8 @@ def price_tag(text, scale):
 # ---------- frame drawing ----------
 
 def draw_frame(t, deal, base, product, logo):
+    # Everything (price, discount, link) is on screen by ~3.5s and stays there, so any
+    # frame YouTube picks as the Short's cover shows the full deal.
     frame = base.copy()
     ov = Image.new("RGBA", (W, H), (0, 0, 0, 0))   # text layer, composited last
     d = ImageDraw.Draw(ov)
@@ -181,13 +183,13 @@ def draw_frame(t, deal, base, product, logo):
         frame.alpha_composite(card, (cx - size // 2, cy - size // 2))
 
     # Discount tag pops onto the card's corner
-    p = progress(t, 6.2, 0.5)
+    p = progress(t, 2.2, 0.5)
     if p > 0 and deal["discount"]:
         tag = price_tag(f"-{int(deal['discount'])}%", pop(p))
         frame.alpha_composite(tag, (cx - size // 2 - 20, cy - size // 2 + 30))
 
     # Title under the card
-    a = ease_out(progress(t, 1.6, 0.6))
+    a = ease_out(progress(t, 0.5, 0.5))
     if a > 0:
         lines = textwrap.wrap(deal["title"], 30)[:2]
         if len(textwrap.wrap(deal["title"], 30)) > 2:
@@ -200,7 +202,7 @@ def draw_frame(t, deal, base, product, logo):
 
     # Prices: WAS appears, gets struck through, NOW pops in
     py = 1445
-    a = ease_out(progress(t, 3.2, 0.5))
+    a = ease_out(progress(t, 0.9, 0.4))
     if a > 0 and deal["discount"]:
         was = f"£{deal['was']:.2f}"
         wf = font(56, False)
@@ -208,11 +210,11 @@ def draw_frame(t, deal, base, product, logo):
         wx = W // 2 - 250
         d.text((wx, py), deal.get("ref", "was"), font=font(34, False), fill=SOFT + (int(255 * a),), anchor="mm")
         d.text((wx, py + 58), was, font=wf, fill=SOFT + (int(255 * a),), anchor="mm")
-        s = progress(t, 4.3, 0.4)
+        s = progress(t, 1.4, 0.4)
         if s > 0:
             x0 = wx - ww // 2 - 8
             d.line([x0, py + 60, x0 + int((ww + 16) * ease_out(s)), py + 56], fill=GOLD, width=8)
-    p = progress(t, 4.9, 0.55)
+    p = progress(t, 1.8, 0.5)
     if p > 0:
         sc = pop(p)
         now = f"£{deal['now']:.2f}"
@@ -223,7 +225,7 @@ def draw_frame(t, deal, base, product, logo):
         d.text((nx, py + 62), now, font=font(int(96 * sc)), fill=WHITE, anchor="mm")
 
     # Call to action slides up for the last seconds
-    a = ease_out(progress(t, 8.6, 0.6))
+    a = ease_out(progress(t, 3.0, 0.6))
     if a > 0:
         y = 1620 + int((1 - a) * 80)
         cta = f"Link in bio  ·  search #{num}" if num else "Link in bio for this deal"
