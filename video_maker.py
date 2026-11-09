@@ -95,7 +95,9 @@ def load_product(image):
     im.thumbnail((780, 780), Image.LANCZOS)
     if max(im.size) < 780:  # small photos: scale up so the product fills the card
         k = 780 / max(im.size)
-        im = im.resize((max(1, int(im.width * k)), max(1, int(im.height * k))), Image.LANCZOS)
+        im = im.resize((max(1, int(im.width * k)), max(1, int(im.height * k))), Image.BICUBIC)
+        # light sharpen so an enlarged photo doesn't look soft
+        im = im.filter(ImageFilter.UnsharpMask(radius=2, percent=min(140, int(60 * k)), threshold=2))
     tile = Image.new("RGBA", (860, 860), WHITE + (255,))
     tile.alpha_composite(im, ((860 - im.width) // 2, (860 - im.height) // 2))
     return tile

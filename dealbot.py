@@ -323,10 +323,8 @@ def awin_deal(row, rules, posted):
     # Ignore silly "discounts" that are usually feed errors.
     if discount > 85:
         return None
-    image = (row.get("large_image") or row.get("merchant_image_url")
-             or row.get("aw_image_url") or "").strip()
-    # Some shops (e.g. Stormforce) list several images joined with "|": use the first.
-    image = image.split("|")[0].strip()
+    images = row_images(row)
+    image = images[0] if images else ""
     link = (row.get("aw_deep_link") or "").strip()
     if not image.startswith("http") or not link.startswith("http"):
         return None
@@ -339,7 +337,7 @@ def awin_deal(row, rules, posted):
         "id": f"awin:{pid}",
         "title": title,
         "now": now, "was": was, "ref": ref, "discount": round(discount),
-        "image": image, "link": link,
+        "image": image, "images": images, "link": link,
         "affiliate": "awin1.com" in link or "awin" in link,
         "store": (row.get("merchant_name") or "the retailer").strip(),
     }
@@ -417,6 +415,85 @@ _shared_cache = {}
 def row_image(row):
     img = (row.get("large_image") or row.get("merchant_image_url") or row.get("aw_image_url") or "")
     return img.split("|")[0].strip()
+
+
+IMAGE_FIELDS = ("large_image", "merchant_image_url", "aw_image_url", "alternate_image",
+                "alternate_image_two", "alternate_image_three", "merchant_thumb_url", "aw_thumb_url")
+
+
+def row_images(row):
+    """Every product photo the feed gives, best fields first, no duplicates.
+    Some shops (e.g. Stormforce) list several images joined with "|"."""
+    out = []
+    for f in IMAGE_FIELDS:
+        for u in (row.get(f) or "").split("|"):
+            u = u.strip()
+            if u.startswith("http") and u not in out:
+                out.append(u)
+    return out
+
+
+def bigger_versions(url):
+    """Shops often link a thumbnail when a bigger copy of the same photo exists at a
+    slightly different address. Try the usual patterns (the original comes last)."""
+    tries = []
+    def add(u):
+        if u != url and u not in tries:
+            tries.append(u)
+    # Size folders such as /570x570/ or /thumbs/ in the path
+    add(re.sub(r"/\d{2,4}x\d{2,4}/", "/1200x1200/", url))
+    add(re.sub(r"/\d{2,4}x\d{2,4}/", "/", url))
+    add(re.sub(r"/(thumbs?|thumbnails?|small|medium|med|sm)/", "/large/", url, flags=re.I))
+    add(re.sub(r"/(thumbs?|thumbnails?|small|medium|med|sm)/", "/", url, flags=re.I))
+    # Size endings such as photo_200x200.jpg, photo-300x300.jpg (Shopify, WordPress)
+    add(re.sub(r"[_-]\d{2,4}x\d{0,4}(@2x)?(?=\.(jpe?g|png|webp)\b)", "", url, flags=re.I))
+    # Size codes such as 12345_ml.jpg, _s.jpg, _small.jpg
+    for big in ("_xl", "_xxl", "_l", "_large", "_big"):
+        add(re.sub(r"_(s|m|ml|sm|small|med|medium|thumb|t)(?=\.(jpe?g|png|webp)\b)", big, url, flags=re.I))
+    # Size settings in the address: ?w=300, &width=200, &h=, &size=
+    p = urllib.parse.urlsplit(url)
+    if p.query:
+        q = [(k, v) for k, v in urllib.parse.parse_qsl(p.query, keep_blank_values=True)]
+        size_keys = {"w", "h", "width", "height", "size", "resize", "fit", "sw", "sh", "wid", "hei"}
+        if any(k.lower() in size_keys for k, _ in q):
+            add(urllib.parse.urlunsplit(p._replace(query=urllib.parse.urlencode(
+                [(k, "1500" if k.lower() in ("w", "width", "wid", "sw") else v) for k, v in q
+                 if k.lower() not in ("h", "height", "hei", "sh", "size", "resize", "fit")]))))
+            add(urllib.parse.urlunsplit(p._replace(query=urllib.parse.urlencode(
+                [(k, v) for k, v in q if k.lower() not in size_keys]))))
+    return tries + [url]
+
+
+GOOD_IMAGE_PX = 700    # this big or more: sharp in pins and 1440p videos
+MIN_IMAGE_PX = 450     # smaller than this looks blurry once blown up, so it's skipped
+_size_cache = {}
+
+
+def image_size(url):
+    """Width and height of a photo (0, 0 if it can't be loaded)."""
+    if url not in _size_cache:
+        try:
+            from PIL import Image
+            r = requests.get(url, timeout=15, headers={"User-Agent": "Mozilla/5.0"})
+            if r.status_code != 200 or not r.headers.get("content-type", "image").startswith("image"):
+                raise ValueError(r.status_code)
+            _size_cache[url] = Image.open(io.BytesIO(r.content)).size
+        except Exception:
+            _size_cache[url] = (0, 0)
+    return _size_cache[url]
+
+
+def best_image(deal):
+    """Pick the sharpest photo we can find for a deal. Returns (url, longest side)."""
+    best, best_px = deal["image"], 0
+    for src in (deal.get("images") or [deal["image"]])[:3]:
+        for u in bigger_versions(src):
+            px = max(image_size(u))   # the photo is fitted into a square by its longest side
+            if px > best_px:
+                best, best_px = u, px
+            if best_px >= GOOD_IMAGE_PX:
+                return best, best_px
+    return best, best_px
 
 
 def shared_images(rows):
@@ -553,8 +630,15 @@ def find_deals(cfg, state, wanted):
         except requests.RequestException as e:
             print(f"[{cat['name']}] search failed: {e}")
             continue
-        if candidates:
-            deal = candidates[0]
+        deal = None
+        for c in candidates[:8]:   # skip deals whose only photo is a small, blurry one
+            url, px = best_image(c)
+            if px >= MIN_IMAGE_PX:
+                c["image"] = url
+                deal = c
+                break
+            print(f"[{cat['name']}] skipped (photo only {px}px): {c['title'][:50]}")
+        if deal:
             deal["category"] = cat
             deals.append(deal)
             posted.add(deal["id"])
