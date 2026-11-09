@@ -7,6 +7,11 @@ on:
     - cron: "47 11 * * *"
     - cron: "47 16 * * *"
     - cron: "47 19 * * *"
+    # Backup times: they only post if a main run above was skipped by GitHub.
+    - cron: "17 9 * * *"
+    - cron: "17 13 * * *"
+    - cron: "17 18 * * *"
+    - cron: "17 21 * * *"
   workflow_dispatch:   # lets you click "Run workflow" by hand
     inputs:
       dry_run:
