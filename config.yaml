@@ -2,8 +2,8 @@
 
 # How many pins to post per run. The workflow runs 4 times a day,
 # so 1 per run = 4 pins a day, a safe pace for a new Pinterest account.
-# After a few weeks you can raise this to 2.
-pins_per_run: 1
+# Raised to 2 on 10 Nov 2026 (8 pins a day). Videos stay at 1 per run.
+pins_per_run: 2
 
 # Only post items discounted by at least this much.
 min_discount_percent: 30
@@ -46,7 +46,8 @@ categories:
     board_id: "1113515145309063297"
     hashtags: "#homedeals #kitchen #ukdeals"
     gift_for: "for the home"
-    merchants: [Geepas, Joybuy, Buy Me Once, William Morris, La Redoute, Lights4fun, Starlight Beds, simbasleep, Panda London, Cult Furniture, Meaco, Ebac, BISSELL, DeubaXXL, Living and Home, The Sleep People]
+    min_discount_percent: 20
+    merchants: [Candles Direct, Flowers & Plants, Geepas, Joybuy, Buy Me Once, William Morris, La Redoute, Lights4fun, Starlight Beds, simbasleep, Panda London, Cult Furniture, Meaco, Ebac, BISSELL, DeubaXXL, Living and Home, The Sleep People]
     exclude_words: [replacement, spare, adaptor, refill]
 
   - name: Tech & Gadgets
@@ -64,7 +65,7 @@ categories:
     hashtags: "#giftideas #gifts #ukdeals"
     gift: true
     min_discount_percent: 20
-    merchants: [puzzleYOU, Bunches, Masters of Mystery, Cadbury, Hobbies, Virginia Hayward, Buy Me Once, Purr and Mutt, Out n About, Equi London, Rose & Caramel, Tusting, Michael Kors, Bond Touch]
+    merchants: [puzzleYOU, Bunches, Masters of Mystery, Cadbury, Hobbies, Virginia Hayward, Buy Me Once, Purr and Mutt, Out n About, Equi London, Rose & Caramel, Tusting, Michael Kors, Bond Touch, Geek Crate, Craftiosity, Craft Buddy, Candles Direct, Flowers & Plants, Bad Shirt Club, WATCH & WATCH, Watch Enclave, Susan Caplan, Angel Barocco]
     # Gift shops often have no sale on. Gift boards may post a full-price gift,
     # worded as "🎁 Gift idea under £35: ..." with no discount claimed.
     full_price_ok: true
@@ -77,6 +78,7 @@ categories:
     gift: true
     gift_for: "for him"
     min_discount_percent: 20
+    max_price: 800   # lets good men's watches through
     # Any joined shop, but only products clearly for men.
     include_words: [men, mens, "men's", homme, "pour homme", aftershave, beard, shaving, cologne, "for him", wallet, cufflinks]
     exclude_words: [women, womens, "women's", ladies, femme, sample, vial, tester, refill, replacement]
@@ -88,9 +90,10 @@ categories:
     gift: true
     gift_for: "for her"
     min_discount_percent: 20
+    max_price: 800   # lets good watches and jewellery through
     # Any joined shop, but only products clearly for women. Pinterest's audience is
     # mostly women, and "gifts for her" is one of its biggest searches in Nov-Dec.
-    include_words: [women, womens, "women's", ladies, femme, "pour femme", "for her", handbag, purse, jewellery, necklace, bracelet, earrings, "vanity case", "make up", makeup]
+    include_words: [women, womens, "women's", ladies, femme, "pour femme", "for her", handbag, purse, jewellery, necklace, bracelet, earrings, "vanity case", "make up", makeup, pendant, brooch, bangle, "ladies watch", "womens watch", "women's watch", bouquet, flowers]
     exclude_words: [men, mens, "men's", homme, "pour homme", "for him", sample, vial, tester, refill, replacement]
 
   - name: Beauty & Fragrance
@@ -109,7 +112,7 @@ categories:
     board_id: "1113515145309063306"
     hashtags: "#homegym #fitness #ukdeals"
     min_discount_percent: 20
-    merchants: [Greaves, Gains Nutrition, JTX Fitness, INOV8]
+    merchants: [Greaves, Gains Nutrition, JTX Fitness, INOV8, Boogie Bounce]
 
   - name: Car Accessories
     source: awin
@@ -123,7 +126,7 @@ categories:
     source: awin
     board_id: "1113515145309063311"
     hashtags: "#fashiondeals #trainers #ukdeals"
-    merchants: [La Redoute, Go Outdoors, Schuh, Roman, Oliver Brown, Michael Kors, Surfanic]
+    merchants: [La Redoute, Go Outdoors, Schuh, Roman, Oliver Brown, Michael Kors, Surfanic, Bad Shirt Club]
 
   - name: Pets
     source: awin

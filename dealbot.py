@@ -267,6 +267,8 @@ def google_row(r):
         "aw_deep_link": r.get("aw_deep_link") or "",
         "merchant_image_url": r.get("image_link") or "",
         "large_image": r.get("lifestyle_image_link") or "",
+        # extra photos: the bot picks the sharpest one
+        "alternate_image": re.sub(r",\s*(?=https?://)", "|", r.get("additional_image_link") or ""),
         "search_price": str(sale if on_sale else price),
         "product_price_old": str(price) if on_sale else "",
         "rrp_price": "",
