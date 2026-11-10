@@ -1,6 +1,20 @@
 {
- "next_number": 148,
+ "next_number": 149,
  "deals": [
+  {
+   "number": 148,
+   "id": "awin:46527733556",
+   "title": "Perroy Pinkfire Eau de Parfum 15ml Spray",
+   "category": "Beauty & Fragrance",
+   "store": "Perfume Click",
+   "now": 15.3,
+   "was": 100.0,
+   "ref": "RRP",
+   "discount": 85,
+   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Abgstatic.net%2Fphotos%2F195916_ml.jpg&feedId=12281&k=383ca0d777a92af50cd89edceff639953de05029",
+   "link": "https://www.awin1.com/pclick.php?p=46527733556&a=3117788&m=6561",
+   "posted": "2026-11-10T15:49+00:00"
+  },
   {
    "number": 147,
    "id": "awin:40845565321",
