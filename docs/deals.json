@@ -1,6 +1,20 @@
 {
- "next_number": 150,
+ "next_number": 151,
  "deals": [
+  {
+   "number": 150,
+   "id": "awin:44191203511",
+   "title": "Cherry XTRFY H2 Gaming Headset",
+   "category": "Gaming",
+   "store": "Stormforce Gaming",
+   "now": 39.99,
+   "was": 79.99,
+   "ref": "RRP",
+   "discount": 50,
+   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/03/1920-1214.png",
+   "link": "https://www.awin1.com/pclick.php?p=44191203511&a=3117788&m=24882",
+   "posted": "2026-11-10T21:59+00:00"
+  },
   {
    "number": 149,
    "id": "awin:39101066815",
