@@ -186,6 +186,8 @@ categories:
     hashtags: "#babyessentials #kidsdeals #parenting"
     gift_for: "for kids"
     min_discount_percent: 20
+    # Few kids' shops run sales, so full-price items may post as gift ideas (no discount claimed).
+    full_price_ok: true
     merchants: [PlayPress, Baker Ross, Bedz4kids, Sleeping Stars, QUICKPLAY, The Entertainer, Kiddies Kingdom, Medela]
     exclude_words: [replacement, spare, adaptor]
 
