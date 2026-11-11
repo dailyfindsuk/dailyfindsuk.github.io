@@ -33,6 +33,17 @@ SOFT = (226, 240, 235)
 _fonts = {}
 
 
+
+def ffmpeg_path():
+    """The system ffmpeg if installed, otherwise the copy that comes with the
+    imageio-ffmpeg pip package (so the bot never waits on Ubuntu's download servers)."""
+    import shutil
+    found = shutil.which("ffmpeg")
+    if found:
+        return found
+    import imageio_ffmpeg
+    return imageio_ffmpeg.get_ffmpeg_exe()
+
 def font(size, bold=True):
     key = (size, bold)
     if key not in _fonts:
@@ -248,7 +259,7 @@ def make_video(deal, out_path):
     base = background()
     product = load_product(deal["image"])
     logo = rounded(Image.open(LOGO).convert("RGBA").resize((84, 84), Image.LANCZOS), 42)
-    cmd = ["ffmpeg", "-y", "-loglevel", "error",
+    cmd = [ffmpeg_path(), "-y", "-loglevel", "error",
            "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
            "-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100",
            # Upscaled to 1440x2560 and encoded at high quality: YouTube gives
