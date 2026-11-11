@@ -471,25 +471,53 @@ MIN_IMAGE_PX = 450     # smaller than this looks blurry once blown up, so it's s
 _size_cache = {}
 
 
+IMAGE_CHECK_SECONDS = 75   # total time per run spent checking photos, so a run never stalls
+_check_started = []
+
+
+def _check_time_left():
+    import time
+    if not _check_started:
+        _check_started.append(time.monotonic())
+    return IMAGE_CHECK_SECONDS - (time.monotonic() - _check_started[0])
+
+
 def image_size(url):
-    """Width and height of a photo (0, 0 if it can't be loaded)."""
+    """Width and height of a photo (0, 0 if it can't be loaded). Reads only the start
+    of the file (the size is stored there) and gives up quickly on slow websites."""
     if url not in _size_cache:
+        size = (0, 0)
         try:
-            from PIL import Image
-            r = requests.get(url, timeout=15, headers={"User-Agent": "Mozilla/5.0"})
-            if r.status_code != 200 or not r.headers.get("content-type", "image").startswith("image"):
-                raise ValueError(r.status_code)
-            _size_cache[url] = Image.open(io.BytesIO(r.content)).size
+            from PIL import ImageFile
+            with requests.get(url, timeout=(4, 5), stream=True,
+                              headers={"User-Agent": "Mozilla/5.0"}) as r:
+                if r.status_code == 200 and r.headers.get("content-type", "image").startswith("image"):
+                    parser, got = ImageFile.Parser(), 0
+                    for chunk in r.iter_content(16384):
+                        parser.feed(chunk)
+                        got += len(chunk)
+                        if parser.image or got > 512000:
+                            break
+                    if parser.image:
+                        size = parser.image.size
         except Exception:
-            _size_cache[url] = (0, 0)
+            pass
+        _size_cache[url] = size
     return _size_cache[url]
 
 
 def best_image(deal):
-    """Pick the sharpest photo we can find for a deal. Returns (url, longest side)."""
-    best, best_px = deal["image"], 0
+    """Pick the sharpest photo we can find for a deal. Returns (url, longest side).
+    Tries at most 6 addresses per deal; if the run's photo-check time is used up,
+    the feed's own photo is accepted unchecked rather than holding up the run."""
+    if _check_time_left() <= 0:
+        return deal["image"], MIN_IMAGE_PX
+    best, best_px, tries = deal["image"], 0, 0
     for src in (deal.get("images") or [deal["image"]])[:3]:
-        for u in bigger_versions(src):
+        for u in [src] + bigger_versions(src)[:-1]:   # its own photo first, then bigger copies
+            if tries >= 6 or _check_time_left() <= 0:
+                return best, best_px
+            tries += 1
             px = max(image_size(u))   # the photo is fitted into a square by its longest side
             if px > best_px:
                 best, best_px = u, px
