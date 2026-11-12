@@ -1,6 +1,34 @@
 {
- "next_number": 159,
+ "next_number": 161,
  "deals": [
+  {
+   "number": 160,
+   "id": "awin:35104307281",
+   "title": "Bunches Rose and Lily Bouquet",
+   "category": "Gift Ideas",
+   "store": "Bunches.co.uk",
+   "now": 34.95,
+   "was": 34.95,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://media.bunches.co.uk/products/frsly-1.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=35104307281&a=3117788&m=488",
+   "posted": "2026-11-12T02:18+00:00"
+  },
+  {
+   "number": 159,
+   "id": "awin:46307112800",
+   "title": "Avant Skincare Odyssey Beyond: Six Treasures Gift Set",
+   "category": "Christmas Gift Ideas",
+   "store": "Avant Skincare",
+   "now": 69.0,
+   "was": 443.0,
+   "ref": "was",
+   "discount": 84,
+   "image": "https://cdn.shopify.com/s/files/1/0916/1755/8869/files/Avant-Festive-Gift-Set-Images-2026-AVK336-26.1_Sticker.jpg?v=1792164546",
+   "link": "https://www.awin1.com/pclick.php?p=46307112800&a=3117788&m=19244",
+   "posted": "2026-11-12T02:18+00:00"
+  },
   {
    "number": 158,
    "id": "awin:38600407979",
