@@ -1,6 +1,34 @@
 {
- "next_number": 161,
+ "next_number": 163,
  "deals": [
+  {
+   "number": 162,
+   "id": "awin:43621260352",
+   "title": "Avant Skincare Hydra-Bright Collagen Eye Restoring Pads | Packaging: Single Pack",
+   "category": "Beauty & Fragrance",
+   "store": "Avant Skincare",
+   "now": 12.0,
+   "was": 59.0,
+   "ref": "was",
+   "discount": 80,
+   "image": "https://cdn.shopify.com/s/files/1/0916/1755/8869/files/AV076-5060762540737-Single-Pack-Hydra-Bright-Collagen-Eye-Restoring-Pads-_4.jpg?v=1757926673",
+   "link": "https://www.awin1.com/pclick.php?p=43621260352&a=3117788&m=19244",
+   "posted": "2026-11-12T16:20+00:00"
+  },
+  {
+   "number": 161,
+   "id": "awin:40846894504",
+   "title": "Avant Skincare Ultimate Hydration Ritual Gift Set + Signature Bag",
+   "category": "Christmas Gift Ideas",
+   "store": "Avant Skincare",
+   "now": 99.0,
+   "was": 319.0,
+   "ref": "was",
+   "discount": 69,
+   "image": "https://cdn.shopify.com/s/files/1/0916/1755/8869/files/AVK313_Festive_Shoot_2026_Mobile_Banner_2.jpg?v=1789137391",
+   "link": "https://www.awin1.com/pclick.php?p=40846894504&a=3117788&m=19244",
+   "posted": "2026-11-12T16:20+00:00"
+  },
   {
    "number": 160,
    "id": "awin:35104307281",
