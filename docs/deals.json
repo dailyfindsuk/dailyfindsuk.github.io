@@ -1,6 +1,34 @@
 {
- "next_number": 169,
+ "next_number": 171,
  "deals": [
+  {
+   "number": 170,
+   "id": "awin:44466866205",
+   "title": "Sara Miller Backpack - Quilted Travel - Botanic Paradise",
+   "category": "Camping & Travel",
+   "store": "Case Luggage",
+   "now": 32.0,
+   "was": 80.0,
+   "ref": "RRP",
+   "discount": 60,
+   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-backpack-quilted-travel-botanic-paradise-810180-5060388016739-67086634877309.jpg?v=1775632518",
+   "link": "https://www.awin1.com/pclick.php?p=44466866205&a=3117788&m=121020",
+   "posted": "2026-11-13T15:43+00:00"
+  },
+  {
+   "number": 169,
+   "id": "awin:44191203514",
+   "title": "Cherry XTRFY NGALE R Black Microphone",
+   "category": "Gaming",
+   "store": "Stormforce Gaming",
+   "now": 49.99,
+   "was": 99.99,
+   "ref": "RRP",
+   "discount": 50,
+   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/03/1920-1217.png",
+   "link": "https://www.awin1.com/pclick.php?p=44191203514&a=3117788&m=24882",
+   "posted": "2026-11-13T15:43+00:00"
+  },
   {
    "number": 168,
    "id": "awin:46720850261",
