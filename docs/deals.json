@@ -1,6 +1,34 @@
 {
- "next_number": 177,
+ "next_number": 179,
  "deals": [
+  {
+   "number": 178,
+   "id": "awin:46480089701",
+   "title": "MSI MAG 274QP QD-OLED X24",
+   "category": "Gaming",
+   "store": "Stormforce Gaming",
+   "now": 289.99,
+   "was": 399.99,
+   "ref": "RRP",
+   "discount": 28,
+   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/10/302433.png",
+   "link": "https://www.awin1.com/pclick.php?p=46480089701&a=3117788&m=24882",
+   "posted": "2026-11-14T14:33+00:00"
+  },
+  {
+   "number": 177,
+   "id": "awin:44256192606",
+   "title": "Davidoff Cool Water For Women - 30ml Eau De Toilette Spray",
+   "category": "Gifts for Her",
+   "store": "Scentsational",
+   "now": 11.0,
+   "was": 49.0,
+   "ref": "RRP",
+   "discount": 78,
+   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.scentsational.com%2Fimages%2Fproducts%2F1603895190-62850900.jpg&feedId=53233&k=15bf46a0f743f2540a18518e2a5ca3da8e4cd5b7",
+   "link": "https://www.awin1.com/pclick.php?p=44256192606&a=3117788&m=22373",
+   "posted": "2026-11-14T14:33+00:00"
+  },
   {
    "number": 176,
    "id": "awin:43577705252",
@@ -1036,34 +1064,6 @@
    "image": "https://www.scentsational.com/images/products/1786010912-13805300.png",
    "link": "https://www.awin1.com/pclick.php?p=45505647856&a=3117788&m=22373",
    "posted": "2026-10-31T17:15+00:00"
-  },
-  {
-   "number": 102,
-   "id": "awin:46424957242",
-   "title": "Azzaro Sport 100ml Eau de Toilette Spray",
-   "category": "Beauty & Fragrance",
-   "store": "Scentsational",
-   "now": 23.95,
-   "was": 70.0,
-   "ref": "RRP",
-   "discount": 66,
-   "image": "https://www.scentsational.com/images/products/1787659290-95822700.png",
-   "link": "https://www.awin1.com/pclick.php?p=46424957242&a=3117788&m=22373",
-   "posted": "2026-10-31T12:16+00:00"
-  },
-  {
-   "number": 101,
-   "id": "awin:44509006065",
-   "title": "Calvin Klein Obsession For Men - 75ml Eau De Toilette Spray",
-   "category": "Gifts for Him",
-   "store": "Scentsational",
-   "now": 16.99,
-   "was": 60.0,
-   "ref": "RRP",
-   "discount": 72,
-   "image": "https://www.scentsational.com/images/products/1776337214-58616200.png",
-   "link": "https://www.awin1.com/pclick.php?p=44509006065&a=3117788&m=22373",
-   "posted": "2026-10-31T08:27+00:00"
   }
  ]
 }
