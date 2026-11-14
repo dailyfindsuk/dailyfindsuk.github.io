@@ -1,6 +1,34 @@
 {
- "next_number": 179,
+ "next_number": 181,
  "deals": [
+  {
+   "number": 180,
+   "id": "awin:25867657469",
+   "title": "Baker Ross Decorative Corrugated Borders Value Pack (Box of 6 Rolls) Classroom Supplies, Border Size 15m x 5.5cm, 6 Assorted Colours",
+   "category": "Baby & Kids",
+   "store": "Baker Ross",
+   "now": 19.99,
+   "was": 19.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.bakerross.co.uk%2Fmedia%2Fcatalog%2Fproduct%2Fd%2Fe%2Fdecorative-corrugated-borders-value-pack-ek544.jpg&feedId=40405&k=cebb21e56cdc0e26e5b5516a364d7073021c8f8d",
+   "link": "https://www.awin1.com/pclick.php?p=25867657469&a=3117788&m=1902",
+   "posted": "2026-11-14T18:44+00:00"
+  },
+  {
+   "number": 179,
+   "id": "awin:42931846954",
+   "title": "Bric's 76cm Spinner Suitcase - Amalfi - Black",
+   "category": "Camping & Travel",
+   "store": "Case Luggage",
+   "now": 260.0,
+   "was": 520.0,
+   "ref": "RRP",
+   "discount": 50,
+   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Acdn.shopify.com%2Fs%2Ffiles%2F1%2F0925%2F7615%2F3981%2Ffiles%2Fbric-s-76cm-spinner-suitcase-amalfi-basic-blue-751551-8016623103679-67084679151997.jpg%3Fv%3D1775634575&feedId=110976&k=26c2cb132598ca4de965e25a45f2c85b20edfd92",
+   "link": "https://www.awin1.com/pclick.php?p=42931846954&a=3117788&m=121020",
+   "posted": "2026-11-14T18:44+00:00"
+  },
   {
    "number": 178,
    "id": "awin:46480089701",
@@ -1050,20 +1078,6 @@
    "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2025/10/BraZen-Valor-Mid-Back-PC-Gaming-Chair.webp",
    "link": "https://www.awin1.com/pclick.php?p=44191203433&a=3117788&m=24882",
    "posted": "2026-10-31T20:15+00:00"
-  },
-  {
-   "number": 103,
-   "id": "awin:45505647856",
-   "title": "Surrati Mini Collection 1 -5X10ml EDP-S Gift Set",
-   "category": "Christmas Gift Ideas",
-   "store": "Scentsational",
-   "now": 17.5,
-   "was": 24.99,
-   "ref": "RRP",
-   "discount": 30,
-   "image": "https://www.scentsational.com/images/products/1786010912-13805300.png",
-   "link": "https://www.awin1.com/pclick.php?p=45505647856&a=3117788&m=22373",
-   "posted": "2026-10-31T17:15+00:00"
   }
  ]
 }
