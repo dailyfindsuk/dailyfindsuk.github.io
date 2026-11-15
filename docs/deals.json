@@ -1,6 +1,34 @@
 {
- "next_number": 199,
+ "next_number": 201,
  "deals": [
+  {
+   "number": 200,
+   "id": "awin:46157669464",
+   "title": "Bric's 78cm Expandable Large Spinner Suitcase - Nausicaa - Black",
+   "category": "Camping & Travel",
+   "store": "Case Luggage",
+   "now": 164.99,
+   "was": 330.0,
+   "ref": "RRP",
+   "discount": 50,
+   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/Brics_BNA06377_black_m.jpg?v=1784025510",
+   "link": "https://www.awin1.com/pclick.php?p=46157669464&a=3117788&m=121020",
+   "posted": "2026-11-15T22:55+00:00"
+  },
+  {
+   "number": 199,
+   "id": "awin:44191203515",
+   "title": "Cherry XTRFY GP6 Hydrus Red Mouse Pad",
+   "category": "Gaming",
+   "store": "Stormforce Gaming",
+   "now": 12.49,
+   "was": 24.99,
+   "ref": "RRP",
+   "discount": 50,
+   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/03/1910-4051-1.png",
+   "link": "https://www.awin1.com/pclick.php?p=44191203515&a=3117788&m=24882",
+   "posted": "2026-11-15T22:55+00:00"
+  },
   {
    "number": 198,
    "id": "awin:g56634500120960",
@@ -1260,20 +1288,6 @@
    "image": "https://www.scentsational.com/images/products/1777370946-55295000.png",
    "link": "https://www.awin1.com/pclick.php?p=42538052702&a=3117788&m=22373",
    "posted": "2026-11-02T08:45+00:00"
-  },
-  {
-   "number": 108,
-   "id": "awin:46381318120",
-   "title": "TIGI Bed Head For Men Clean Up Peppermint Conditioner 750ml",
-   "category": "Gifts for Him",
-   "store": "Scentsational",
-   "now": 12.95,
-   "was": 26.0,
-   "ref": "RRP",
-   "discount": 50,
-   "image": "https://www.scentsational.com/images/products/1694169620-62855000.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=46381318120&a=3117788&m=22373",
-   "posted": "2026-11-01T20:15+00:00"
   }
  ]
 }
