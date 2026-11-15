@@ -1,6 +1,34 @@
 {
- "next_number": 187,
+ "next_number": 189,
  "deals": [
+  {
+   "number": 188,
+   "id": "awin:44191203509",
+   "title": "Cherry XTRFY M64 Wireless Black Gaming Mouse",
+   "category": "Gaming",
+   "store": "Stormforce Gaming",
+   "now": 19.99,
+   "was": 39.99,
+   "ref": "RRP",
+   "discount": 50,
+   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/03/1915-5024-1.png",
+   "link": "https://www.awin1.com/pclick.php?p=44191203509&a=3117788&m=24882",
+   "posted": "2026-11-15T11:47+00:00"
+  },
+  {
+   "number": 187,
+   "id": "awin:g43575063478427",
+   "title": "Yankee Candle Christmas Cookie",
+   "category": "Christmas Gift Ideas",
+   "store": "Candles Direct",
+   "now": 19.99,
+   "was": 19.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0444/8429/6859/files/Christmas-Cookie-Medium-Jar-2236266.jpg?v=1777370507",
+   "link": "https://www.awin1.com/cread.php?awinmid=13560&awinaffid=3117788&ued=https%3A%2F%2Fcandlesdirect.com%2Fproducts%2Fyankee-candle-christmas-cookie-signature-medium-jar-candle-1630010e%3Fvariant%3D43575063478427",
+   "posted": "2026-11-15T11:47+00:00"
+  },
   {
    "number": 186,
    "id": "awin:44773191017",
@@ -1134,20 +1162,6 @@
    "image": "https://www.scentsational.com/images/products/1664453294-05289600.jpg",
    "link": "https://www.awin1.com/pclick.php?p=38847034504&a=3117788&m=22373",
    "posted": "2026-11-01T12:16+00:00"
-  },
-  {
-   "number": 105,
-   "id": "awin:42931845919",
-   "title": "Sara Miller Vanity Case - Black Bamboo",
-   "category": "Camping & Travel",
-   "store": "Case Luggage",
-   "now": 34.0,
-   "was": 85.0,
-   "ref": "RRP",
-   "discount": 60,
-   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-vanity-case-black-bamboo-black-bamboo-798655-5060388015992-67086092271997.jpg?v=1775638645",
-   "link": "https://www.awin1.com/pclick.php?p=42931845919&a=3117788&m=121020",
-   "posted": "2026-11-01T08:29+00:00"
   }
  ]
 }
