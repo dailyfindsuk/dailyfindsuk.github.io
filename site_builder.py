@@ -26,6 +26,14 @@ CONTACT = "dailyfindsukme21@gmail.com"
 PINTEREST = "https://www.pinterest.com/dailyfinds_uk"
 YOUTUBE = "https://www.youtube.com/@dailyfindsukdeals"
 INSTAGRAM = "https://www.instagram.com/dailyfinds.ukdeals"
+AMAZON_TAG = "dailyfind039f-21"
+
+
+def amazon_link():
+    """Amazon's Black Friday page in November, its everyday deals page the rest of the year."""
+    import datetime
+    page = "blackfriday" if datetime.date.today().month == 11 else "deals"
+    return f"https://www.amazon.co.uk/{page}?tag={AMAZON_TAG}"
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
@@ -61,6 +69,8 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;g
 nav.links{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px 16px;font-weight:600;font-size:15px}
 nav.links a{color:var(--muted);text-decoration:none}
 nav.links a:hover,nav.links a:focus-visible{color:var(--fg)}
+nav.links a.amz{background:#ff9900;color:#111;padding:2px 12px;border-radius:999px}
+nav.links a.amz:hover{background:#ffad33;color:#111}
 .hero{padding-block:28px 8px;display:grid;gap:8px}
 .hero h1{font:800 clamp(30px,6vw,46px)/1.05 var(--display);margin:0;letter-spacing:-.02em;text-wrap:balance}
 .hero p{margin:0;color:var(--muted);max-width:60ch}
@@ -120,7 +130,9 @@ def head(title, desc):
             f'<a href="{YOUTUBE}" rel="noopener" target="_blank">YouTube</a>'
             f'<a href="{INSTAGRAM}" rel="noopener" target="_blank">Instagram</a>'
             f'<a href="{PINTEREST}" rel="noopener" target="_blank">Pinterest</a>'
-            f'<a href="privacy.html">Privacy</a></nav></div></header>')
+            f'<a href="privacy.html">Privacy</a>'
+            f'<a class="amz" href="{amazon_link()}" rel="sponsored noopener" target="_blank">'
+            f'Amazon deals 🔥</a></nav></div></header>')
 
 
 def foot():
