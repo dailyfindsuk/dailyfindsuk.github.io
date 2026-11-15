@@ -1,6 +1,34 @@
 {
- "next_number": 189,
+ "next_number": 191,
  "deals": [
+  {
+   "number": 190,
+   "id": "awin:40224094172",
+   "title": "Playpress Zog Playset: Play the Story",
+   "category": "Baby & Kids",
+   "store": "PlayPress Toys UK",
+   "now": 12.0,
+   "was": 12.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0522/6804/0384/files/044ZogPop-outPlaysetBuiltSet_fedd9510-5278-45c2-8538-15479694948b.jpg?v=1717446105",
+   "link": "https://www.awin1.com/pclick.php?p=40224094172&a=3117788&m=101445",
+   "posted": "2026-11-15T14:59+00:00"
+  },
+  {
+   "number": 189,
+   "id": "awin:42931845320",
+   "title": "Sara Miller Half Moon Crossbody Bag - Midnight Leopard",
+   "category": "Camping & Travel",
+   "store": "Case Luggage",
+   "now": 35.6,
+   "was": 89.0,
+   "ref": "RRP",
+   "discount": 60,
+   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-half-moon-crossbody-bag-leopard-midnight-leopard-798419-5060388016234-67086136639869.jpg?v=1775637542",
+   "link": "https://www.awin1.com/pclick.php?p=42931845320&a=3117788&m=121020",
+   "posted": "2026-11-15T14:59+00:00"
+  },
   {
    "number": 188,
    "id": "awin:44191203509",
@@ -1148,20 +1176,6 @@
    "image": "https://media.bunches.co.uk/products/570x570/h82304-1.jpg",
    "link": "https://www.awin1.com/pclick.php?p=43577705253&a=3117788&m=488",
    "posted": "2026-11-01T17:15+00:00"
-  },
-  {
-   "number": 106,
-   "id": "awin:38847034504",
-   "title": "Diesel D By Diesel For Men - Gift Set With 50ml EDT Spray & 75ml Shower Gel",
-   "category": "Christmas Gift Ideas",
-   "store": "Scentsational",
-   "now": 52.5,
-   "was": 85.0,
-   "ref": "RRP",
-   "discount": 38,
-   "image": "https://www.scentsational.com/images/products/1664453294-05289600.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=38847034504&a=3117788&m=22373",
-   "posted": "2026-11-01T12:16+00:00"
   }
  ]
 }
