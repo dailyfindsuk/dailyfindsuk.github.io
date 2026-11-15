@@ -18,6 +18,10 @@ on:
         description: "Dry run (find deals, post nothing)"
         type: boolean
         default: false
+      scheduled:
+        description: "Timed run from cron-job.org (skips if a post went out recently)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write      # needed to save state/posted.json back to the repo
@@ -57,6 +61,7 @@ jobs:
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          BOT_SCHEDULED: ${{ inputs.scheduled }}
         run: python dealbot.py ${{ inputs.dry_run && '--dry-run' || '' }}
       - name: Save list of posted items
         run: |
