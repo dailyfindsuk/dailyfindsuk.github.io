@@ -1,6 +1,34 @@
 {
- "next_number": 195,
+ "next_number": 197,
  "deals": [
+  {
+   "number": 196,
+   "id": "awin:41268595693",
+   "title": "Avant Skincare Ultra-Calming Cica Eye Rejuvenating Pads | Packaging: Essential Pack",
+   "category": "Beauty & Fragrance",
+   "store": "Avant Skincare",
+   "now": 34.0,
+   "was": 59.0,
+   "ref": "was",
+   "discount": 42,
+   "image": "https://cdn.shopify.com/s/files/1/0916/1755/8869/files/AV188-_2.jpg?v=1757925707",
+   "link": "https://www.awin1.com/pclick.php?p=41268595693&a=3117788&m=19244",
+   "posted": "2026-11-15T15:24+00:00"
+  },
+  {
+   "number": 195,
+   "id": "awin:g43720080097431",
+   "title": "Paco Rabanne Phantom Gift Set Eau de Toilette 100ml + Eau de Toilette 20ml",
+   "category": "Christmas Gift Ideas",
+   "store": "The Beauty Store UK",
+   "now": 77.3,
+   "was": 77.3,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0054/6996/2304/files/10045515.jpg?v=1709504909",
+   "link": "https://www.awin1.com/cread.php?awinmid=116255&awinaffid=3117788&ued=https%3A%2F%2Fthebeautystore.com%2Fproducts%2Fpaco-rabanne-phantom-gift-set-eau-de-toilette-100ml-eau-de-toilette-20ml%3Fvariant%3D43720080097431",
+   "posted": "2026-11-15T15:24+00:00"
+  },
   {
    "number": 194,
    "id": "awin:42931845252",
