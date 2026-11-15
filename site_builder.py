@@ -126,7 +126,8 @@ def head(title, desc):
 def foot():
     year = datetime.date.today().year
     return (f'<footer><div class="wrap"><span>&copy; {year} {SITE_NAME}. '
-            f'We may earn a commission from links on this site, at no extra cost to you.</span>'
+            f'We may earn a commission from links on this site, at no extra cost to you. '
+            f'As an Amazon Associate we earn from qualifying purchases.</span>'
             f'<span><a href="{YOUTUBE}" rel="noopener" target="_blank">YouTube</a> · '
             f'<a href="{INSTAGRAM}" rel="noopener" target="_blank">Instagram</a> · '
             f'<a href="{PINTEREST}" rel="noopener" target="_blank">Pinterest</a> · '
@@ -277,7 +278,8 @@ in short videos on <a href="{INSTAGRAM}" target="_blank" rel="noopener">Instagra
 <a href="{YOUTUBE}" target="_blank" rel="noopener">YouTube</a>, and on this website.</p></section>
 <section><h2>How we make money</h2>
 <p>Links to shops are affiliate links. If you buy something after clicking one, the shop pays us a small
-commission. You pay the same price. We are a member of the eBay Partner Network and the Awin network.</p></section>
+commission. You pay the same price. We are a member of the eBay Partner Network, the Awin network and the Amazon Associates Programme.
+As an Amazon Associate we earn from qualifying purchases.</p></section>
 <section><h2>Prices</h2>
 <p>Prices and stock change quickly. Every deal was correct when we posted it, but please check the price
 on the shop's page before you buy.</p></section>
@@ -333,7 +335,7 @@ your contract is with the shop, and the shop's own terms, delivery and returns p
 shop's page before you buy. Reference prices are shown as "RRP" (the recommended retail price given by the shop)
 or "was" (the shop's own previous price).</p></section>
 <section><h2>Affiliate links</h2>
-<p>Links to shops are affiliate links through the eBay Partner Network and Awin. If you buy after clicking one,
+<p>Links to shops are affiliate links through the eBay Partner Network, Awin and Amazon Associates. If you buy after clicking one,
 we may earn a commission at no extra cost to you. Posts that contain affiliate links are marked #ad.</p></section>
 <section><h2>YouTube</h2>
 <p>Our videos are published on YouTube using YouTube API Services. By watching them you also agree to the
