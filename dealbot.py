@@ -1097,11 +1097,12 @@ def instagram_caption(deal):
 
 
 def post_videos(deal):
-    """One video per run, shared as a YouTube Short and an Instagram Reel.
+    """One video per run, shared as a YouTube Short, an Instagram Reel and a TikTok.
     Each is skipped quietly when not connected; failures never stop the pins."""
     yt = bool(os.environ.get("YT_REFRESH_TOKEN"))
     ig = bool(os.environ.get("IG_ACCESS_TOKEN"))
-    if not (yt or ig):
+    tt = bool(os.environ.get("TIKTOK_REFRESH_TOKEN"))
+    if not (yt or ig or tt):
         return
     try:
         import video_maker
@@ -1125,6 +1126,12 @@ def post_videos(deal):
                   + (f" (token good for {days} days)" if days else ""))
         except Exception as e:
             print(f"Instagram Reel skipped: {e}")
+    if tt:
+        try:
+            import tiktok
+            print(f"Posted TikTok {tiktok.post_video(path, instagram_caption(deal))}")
+        except Exception as e:
+            print(f"TikTok skipped: {e}")
 
 
 def cmd_demo(cfg):

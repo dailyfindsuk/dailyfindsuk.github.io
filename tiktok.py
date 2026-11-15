@@ -51,7 +51,8 @@ def _token_request(fields):
                             "client_secret": dealbot.env("TIKTOK_CLIENT_SECRET"), **fields})
     data = r.json() if r.content else {}
     if r.status_code != 200 or "access_token" not in data:
-        raise RuntimeError(f"TikTok login failed ({r.status_code}): {r.text[:400]}")
+        why = data.get("error_description") or data.get("error") or r.text[:300]
+        raise RuntimeError(f"TikTok login failed: {why}")
     return data
 
 
@@ -121,12 +122,19 @@ def post_video(path, caption):
 
 
 def cmd_connect():
+    print("Copy these from the TikTok developer page (Sandbox > Credentials).")
     for key, label in (("TIKTOK_CLIENT_KEY", "Client key"), ("TIKTOK_CLIENT_SECRET", "Client secret")):
-        if not dealbot.env(key, required=False):
-            val = input(f"Paste your TikTok app's {label}: ").strip()
-            if not val:
-                sys.exit("Nothing pasted, stopping.")
+        saved = dealbot.env(key, required=False)
+        hint = " (or press Enter to keep the saved one)" if saved else ""
+        val = input(f"Paste the {label}{hint}: ").strip()
+        if not val and not saved:
+            sys.exit("Nothing pasted, stopping.")
+        if val:
             dealbot.save_env_value(key, val)
+    if dealbot.env("TIKTOK_CLIENT_KEY") == dealbot.env("TIKTOK_CLIENT_SECRET"):
+        dealbot.save_env_value("TIKTOK_CLIENT_SECRET", "")
+        sys.exit("The Client secret is the same as the Client key - it looks like the key was "
+                 "pasted twice. Run tiktok.bat again and paste the Client secret (the second, longer one).")
     state = secrets.token_urlsafe(16)
     url = AUTH_URL + "?" + urllib.parse.urlencode({
         "client_key": dealbot.env("TIKTOK_CLIENT_KEY"), "scope": SCOPES,
