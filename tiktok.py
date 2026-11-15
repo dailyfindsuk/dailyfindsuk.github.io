@@ -85,8 +85,10 @@ def post_video(path, caption):
     if privacy not in options:
         privacy = "SELF_ONLY" if "SELF_ONLY" in options else options[0]
     size = path.stat().st_size
-    if size > 60 * 1024 * 1024:
-        raise RuntimeError("video is over 60 MB; TikTok single-part upload limit")
+    # TikTok wants pieces ("chunks") of 5-64 MB; a video under 10 MB goes in one piece.
+    # The last piece also carries the leftover bytes.
+    chunk = size if size <= 10 * 1024 * 1024 else 10 * 1024 * 1024
+    count = max(1, size // chunk)
     body = {
         "post_info": {
             "title": caption[:2200],
@@ -98,15 +100,28 @@ def post_video(path, caption):
             "brand_organic_toggle": True,          # promoting our own deals business
         },
         "source_info": {"source": "FILE_UPLOAD", "video_size": size,
-                        "chunk_size": size, "total_chunk_count": 1},
+                        "chunk_size": chunk, "total_chunk_count": count},
     }
     r = requests.post(f"{API}/post/publish/video/init/", headers=_headers(tok), json=body, timeout=30)
     data = _check(r, "upload start")["data"]
-    up = requests.put(data["upload_url"], data=path.read_bytes(), timeout=300, headers={
-        "Content-Type": "video/mp4", "Content-Length": str(size),
-        "Content-Range": f"bytes 0-{size - 1}/{size}"})
-    if up.status_code not in (200, 201):
-        raise RuntimeError(f"TikTok video upload failed ({up.status_code}): {up.text[:300]}")
+    blob = path.read_bytes()
+    for i in range(count):
+        start = i * chunk
+        end = size - 1 if i == count - 1 else start + chunk - 1
+        for attempt in range(1, 4):                 # TikTok's upload server sometimes hiccups
+            try:
+                up = requests.put(data["upload_url"], data=blob[start:end + 1], timeout=300,
+                                  headers={"Content-Type": "video/mp4",
+                                           "Content-Range": f"bytes {start}-{end}/{size}"})
+                if up.status_code in (200, 201, 206):
+                    break
+                problem = f"{up.status_code}: {' '.join(up.text.split())[:200]}"
+            except requests.RequestException as e:
+                problem = str(e)[:200]
+            if attempt == 3:
+                raise RuntimeError(f"TikTok video upload failed (part {i + 1} of {count}, {problem}); "
+                                   f"video was {size / 1048576:.1f} MB")
+            time.sleep(5 * attempt)
     pid = data["publish_id"]
     for _ in range(30):                             # wait up to ~2.5 minutes
         time.sleep(5)
