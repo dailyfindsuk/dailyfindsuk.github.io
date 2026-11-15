@@ -573,11 +573,41 @@ def awin_candidates(cat, rules, posted):
             deals.append(d)
     deals = drop_fake_rrp_shops(deals, cat["name"])
     print(f"[{cat['name']}] Awin: {len(rows)} products checked, {len(deals)} deals")
-    # Shuffle the top deals so posts vary between retailers and runs.
-    deals.sort(key=lambda d: d["discount"], reverse=True)
-    top = deals[:30]
-    random.shuffle(top)
-    return top
+    return mix_shops(deals)
+
+
+def recent_shop_counts(last=40):
+    """How many of the last 40 website deals came from each shop."""
+    try:
+        data = json.loads(site_builder.DEALS_FILE.read_text(encoding="utf-8"))
+        data = data if isinstance(data, list) else data.get("deals", [])
+        data.sort(key=lambda d: d.get("number", 0), reverse=True)
+        return collections.Counter((d.get("store") or "").lower() for d in data[:last])
+    except Exception:
+        return collections.Counter()
+
+
+def mix_shops(deals, per_shop=5):
+    """Give every shop a fair turn. Each shop offers its best few deals, and the shop
+    posted least recently goes first, so one big shop (e.g. a perfume store with
+    huge RRP discounts) can't take every slot."""
+    by_shop = collections.defaultdict(list)
+    for d in deals:
+        by_shop[d["store"]].append(d)
+    recent = recent_shop_counts()
+    shops = list(by_shop)
+    random.shuffle(shops)
+    shops.sort(key=lambda s: recent[s.lower()])        # least-posted shops first
+    picks = []
+    for s in shops:
+        items = sorted(by_shop[s], key=lambda d: d["discount"], reverse=True)[:per_shop * 3]
+        random.shuffle(items)
+        items.sort(key=lambda d: d["discount"] >= 40, reverse=True)  # big discounts first
+        picks.append(items[:per_shop])
+    out = []
+    for i in range(per_shop):                           # one from each shop in turn
+        out.extend(p[i] for p in picks if i < len(p))
+    return out[:40]
 
 
 # ---------- deal selection ----------

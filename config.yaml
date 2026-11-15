@@ -65,7 +65,7 @@ categories:
     hashtags: "#giftideas #gifts #ukdeals"
     gift: true
     min_discount_percent: 20
-    merchants: [puzzleYOU, Bunches, Masters of Mystery, Cadbury, Hobbies, Virginia Hayward, Buy Me Once, Purr and Mutt, Out n About, Equi London, Rose & Caramel, Tusting, Michael Kors, Bond Touch, Geek Crate, Craftiosity, Craft Buddy, Candles Direct, Flowers & Plants, Bad Shirt Club, WATCH & WATCH, Watch Enclave, Susan Caplan, Angel Barocco]
+    merchants: [puzzleYOU, Bunches, Masters of Mystery, Cadbury, Hobbies, Virginia Hayward, Buy Me Once, Purr and Mutt, Out n About, Equi London, Rose & Caramel, Tusting, Michael Kors, Bond Touch, Geek Crate, Craftiosity, Craft Buddy, Candles Direct, Flowers & Plants, Bad Shirt Club, WATCH & WATCH, Watch Enclave, Susan Caplan, Angel Barocco, Mococo]
     # Gift shops often have no sale on. Gift boards may post a full-price gift,
     # worded as "🎁 Gift idea under £35: ..." with no discount claimed.
     full_price_ok: true
