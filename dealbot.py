@@ -979,8 +979,12 @@ MIN_GAP_HOURS = 2.75
 
 
 def too_soon(state):
-    if os.environ.get("GITHUB_EVENT_NAME") != "schedule":
-        return False   # manual runs and local runs always post
+    # Timed runs (GitHub's schedule, or cron-job.org which sets BOT_SCHEDULED) skip
+    # if a post went out recently. Runs started by hand always post.
+    timed = (os.environ.get("GITHUB_EVENT_NAME") == "schedule"
+             or os.environ.get("BOT_SCHEDULED", "").lower() == "true")
+    if not timed:
+        return False
     last = state.get("last_post")
     if not last:
         return False
