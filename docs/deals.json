@@ -1,6 +1,34 @@
 {
- "next_number": 203,
+ "next_number": 205,
  "deals": [
+  {
+   "number": 204,
+   "id": "awin:46390527294",
+   "title": "Calvin Klein Eternity For Men - 100ml Eau De Toilette Spray",
+   "category": "Gifts for Him",
+   "store": "Scentsational",
+   "now": 28.5,
+   "was": 79.0,
+   "ref": "RRP",
+   "discount": 64,
+   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.scentsational.com%2Fimages%2Fproducts%2F1678370166-82632300.jpg&feedId=53233&k=858862e8debbc2aca541d83c763fc3040676175a",
+   "link": "https://www.awin1.com/pclick.php?p=46390527294&a=3117788&m=22373",
+   "posted": "2026-11-16T12:16+00:00"
+  },
+  {
+   "number": 203,
+   "id": "awin:g47818869571903",
+   "title": "Michael Kors MK5735 Lexington Chronograph Ladies Watch",
+   "category": "Gift Ideas",
+   "store": "WATCH & WATCH",
+   "now": 159.0,
+   "was": 159.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0812/4465/1839/files/michael-kors-mk5735-lexington-chronograph-ladies-watch-679686.jpg?v=1715933277",
+   "link": "https://www.awin1.com/cread.php?awinmid=78380&awinaffid=3117788&ued=https%3A%2F%2Fwatchandwatch.co.uk%2Fproducts%2Fmichael-kors-mk5735-lexington-chronograph-ladies-watch%3Fvariant%3D47818869571903",
+   "posted": "2026-11-16T12:16+00:00"
+  },
   {
    "number": 202,
    "id": "awin:g55781580865863",
@@ -1302,20 +1330,6 @@
    "image": "https://www.scentsational.com/images/products/1774628701-32657300.png",
    "link": "https://www.awin1.com/pclick.php?p=44331691819&a=3117788&m=22373",
    "posted": "2026-11-02T12:36+00:00"
-  },
-  {
-   "number": 109,
-   "id": "awin:42538052702",
-   "title": "Vera Wang For Women - 100ml Eau De Parfum Spray",
-   "category": "Beauty & Fragrance",
-   "store": "Scentsational",
-   "now": 19.5,
-   "was": 82.0,
-   "ref": "RRP",
-   "discount": 76,
-   "image": "https://www.scentsational.com/images/products/1777370946-55295000.png",
-   "link": "https://www.awin1.com/pclick.php?p=42538052702&a=3117788&m=22373",
-   "posted": "2026-11-02T08:45+00:00"
   }
  ]
 }
