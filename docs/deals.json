@@ -1,6 +1,34 @@
 {
- "next_number": 205,
+ "next_number": 207,
  "deals": [
+  {
+   "number": 206,
+   "id": "awin:g51881664741758",
+   "title": "Craft Buddy \"Christmas Candles\" Crystal Art 3D Scene Kit",
+   "category": "Christmas Gift Ideas",
+   "store": "Craft Buddy Shop",
+   "now": 17.99,
+   "was": 17.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0331/0528/1083/files/Christmas-Candles-Crystal-Art-3D-Scene-Kit-3-399215.jpg?v=1730989428",
+   "link": "https://www.awin1.com/cread.php?awinmid=45747&awinaffid=3117788&ued=https%3A%2F%2Fwww.craftbuddyshop.com%2Fproducts%2Fchristmas-candles-crystal-art-3d-scene-kit%3Fvariant%3D51881664741758",
+   "posted": "2026-11-16T19:35+00:00"
+  },
+  {
+   "number": 205,
+   "id": "awin:28876752865",
+   "title": "Cerruti Image For Women - 50ml Eau De Toilette Spray",
+   "category": "Gifts for Her",
+   "store": "Scentsational",
+   "now": 60.0,
+   "was": 100.0,
+   "ref": "RRP",
+   "discount": 40,
+   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.scentsational.com%2Fimages%2Fproducts%2F1694164117-13270200.jpg&feedId=53233&k=f728238ba809106d7a0d23111caa3ab6847516ef",
+   "link": "https://www.awin1.com/pclick.php?p=28876752865&a=3117788&m=22373",
+   "posted": "2026-11-16T19:35+00:00"
+  },
   {
    "number": 204,
    "id": "awin:46390527294",
@@ -1302,34 +1330,6 @@
    "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2025/03/Hero-Image-Razer-BlackWidow-V4-X-Gaming-Keyboard.webp",
    "link": "https://www.awin1.com/pclick.php?p=44191203426&a=3117788&m=24882",
    "posted": "2026-11-02T20:28+00:00"
-  },
-  {
-   "number": 111,
-   "id": "awin:44364161667",
-   "title": "ELIE SAAB Girl of Now 50ml EDP+10ml gift set",
-   "category": "Christmas Gift Ideas",
-   "store": "Scentsational",
-   "now": 41.6,
-   "was": 70.0,
-   "ref": "RRP",
-   "discount": 41,
-   "image": "https://www.scentsational.com/images/products/1774955814-40260400.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=44364161667&a=3117788&m=22373",
-   "posted": "2026-11-02T17:40+00:00"
-  },
-  {
-   "number": 110,
-   "id": "awin:44331691819",
-   "title": "Revlon Restart Colour Gift Set - Protective Micellar Shampoo 250ml + Balayage Care Cream 150ml",
-   "category": "Christmas Gift Ideas",
-   "store": "Scentsational",
-   "now": 15.0,
-   "was": 35.0,
-   "ref": "RRP",
-   "discount": 57,
-   "image": "https://www.scentsational.com/images/products/1774628701-32657300.png",
-   "link": "https://www.awin1.com/pclick.php?p=44331691819&a=3117788&m=22373",
-   "posted": "2026-11-02T12:36+00:00"
   }
  ]
 }
