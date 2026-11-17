@@ -1,6 +1,34 @@
 {
- "next_number": 219,
+ "next_number": 221,
  "deals": [
+  {
+   "number": 220,
+   "id": "awin:29509817611",
+   "title": "Dairy Milk Winter Edition 100g Christmas Bar (Box of 20)",
+   "category": "Christmas Gift Ideas",
+   "store": "Cadbury Gifts Direct",
+   "now": 39.6,
+   "was": 39.6,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://www.cadburygiftsdirect.co.uk/media/catalog/product/w/i/winter_edition_bar_outer_mob_opt.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=29509817611&a=3117788&m=736",
+   "posted": "2026-11-17T23:40+00:00"
+  },
+  {
+   "number": 219,
+   "id": "awin:44771347151",
+   "title": "Shark PowerPro Cordless Stick Vacuum Cleaner - 60 Minutes Run Time - Navy Metallic",
+   "category": "DIY & Tools",
+   "store": "PRC Direct",
+   "now": 199.99,
+   "was": 269.99,
+   "ref": "RRP",
+   "discount": 26,
+   "image": "https://prcdirect.co.uk/script/showimage.php?sku=30664",
+   "link": "https://www.awin1.com/pclick.php?p=44771347151&a=3117788&m=3631",
+   "posted": "2026-11-17T23:40+00:00"
+  },
   {
    "number": 218,
    "id": "awin:40846894520",
@@ -1372,20 +1400,6 @@
    "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/03/1910-4047.png",
    "link": "https://www.awin1.com/pclick.php?p=44191203505&a=3117788&m=24882",
    "posted": "2026-11-04T01:23+00:00"
-  },
-  {
-   "number": 120,
-   "id": "awin:46535933486",
-   "title": "DKNY Mini Gift Set - 2X Be Delicious 7ml & 2X 24/7 7ml",
-   "category": "Christmas Gift Ideas",
-   "store": "Scentsational",
-   "now": 24.95,
-   "was": 43.99,
-   "ref": "RRP",
-   "discount": 43,
-   "image": "https://www.scentsational.com/images/products/1793443693-45508100.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=46535933486&a=3117788&m=22373",
-   "posted": "2026-11-03T20:29+00:00"
   }
  ]
 }
