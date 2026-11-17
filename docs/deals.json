@@ -1,6 +1,34 @@
 {
- "next_number": 217,
+ "next_number": 219,
  "deals": [
+  {
+   "number": 218,
+   "id": "awin:40846894520",
+   "title": "Avant Skincare Anti-Ageing Starter Set + \u00a340 Digital Gift Card",
+   "category": "Beauty & Fragrance",
+   "store": "Avant Skincare",
+   "now": 40.0,
+   "was": 144.0,
+   "ref": "was",
+   "discount": 72,
+   "image": "https://cdn.shopify.com/s/files/1/0916/1755/8869/files/AVK283-AntiAging-Set-Square-_1-Avant-Skincare-limited_availability.jpg?v=1768496485",
+   "link": "https://www.awin1.com/pclick.php?p=40846894520&a=3117788&m=19244",
+   "posted": "2026-11-17T19:47+00:00"
+  },
+  {
+   "number": 217,
+   "id": "awin:g38031934619803",
+   "title": "Yankee Candle Christmas Eve",
+   "category": "Christmas Gift Ideas",
+   "store": "Candles Direct",
+   "now": 23.99,
+   "was": 23.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0444/8429/6859/products/Yankee-Candle-Christmas-Eve-Large-Jar-Candle-1.jpg?v=1739443195",
+   "link": "https://www.awin1.com/cread.php?awinmid=13560&awinaffid=3117788&ued=https%3A%2F%2Fcandlesdirect.com%2Fproducts%2Fyankee-candle-christmas-eve-large-jar-candle%3Fvariant%3D38031934619803",
+   "posted": "2026-11-17T19:47+00:00"
+  },
   {
    "number": 216,
    "id": "awin:42931845247",
@@ -1358,20 +1386,6 @@
    "image": "https://www.scentsational.com/images/products/1793443693-45508100.jpg",
    "link": "https://www.awin1.com/pclick.php?p=46535933486&a=3117788&m=22373",
    "posted": "2026-11-03T20:29+00:00"
-  },
-  {
-   "number": 119,
-   "id": "awin:46535933484",
-   "title": "Calvin Klein Ckin2u For Her Eau De Toilette Spray 100ml",
-   "category": "Beauty & Fragrance",
-   "store": "Scentsational",
-   "now": 17.5,
-   "was": 47.0,
-   "ref": "RRP",
-   "discount": 63,
-   "image": "https://www.scentsational.com/images/products/1604403069-13776700.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=46535933484&a=3117788&m=22373",
-   "posted": "2026-11-03T17:36+00:00"
   }
  ]
 }
