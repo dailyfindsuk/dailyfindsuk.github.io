@@ -1,6 +1,34 @@
 {
- "next_number": 213,
+ "next_number": 215,
  "deals": [
+  {
+   "number": 214,
+   "id": "awin:g54979234136390",
+   "title": "Emporio Armani Diver AR11338 Men's Watch \u2013 42mm Green Dial Stainless Steel",
+   "category": "Gift Ideas",
+   "store": "Watch Enclave Affiliate Programme",
+   "now": 189.0,
+   "was": 189.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0955/5027/5910/files/emporio-armani-diver-quartz-mens-watch-ar11338-7853514.webp?v=1779098522",
+   "link": "https://www.awin1.com/cread.php?awinmid=122382&awinaffid=3117788&ued=https%3A%2F%2Fwatchenclave.co.uk%2Fproducts%2Femporio-armani-ar11338%3Fvariant%3D54979234136390",
+   "posted": "2026-11-17T11:47+00:00"
+  },
+  {
+   "number": 213,
+   "id": "awin:g43215183151275",
+   "title": "ChloBo Silver Personalised Didi Heart Bracelet",
+   "category": "Christmas Gift Ideas",
+   "store": "Mococo Jewellery",
+   "now": 83.3,
+   "was": 83.3,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0540/7234/4747/files/chlobo-silver-personalised-didi-heart-braceletchlobomococo-577423.png?v=1746194314",
+   "link": "https://www.awin1.com/cread.php?awinmid=87549&awinaffid=3117788&ued=https%3A%2F%2Fwww.mococo.co.uk%2Fproducts%2Fchlobo-silver-personalised-didi-heart-bracelet-1%3Fvariant%3D43215183151275",
+   "posted": "2026-11-17T11:47+00:00"
+  },
   {
    "number": 212,
    "id": "awin:40224094153",
@@ -1330,20 +1358,6 @@
    "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-small-zip-around-purse-keyring-gift-set-humming-bird-chelsea-pink-798549-5060388015947-67084728107389.jpg?v=1775635503",
    "link": "https://www.awin1.com/pclick.php?p=42931845983&a=3117788&m=121020",
    "posted": "2026-11-03T12:36+00:00"
-  },
-  {
-   "number": 117,
-   "id": "awin:42931845920",
-   "title": "Sara Miller Vanity Case - Pink Heron",
-   "category": "Gifts for Her",
-   "store": "Case Luggage",
-   "now": 42.5,
-   "was": 85.0,
-   "ref": "RRP",
-   "discount": 50,
-   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-vanity-case-pink-heron-pink-heron-798662-5060388016005-67086091977085.jpg?v=1775638649",
-   "link": "https://www.awin1.com/pclick.php?p=42931845920&a=3117788&m=121020",
-   "posted": "2026-11-03T08:39+00:00"
   }
  ]
 }
