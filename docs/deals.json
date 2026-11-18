@@ -1,6 +1,34 @@
 {
- "next_number": 225,
+ "next_number": 227,
  "deals": [
+  {
+   "number": 226,
+   "id": "awin:44208776944",
+   "title": "Calvin Klein Euphoria For Men - 100ml Eau De Toilette Spray",
+   "category": "Gifts for Him",
+   "store": "Scentsational",
+   "now": 32.5,
+   "was": 78.0,
+   "ref": "RRP",
+   "discount": 58,
+   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.scentsational.com%2Fimages%2Fproducts%2F1752239450-07610400.jpg&feedId=53233&k=6f9cd0d43b3189d5e67590beb4be60bdf7ffd07e",
+   "link": "https://www.awin1.com/pclick.php?p=44208776944&a=3117788&m=22373",
+   "posted": "2026-11-18T11:47+00:00"
+  },
+  {
+   "number": 225,
+   "id": "awin:44746785851",
+   "title": "Angel Barocco Gold Natural Pearl Bracelet",
+   "category": "Gift Ideas",
+   "store": "Angel Barocco",
+   "now": 156.0,
+   "was": 156.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0659/8642/9155/files/Gold_Natural_Pearl_Bracelet.webp?v=1769818002",
+   "link": "https://www.awin1.com/pclick.php?p=44746785851&a=3117788&m=70252",
+   "posted": "2026-11-18T11:47+00:00"
+  },
   {
    "number": 224,
    "id": "awin:44536294967",
@@ -1428,20 +1456,6 @@
    "image": "https://bgstatic.net/photos/193257_ml.jpg",
    "link": "https://www.awin1.com/pclick.php?p=42761661365&a=3117788&m=6561",
    "posted": "2026-11-04T12:29+00:00"
-  },
-  {
-   "number": 122,
-   "id": "awin:46157669463",
-   "title": "Bric's 70cm Expandable Medium Spinner Suitcase - Nausicaa - Black",
-   "category": "Camping & Travel",
-   "store": "Case Luggage",
-   "now": 149.49,
-   "was": 299.0,
-   "ref": "RRP",
-   "discount": 50,
-   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/Brics_BNA06376_black_m.jpg?v=1784025822",
-   "link": "https://www.awin1.com/pclick.php?p=46157669463&a=3117788&m=121020",
-   "posted": "2026-11-04T08:40+00:00"
   }
  ]
 }
