@@ -1,6 +1,34 @@
 {
- "next_number": 237,
+ "next_number": 239,
  "deals": [
+  {
+   "number": 238,
+   "id": "awin:44544117313",
+   "title": "Calvin Klein Eternity Flame For Men - 100ml Eau De Toilette Spray",
+   "category": "Gifts for Him",
+   "store": "Scentsational",
+   "now": 18.5,
+   "was": 59.0,
+   "ref": "RRP",
+   "discount": 69,
+   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.scentsational.com%2Fimages%2Fproducts%2F1752239317-31076700.jpg&feedId=53233&k=4d22fdcb094f3b551bb89b59011f74174ba1cda1",
+   "link": "https://www.awin1.com/pclick.php?p=44544117313&a=3117788&m=22373",
+   "posted": "2026-11-19T11:47+00:00"
+  },
+  {
+   "number": 237,
+   "id": "awin:g46710988675",
+   "title": "1960s Vintage Monet Cordelia Brooch",
+   "category": "Gift Ideas",
+   "store": "Susan Caplan",
+   "now": 195.0,
+   "was": 195.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/1011/7126/files/WPN000121-2.jpg?v=1719585578",
+   "link": "https://www.awin1.com/cread.php?awinmid=128663&awinaffid=3117788&ued=https%3A%2F%2Fsusancaplan.co.uk%2Fproducts%2F1960s-vintage-monet-starburst-brooch%3Fvariant%3D46710988675",
+   "posted": "2026-11-19T11:47+00:00"
+  },
   {
    "number": 236,
    "id": "awin:43308851085",
@@ -1526,20 +1554,6 @@
    "image": "https://bgstatic.net/photos/170864_ml.jpg",
    "link": "https://www.awin1.com/pclick.php?p=44908122783&a=3117788&m=6561",
    "posted": "2026-11-05T12:40+00:00"
-  },
-  {
-   "number": 127,
-   "id": "awin:46527222816",
-   "title": "Davidoff Cool Water For Women - 50ml Eau De Toilette Spray",
-   "category": "Gifts for Her",
-   "store": "Scentsational",
-   "now": 12.5,
-   "was": 49.0,
-   "ref": "RRP",
-   "discount": 74,
-   "image": "https://www.scentsational.com/images/products/1603895251-77798400.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=46527222816&a=3117788&m=22373",
-   "posted": "2026-11-05T08:41+00:00"
   }
  ]
 }
