@@ -1,6 +1,34 @@
 {
- "next_number": 233,
+ "next_number": 235,
  "deals": [
+  {
+   "number": 234,
+   "id": "awin:42931847145",
+   "title": "Joules Cabin Trolley Spinner Suitcase - Resort Stripe",
+   "category": "Camping & Travel",
+   "store": "Case Luggage",
+   "now": 67.6,
+   "was": 169.0,
+   "ref": "RRP",
+   "discount": 60,
+   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/joules-cabin-trolley-spinner-suitcase-resort-stripe-resort-stripe-814751-5060388017118-67087032287613.jpg?v=1775632382",
+   "link": "https://www.awin1.com/pclick.php?p=42931847145&a=3117788&m=121020",
+   "posted": "2026-11-19T02:38+00:00"
+  },
+  {
+   "number": 233,
+   "id": "awin:44191203394",
+   "title": "SureFire Eagle Claw Gaming Mouse",
+   "category": "Gaming",
+   "store": "Stormforce Gaming",
+   "now": 14.99,
+   "was": 27.99,
+   "ref": "RRP",
+   "discount": 46,
+   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2024/03/Hero-Image-SureFire-Eagle-Claw-Gaming-Mouse-2.webp",
+   "link": "https://www.awin1.com/pclick.php?p=44191203394&a=3117788&m=24882",
+   "posted": "2026-11-19T02:38+00:00"
+  },
   {
    "number": 232,
    "id": "awin:g43086110326955",
@@ -1484,20 +1512,6 @@
    "image": "https://www.scentsational.com/images/products/1603895251-77798400.jpg",
    "link": "https://www.awin1.com/pclick.php?p=46527222816&a=3117788&m=22373",
    "posted": "2026-11-05T08:41+00:00"
-  },
-  {
-   "number": 126,
-   "id": "awin:35248709933",
-   "title": "Issey Miyake L'Eau d'Issey Pour Homme Sport Eau De Toilette 100ml Spray",
-   "category": "Gifts for Him",
-   "store": "Perfume Click",
-   "now": 23.7,
-   "was": 82.0,
-   "ref": "RRP",
-   "discount": 71,
-   "image": "https://bgstatic.net/photos/67902_ml.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=35248709933&a=3117788&m=6561",
-   "posted": "2026-11-05T00:40+00:00"
   }
  ]
 }
