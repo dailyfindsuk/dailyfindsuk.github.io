@@ -1,6 +1,34 @@
 {
- "next_number": 235,
+ "next_number": 237,
  "deals": [
+  {
+   "number": 236,
+   "id": "awin:43308851085",
+   "title": "Flowers & Plants Co Christmas Cracker",
+   "category": "Christmas Gift Ideas",
+   "store": "Flowers & Plants Co.",
+   "now": 54.99,
+   "was": 54.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0692/8128/4406/files/christmas-cracker-1752930.jpg?v=1775817013",
+   "link": "https://www.awin1.com/pclick.php?p=43308851085&a=3117788&m=20856",
+   "posted": "2026-11-19T07:47+00:00"
+  },
+  {
+   "number": 235,
+   "id": "awin:41161889640",
+   "title": "Baker Ross Acrylic Paints Bumper Pack 150ml (Pack of 12) Art Supplies, Art Materials 12 colours - Red, Yellow, Royal Blue, Green, White, Black, Orange, Purple, Lemon, Pink, Light Blue & Brown",
+   "category": "Baby & Kids",
+   "store": "Baker Ross",
+   "now": 14.95,
+   "was": 14.95,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://www.bakerross.co.uk/media/catalog/product/f/e/fe9554-a_2.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=41161889640&a=3117788&m=1902",
+   "posted": "2026-11-19T07:47+00:00"
+  },
   {
    "number": 234,
    "id": "awin:42931847145",
