@@ -1,6 +1,34 @@
 {
- "next_number": 243,
+ "next_number": 245,
  "deals": [
+  {
+   "number": 244,
+   "id": "awin:42931847163",
+   "title": "Sara Miller Phone Pouch - Black Botanic",
+   "category": "Camping & Travel",
+   "store": "Case Luggage",
+   "now": 16.0,
+   "was": 40.0,
+   "ref": "RRP",
+   "discount": 60,
+   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-phone-pouch-black-botanic-black-botanic-813716-5060388017002-67087062106493.jpg?v=1775638592",
+   "link": "https://www.awin1.com/pclick.php?p=42931847163&a=3117788&m=121020",
+   "posted": "2026-11-19T23:16+00:00"
+  },
+  {
+   "number": 243,
+   "id": "awin:g55781579915591",
+   "title": "Bad Shirt Club You Should See the Size of My Sack! Funny Christmas Jumper - Purple / M",
+   "category": "Christmas Gift Ideas",
+   "store": "Bad Shirt Club",
+   "now": 29.99,
+   "was": 29.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0900/7084/3719/files/you-should-see-the-size-of-my-sack-funny-christmas-jumper-purple.jpg?v=1794506132",
+   "link": "https://www.awin1.com/cread.php?awinmid=66586&awinaffid=3117788&ued=https%3A%2F%2Fbadshirt.club%2Fproducts%2Fyou-should-see-the-size-of-my-sack-funny-christmas-jumper%3Fvariant%3D55781579915591",
+   "posted": "2026-11-19T23:16+00:00"
+  },
   {
    "number": 242,
    "id": "awin:39112684146",
@@ -1582,20 +1610,6 @@
    "image": "https://bgstatic.net/photos/193375_ml.jpg",
    "link": "https://www.awin1.com/pclick.php?p=45887838344&a=3117788&m=6561",
    "posted": "2026-11-06T08:39+00:00"
-  },
-  {
-   "number": 129,
-   "id": "awin:36375336681",
-   "title": "Skin Chemists Advanced Anti-Ageing Epidermal Growth Factor Cell Regrowth Mask 50ml",
-   "category": "Beauty & Fragrance",
-   "store": "Perfume Click",
-   "now": 14.95,
-   "was": 89.0,
-   "ref": "RRP",
-   "discount": 83,
-   "image": "https://bgstatic.net/photos/169312_ml.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=36375336681&a=3117788&m=6561",
-   "posted": "2026-11-05T20:30+00:00"
   }
  ]
 }
