@@ -1,6 +1,34 @@
 {
- "next_number": 239,
+ "next_number": 241,
  "deals": [
+  {
+   "number": 240,
+   "id": "awin:g43720082325655",
+   "title": "Issey Miyake L'Eau d'Issey Pour Homme V\u00e9tiver 3 Piece Gift Set: Eau de Toilette",
+   "category": "Christmas Gift Ideas",
+   "store": "The Beauty Store UK",
+   "now": 30.26,
+   "was": 30.26,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0054/6996/2304/files/10046204.jpg?v=1709505110",
+   "link": "https://www.awin1.com/cread.php?awinmid=116255&awinaffid=3117788&ued=https%3A%2F%2Fthebeautystore.com%2Fproducts%2Fissey-miyake-l-eau-d-issey-pour-homme-vetiver-3-piece-gift-set-eau-de-toilette-50ml-shower-gel-2-x-50ml%3Fvariant%3D43720082325655",
+   "posted": "2026-11-19T16:47+00:00"
+  },
+  {
+   "number": 239,
+   "id": "awin:38859358263",
+   "title": "Biotherm Biosource Softening And Makeup Removing Milk 200ml",
+   "category": "Gifts for Her",
+   "store": "Scentsational",
+   "now": 10.0,
+   "was": 20.0,
+   "ref": "RRP",
+   "discount": 50,
+   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.scentsational.com%2Fimages%2Fproducts%2F1752237721-25173900.jpg&feedId=53233&k=96109d72fd480b8ac1def26dd40d75638f8feda3",
+   "link": "https://www.awin1.com/pclick.php?p=38859358263&a=3117788&m=22373",
+   "posted": "2026-11-19T16:47+00:00"
+  },
   {
    "number": 238,
    "id": "awin:44544117313",
@@ -1540,20 +1568,6 @@
    "image": "https://bgstatic.net/photos/169312_ml.jpg",
    "link": "https://www.awin1.com/pclick.php?p=36375336681&a=3117788&m=6561",
    "posted": "2026-11-05T20:30+00:00"
-  },
-  {
-   "number": 128,
-   "id": "awin:44908122783",
-   "title": "Narciso Rodriguez All Of Me Gift Set 50ml EDP + 50ml Body Lotion",
-   "category": "Christmas Gift Ideas",
-   "store": "Perfume Click",
-   "now": 35.05,
-   "was": 98.0,
-   "ref": "RRP",
-   "discount": 64,
-   "image": "https://bgstatic.net/photos/170864_ml.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=44908122783&a=3117788&m=6561",
-   "posted": "2026-11-05T12:40+00:00"
   }
  ]
 }
