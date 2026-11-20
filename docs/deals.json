@@ -1,6 +1,34 @@
 {
- "next_number": 251,
+ "next_number": 253,
  "deals": [
+  {
+   "number": 252,
+   "id": "awin:43996291400",
+   "title": "Hoover 8kg 1400 Spin Washing Machine - White",
+   "category": "DIY & Tools",
+   "store": "PRC Direct",
+   "now": 279.97,
+   "was": 349.99,
+   "ref": "RRP",
+   "discount": 20,
+   "image": "https://prcdirect.co.uk/script/showimage.php?sku=32807",
+   "link": "https://www.awin1.com/pclick.php?p=43996291400&a=3117788&m=3631",
+   "posted": "2026-11-20T16:24+00:00"
+  },
+  {
+   "number": 251,
+   "id": "awin:42289317671",
+   "title": "Avant Skincare Ambuscade | Packaging: Travel Pack - 10ml",
+   "category": "Beauty & Fragrance",
+   "store": "Avant Skincare",
+   "now": 20.0,
+   "was": 119.0,
+   "ref": "was",
+   "discount": 83,
+   "image": "https://cdn.shopify.com/s/files/1/0916/1755/8869/files/AV-D099-10ml-AMBUSCADE-Red-Dustbag-679523385736-_4.jpg?v=1757926473",
+   "link": "https://www.awin1.com/pclick.php?p=42289317671&a=3117788&m=19244",
+   "posted": "2026-11-20T16:24+00:00"
+  },
   {
    "number": 250,
    "id": "awin:g45470731829403",
@@ -1666,20 +1694,6 @@
    "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/03/1920-1216-1.png",
    "link": "https://www.awin1.com/pclick.php?p=44191203513&a=3117788&m=24882",
    "posted": "2026-11-06T17:33+00:00"
-  },
-  {
-   "number": 131,
-   "id": "awin:39095860542",
-   "title": "Guess Seductive Homme Blue Gift Set 50ml EDT + 226ml Body Spray",
-   "category": "Christmas Gift Ideas",
-   "store": "Perfume Click",
-   "now": 14.05,
-   "was": 36.0,
-   "ref": "RRP",
-   "discount": 61,
-   "image": "https://bgstatic.net/photos/176521_ml.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=39095860542&a=3117788&m=6561",
-   "posted": "2026-11-06T12:38+00:00"
   }
  ]
 }
