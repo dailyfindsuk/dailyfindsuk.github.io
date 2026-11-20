@@ -1,6 +1,34 @@
 {
- "next_number": 249,
+ "next_number": 251,
  "deals": [
+  {
+   "number": 250,
+   "id": "awin:g45470731829403",
+   "title": "Yankee Candle Munich Christmas Market",
+   "category": "Christmas Gift Ideas",
+   "store": "Candles Direct",
+   "now": 26.99,
+   "was": 26.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0444/8429/6859/files/Yankee-Candle-munich-christmas-market-large-jar-01.jpg?v=1739443381",
+   "link": "https://www.awin1.com/cread.php?awinmid=13560&awinaffid=3117788&ued=https%3A%2F%2Fcandlesdirect.com%2Fproducts%2Fyankee-candle-munich-christmas-market-signature-large-jar-candle-1759288e%3Fvariant%3D45470731829403",
+   "posted": "2026-11-20T11:47+00:00"
+  },
+  {
+   "number": 249,
+   "id": "awin:43880847920",
+   "title": "Police Temptation Ladies 100ml EDP-S",
+   "category": "Gifts for Her",
+   "store": "Scentsational",
+   "now": 12.95,
+   "was": 35.0,
+   "ref": "RRP",
+   "discount": 63,
+   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.scentsational.com%2Fimages%2Fproducts%2F1770221294-30828200.png&feedId=53233&k=9a79db3d24509d25784ed30bfbc424c75b70423b",
+   "link": "https://www.awin1.com/pclick.php?p=43880847920&a=3117788&m=22373",
+   "posted": "2026-11-20T11:47+00:00"
+  },
   {
    "number": 248,
    "id": "awin:28876753017",
@@ -1652,20 +1680,6 @@
    "image": "https://bgstatic.net/photos/176521_ml.jpg",
    "link": "https://www.awin1.com/pclick.php?p=39095860542&a=3117788&m=6561",
    "posted": "2026-11-06T12:38+00:00"
-  },
-  {
-   "number": 130,
-   "id": "awin:45887838344",
-   "title": "Q-KI Festive Cheer Vanity Case",
-   "category": "Christmas Decor",
-   "store": "Perfume Click",
-   "now": 14.7,
-   "was": 24.99,
-   "ref": "RRP",
-   "discount": 41,
-   "image": "https://bgstatic.net/photos/193375_ml.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=45887838344&a=3117788&m=6561",
-   "posted": "2026-11-06T08:39+00:00"
   }
  ]
 }
