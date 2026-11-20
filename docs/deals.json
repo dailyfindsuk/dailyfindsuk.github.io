@@ -1,6 +1,34 @@
 {
- "next_number": 253,
+ "next_number": 255,
  "deals": [
+  {
+   "number": 254,
+   "id": "awin:44191203473",
+   "title": "Razer Kraken Kitty V2 Gaming Headset",
+   "category": "Gaming",
+   "store": "Stormforce Gaming",
+   "now": 129.99,
+   "was": 199.99,
+   "ref": "RRP",
+   "discount": 35,
+   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/02/Hero-Image-Razer-Kraken-Kitty-V2-Gaming-Headset.webp",
+   "link": "https://www.awin1.com/pclick.php?p=44191203473&a=3117788&m=24882",
+   "posted": "2026-11-20T19:16+00:00"
+  },
+  {
+   "number": 253,
+   "id": "awin:g55954401689982",
+   "title": "Craft Buddy Christmas Candles 3D Scene Crystal Art Kit",
+   "category": "Christmas Gift Ideas",
+   "store": "Craft Buddy Shop",
+   "now": 19.99,
+   "was": 19.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0331/0528/1083/files/Christmas-Candles-3D-Scene-Crystal-Art-Kit-7.png?v=1753407270",
+   "link": "https://www.awin1.com/cread.php?awinmid=45747&awinaffid=3117788&ued=https%3A%2F%2Fwww.craftbuddyshop.com%2Fproducts%2Fchristmas-candles-3d-scene-crystal-art-kit%3Fvariant%3D55954401689982",
+   "posted": "2026-11-20T19:16+00:00"
+  },
   {
    "number": 252,
    "id": "awin:43996291400",
@@ -1680,20 +1708,6 @@
    "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/bric-s-82cm-spinner-suitcase-amalfi-basic-blue-751575-8016623103716-67084684362109.jpg?v=1775635706",
    "link": "https://www.awin1.com/pclick.php?p=42931844621&a=3117788&m=121020",
    "posted": "2026-11-06T20:29+00:00"
-  },
-  {
-   "number": 132,
-   "id": "awin:44191203513",
-   "title": "Cherry XTRFY H3 Wireless Gaming Headset",
-   "category": "Gaming",
-   "store": "Stormforce Gaming",
-   "now": 54.99,
-   "was": 109.99,
-   "ref": "RRP",
-   "discount": 50,
-   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/03/1920-1216-1.png",
-   "link": "https://www.awin1.com/pclick.php?p=44191203513&a=3117788&m=24882",
-   "posted": "2026-11-06T17:33+00:00"
   }
  ]
 }
