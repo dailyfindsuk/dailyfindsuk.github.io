@@ -1,6 +1,34 @@
 {
- "next_number": 245,
+ "next_number": 247,
  "deals": [
+  {
+   "number": 246,
+   "id": "awin:35502592934",
+   "title": "Bunches Happy Birthday Azalea Gift",
+   "category": "Christmas Gift Ideas",
+   "store": "Bunches.co.uk",
+   "now": 34.5,
+   "was": 34.5,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://media.bunches.co.uk/products/pazhbg-1.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=35502592934&a=3117788&m=488",
+   "posted": "2026-11-20T02:23+00:00"
+  },
+  {
+   "number": 245,
+   "id": "awin:40224094151",
+   "title": "Playpress The Gruffalo Playset",
+   "category": "Baby & Kids",
+   "store": "PlayPress Toys UK",
+   "now": 18.0,
+   "was": 18.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0522/6804/0384/products/PlayPress-The-Gruffalo-Pop-out-Playset.jpg?v=1625757990",
+   "link": "https://www.awin1.com/pclick.php?p=40224094151&a=3117788&m=101445",
+   "posted": "2026-11-20T02:23+00:00"
+  },
   {
    "number": 244,
    "id": "awin:42931847163",
