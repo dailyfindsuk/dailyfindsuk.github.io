@@ -1,6 +1,34 @@
 {
- "next_number": 255,
+ "next_number": 257,
  "deals": [
+  {
+   "number": 256,
+   "id": "awin:40224094177",
+   "title": "Playpress Sweet Shop Playset",
+   "category": "Baby & Kids",
+   "store": "PlayPress Toys UK",
+   "now": 10.0,
+   "was": 10.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0522/6804/0384/files/50SweetShopPlaysetAll.jpg?v=1730065223",
+   "link": "https://www.awin1.com/pclick.php?p=40224094177&a=3117788&m=101445",
+   "posted": "2026-11-20T22:50+00:00"
+  },
+  {
+   "number": 255,
+   "id": "awin:42931845938",
+   "title": "Sara Miller Large Tote Bag - Midnight Leopard",
+   "category": "Camping & Travel",
+   "store": "Case Luggage",
+   "now": 39.6,
+   "was": 99.0,
+   "ref": "RRP",
+   "discount": 60,
+   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-large-tote-bag-leopard-midnight-leopard-798310-5060388016111-67086117241213.jpg?v=1775637695",
+   "link": "https://www.awin1.com/pclick.php?p=42931845938&a=3117788&m=121020",
+   "posted": "2026-11-20T22:50+00:00"
+  },
   {
    "number": 254,
    "id": "awin:44191203473",
@@ -1694,20 +1722,6 @@
    "image": "https://bgstatic.net/photos/157543_ml.jpg",
    "link": "https://www.awin1.com/pclick.php?p=35538400957&a=3117788&m=6561",
    "posted": "2026-11-07T08:32+00:00"
-  },
-  {
-   "number": 133,
-   "id": "awin:42931844621",
-   "title": "Bric's 82cm Spinner Suitcase - Amalfi - Silver",
-   "category": "Camping & Travel",
-   "store": "Case Luggage",
-   "now": 285.0,
-   "was": 570.0,
-   "ref": "RRP",
-   "discount": 50,
-   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/bric-s-82cm-spinner-suitcase-amalfi-basic-blue-751575-8016623103716-67084684362109.jpg?v=1775635706",
-   "link": "https://www.awin1.com/pclick.php?p=42931844621&a=3117788&m=121020",
-   "posted": "2026-11-06T20:29+00:00"
   }
  ]
 }
