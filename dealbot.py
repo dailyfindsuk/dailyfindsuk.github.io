@@ -1090,7 +1090,7 @@ def instagram_caption(deal):
     tags = [t for t in deal["category"].get("hashtags", "").split() if t.startswith("#")]
     tags = list(dict.fromkeys(tags + ["#ukdeals", "#dailyfindsuk"]))[:5]
     # "Ad" up front (UK ad rules) without using one of the 5 hashtag slots.
-    return (f"Ad · {head}\n{price}\n\n"
+    return (f"Ad · {head}\n🔔 Follow for new UK deals every day\n{price}\n\n"
             f"👉 Link in bio: search deal {num} on our site.\n"
             "Prices can change, so check before you buy. We may earn a commission.\n\n"
             + " ".join(tags))

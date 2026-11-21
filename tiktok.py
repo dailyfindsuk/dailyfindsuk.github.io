@@ -75,34 +75,17 @@ def creator_info(tok):
     return _check(r, "account check")["data"]
 
 
-def post_video(path, caption):
-    """Uploads one video and publishes it. Returns the publish id."""
-    path = Path(path)
-    tok = access_token()
-    info = creator_info(tok)
-    options = info.get("privacy_level_options") or ["SELF_ONLY"]
-    privacy = (dealbot.env("TIKTOK_PRIVACY", required=False) or "SELF_ONLY").strip()
-    if privacy not in options:
-        privacy = "SELF_ONLY" if "SELF_ONLY" in options else options[0]
+def _upload_and_wait(tok, endpoint, body, path, done_states):
+    """Starts an upload at `endpoint`, sends the video in pieces, waits until TikTok
+    reports one of `done_states`. Returns (publish_id, final_status)."""
     size = path.stat().st_size
     # TikTok wants pieces ("chunks") of 5-64 MB; a video under 10 MB goes in one piece.
     # The last piece also carries the leftover bytes.
     chunk = size if size <= 10 * 1024 * 1024 else 10 * 1024 * 1024
     count = max(1, size // chunk)
-    body = {
-        "post_info": {
-            "title": caption[:2200],
-            "privacy_level": privacy,
-            "disable_comment": bool(info.get("comment_disabled")),
-            "disable_duet": bool(info.get("duet_disabled")),
-            "disable_stitch": bool(info.get("stitch_disabled")),
-            "video_cover_timestamp_ms": 4000,      # the frame where the price is showing
-            "brand_organic_toggle": True,          # promoting our own deals business
-        },
-        "source_info": {"source": "FILE_UPLOAD", "video_size": size,
-                        "chunk_size": chunk, "total_chunk_count": count},
-    }
-    r = requests.post(f"{API}/post/publish/video/init/", headers=_headers(tok), json=body, timeout=30)
+    body = {**body, "source_info": {"source": "FILE_UPLOAD", "video_size": size,
+                                    "chunk_size": chunk, "total_chunk_count": count}}
+    r = requests.post(f"{API}/post/publish/{endpoint}/init/", headers=_headers(tok), json=body, timeout=30)
     data = _check(r, "upload start")["data"]
     blob = path.read_bytes()
     for i in range(count):
@@ -129,11 +112,53 @@ def post_video(path, caption):
                           json={"publish_id": pid}, timeout=30)
         st = _check(s, "status check")["data"]
         status = st.get("status")
-        if status == "PUBLISH_COMPLETE":
-            return f"{pid} ({privacy.lower().replace('_', ' ')})"
+        if status in done_states:
+            return pid, status
         if status == "FAILED":
             raise RuntimeError(f"TikTok rejected the video: {st.get('fail_reason')}")
-    return f"{pid} (still processing; it will appear shortly)"
+    return pid, "PROCESSING"
+
+
+def send_draft(path, tok=None):
+    """Sends the video to the TikTok app's inbox as a draft. Works before TikTok approves
+    the app, on a public account; the owner opens the notification and taps Post."""
+    tok = tok or access_token()
+    pid, status = _upload_and_wait(tok, "inbox/video", {}, Path(path),
+                                   ("SEND_TO_USER_INBOX", "PUBLISH_COMPLETE"))
+    return f"{pid} (sent to your TikTok inbox as a draft - open TikTok and tap Post)"
+
+
+def post_video(path, caption):
+    """Publishes one video directly. Until TikTok approves the app, direct posting only works
+    on a private account, so on a public account the video is sent as a draft instead.
+    Set TIKTOK_MODE=drafts to always send drafts."""
+    path = Path(path)
+    tok = access_token()
+    if (dealbot.env("TIKTOK_MODE", required=False) or "").lower() == "drafts":
+        return send_draft(path, tok)
+    info = creator_info(tok)
+    options = info.get("privacy_level_options") or ["SELF_ONLY"]
+    privacy = (dealbot.env("TIKTOK_PRIVACY", required=False) or "SELF_ONLY").strip()
+    if privacy not in options:
+        privacy = "SELF_ONLY" if "SELF_ONLY" in options else options[0]
+    body = {"post_info": {
+        "title": caption[:2200],
+        "privacy_level": privacy,
+        "disable_comment": bool(info.get("comment_disabled")),
+        "disable_duet": bool(info.get("duet_disabled")),
+        "disable_stitch": bool(info.get("stitch_disabled")),
+        "video_cover_timestamp_ms": 4000,      # the frame where the price is showing
+        "brand_organic_toggle": True,          # promoting our own deals business
+    }}
+    try:
+        pid, status = _upload_and_wait(tok, "video", body, path, ("PUBLISH_COMPLETE",))
+    except RuntimeError as e:
+        if "unaudited_client" in str(e):          # not approved yet + public account
+            return send_draft(path, tok)
+        raise
+    if status == "PROCESSING":
+        return f"{pid} (still processing; it will appear shortly)"
+    return f"{pid} ({privacy.lower().replace('_', ' ')})"
 
 
 def cmd_connect():

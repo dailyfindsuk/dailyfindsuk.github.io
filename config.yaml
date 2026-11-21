@@ -47,6 +47,7 @@ categories:
     hashtags: "#homedeals #kitchen #ukdeals"
     gift_for: "for the home"
     min_discount_percent: 20
+    full_price_ok: true      # most home shops rarely discount; full price posts as a gift idea
     merchants: [Candles Direct, Flowers & Plants, Geepas, Joybuy, Buy Me Once, William Morris, La Redoute, Lights4fun, Starlight Beds, simbasleep, Panda London, Cult Furniture, Meaco, Ebac, BISSELL, DeubaXXL, Living and Home, The Sleep People]
     exclude_words: [replacement, spare, adaptor, refill]
 
@@ -56,7 +57,7 @@ categories:
     hashtags: "#techdeals #gadgets #ukdeals"
     gift_for: "for tech lovers"
     min_discount_percent: 20
-    merchants: [Joybuy, Back Market, Arlo, EE, BISSELL]
+    merchants: [Joybuy, Back Market, Arlo, EE, BISSELL, Stormforce, Geepas, Ottocast, Bond Touch, Geek Crate, Meaco]
     exclude_words: [replacement, spare, adaptor, cable only]
 
   - name: Gift Ideas
@@ -169,6 +170,8 @@ categories:
     hashtags: "#camping #travelessentials #ukdeals"
     gift_for: "for adventurers"
     merchants: [Go Outdoors, Camping World, Case Luggage, Bagsmart, Nere, Jaspacks, Surfanic]
+    # Case Luggage also sells handbags and purses; those suit the gift boards, not travel.
+    exclude_words: [handbag, crossbody, "cross body", purse, "vanity case", wallet, clutch, "phone pouch", tote]
 
   - name: Anime & Manga
     source: awin
@@ -228,6 +231,7 @@ categories:
     weight: 2
     giftable: false
     min_discount_percent: 20
+    full_price_ok: true      # decorations rarely go on sale before December
     include_words: [christmas, xmas, festive, bauble, baubles, wreath, garland, nativity, santa, reindeer, snowman, "fairy lights"]
     # "Santa" also matches brands like Santa Maria Novella, so skip toiletries and perfume.
     exclude_words: [jumper, hamper, chocolate, "gift set", "advent calendar", "santa maria", soap,
