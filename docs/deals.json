@@ -1,6 +1,34 @@
 {
- "next_number": 261,
+ "next_number": 263,
  "deals": [
+  {
+   "number": 262,
+   "id": "awin:41268595694",
+   "title": "Avant Skincare Ultra-Calming Cica Eye Rejuvenating Pads | Packaging: Single Pack",
+   "category": "Beauty & Fragrance",
+   "store": "Avant Skincare",
+   "now": 12.0,
+   "was": 59.0,
+   "ref": "was",
+   "discount": 80,
+   "image": "https://cdn.shopify.com/s/files/1/0916/1755/8869/files/AV189-_3.jpg?v=1757925713",
+   "link": "https://www.awin1.com/pclick.php?p=41268595694&a=3117788&m=19244",
+   "posted": "2026-11-21T11:47+00:00"
+  },
+  {
+   "number": 261,
+   "id": "awin:43638845165",
+   "title": "Cadbury Mini Eggs Chocolate Collection Gift Box",
+   "category": "Christmas Gift Ideas",
+   "store": "Cadbury Gifts Direct",
+   "now": 13.99,
+   "was": 13.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://www.cadburygiftsdirect.co.uk/media/catalog/product/m/i/minegb-cadbury_mini_eggs_gift_box_v3.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=43638845165&a=3117788&m=736",
+   "posted": "2026-11-21T11:47+00:00"
+  },
   {
    "number": 260,
    "id": "awin:42931845248",
@@ -1764,20 +1792,6 @@
    "image": "https://media.bunches.co.uk/products/570x570/h82307-2.jpg",
    "link": "https://www.awin1.com/pclick.php?p=40103573337&a=3117788&m=488",
    "posted": "2026-11-07T12:21+00:00"
-  },
-  {
-   "number": 134,
-   "id": "awin:35538400957",
-   "title": "Issey Miyake A Drop d'Issey Gift Set 50ml EDP + 2 x 50ml Hand Cream",
-   "category": "Christmas Gift Ideas",
-   "store": "Perfume Click",
-   "now": 25.85,
-   "was": 80.0,
-   "ref": "RRP",
-   "discount": 68,
-   "image": "https://bgstatic.net/photos/157543_ml.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=35538400957&a=3117788&m=6561",
-   "posted": "2026-11-07T08:32+00:00"
   }
  ]
 }
