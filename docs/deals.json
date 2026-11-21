@@ -1,6 +1,34 @@
 {
- "next_number": 267,
+ "next_number": 269,
  "deals": [
+  {
+   "number": 268,
+   "id": "awin:44777982179",
+   "title": "Cadbury Merry Christmas Chocolate Gift Box",
+   "category": "Christmas Gift Ideas",
+   "store": "Cadbury Gifts Direct",
+   "now": 12.0,
+   "was": 12.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://www.cadburygiftsdirect.co.uk/media/catalog/product/c/a/cadbury_christmas_chocolate_gift_26_v1_1.webp",
+   "link": "https://www.awin1.com/pclick.php?p=44777982179&a=3117788&m=736",
+   "posted": "2026-11-21T23:26+00:00"
+  },
+  {
+   "number": 267,
+   "id": "awin:45565422746",
+   "title": "Baker Ross A3 Zip Bags (Pack of 25) Transparent PVC, 5 Assorted Strip Colours, Heavy Duty, Craft Storage",
+   "category": "Baby & Kids",
+   "store": "Baker Ross",
+   "now": 19.95,
+   "was": 19.95,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://www.bakerross.co.uk/media/catalog/product/f/e/fe589-a_3.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=45565422746&a=3117788&m=1902",
+   "posted": "2026-11-21T23:26+00:00"
+  },
   {
    "number": 266,
    "id": "awin:46823318577",
@@ -1806,20 +1834,6 @@
    "image": "https://bgstatic.net/photos/111984_ml.jpg",
    "link": "https://www.awin1.com/pclick.php?p=44973632015&a=3117788&m=6561",
    "posted": "2026-11-07T23:59+00:00"
-  },
-  {
-   "number": 137,
-   "id": "awin:40705610830",
-   "title": "Calvin Klein Eternity Air for Women Eau de Parfum 100ml Spray",
-   "category": "Gifts for Her",
-   "store": "Perfume Click",
-   "now": 22.25,
-   "was": 74.0,
-   "ref": "RRP",
-   "discount": 70,
-   "image": "https://bgstatic.net/photos/137598_ml.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=40705610830&a=3117788&m=6561",
-   "posted": "2026-11-07T20:18+00:00"
   }
  ]
 }
