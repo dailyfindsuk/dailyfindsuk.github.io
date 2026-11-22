@@ -1,6 +1,34 @@
 {
- "next_number": 269,
+ "next_number": 271,
  "deals": [
+  {
+   "number": 270,
+   "id": "awin:g41950164385973",
+   "title": "Starlight Beds\u2122 Starlight Beds Hand Tufted Spring Mattress - 2ft6 Small Single Mattress (75cm x 190cm)",
+   "category": "Home & Kitchen",
+   "store": "The Sleep People",
+   "now": 50.99,
+   "was": 50.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0509/7337/6693/products/c2b6828d-ecb9-4759-8625-404cb20cf151.jpg?v=1647521826",
+   "link": "https://www.awin1.com/cread.php?awinmid=122648&awinaffid=3117788&ued=https%3A%2F%2Fwww.thesleeppeople.co.uk%2Fproducts%2Fhand-tufted-spring-mattress%3Fvariant%3D41950164385973",
+   "posted": "2026-11-22T07:47+00:00"
+  },
+  {
+   "number": 269,
+   "id": "awin:g60242582831488",
+   "title": "Craftiosity Festive Felting: Christmas Tree Decorations Craft Kit",
+   "category": "Christmas Decor",
+   "store": "Craftiosity",
+   "now": 26.95,
+   "was": 26.95,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0584/2885/0344/files/15_f603a13b-3aa0-4588-aba2-aa7e10f7de5a.png?v=1793207323",
+   "link": "https://www.awin1.com/cread.php?awinmid=25725&awinaffid=3117788&ued=https%3A%2F%2Fcraftiosity.co.uk%2Fproducts%2Ffestive-felting-christmas-tree-decorations-craft-kit%3Fvariant%3D60242582831488",
+   "posted": "2026-11-22T07:47+00:00"
+  },
   {
    "number": 268,
    "id": "awin:44777982179",
@@ -1820,20 +1848,6 @@
    "image": "https://bgstatic.net/photos/79191_ml.jpg",
    "link": "https://www.awin1.com/pclick.php?p=24718623317&a=3117788&m=6561",
    "posted": "2026-11-08T08:31+00:00"
-  },
-  {
-   "number": 138,
-   "id": "awin:44973632015",
-   "title": "Abercrombie & Fitch First Instinct Gift Set 100ml EDT + 200ml Body Wash",
-   "category": "Christmas Gift Ideas",
-   "store": "Perfume Click",
-   "now": 22.1,
-   "was": 63.0,
-   "ref": "RRP",
-   "discount": 65,
-   "image": "https://bgstatic.net/photos/111984_ml.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=44973632015&a=3117788&m=6561",
-   "posted": "2026-11-07T23:59+00:00"
   }
  ]
 }
