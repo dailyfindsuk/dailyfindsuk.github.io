@@ -1,6 +1,34 @@
 {
- "next_number": 277,
+ "next_number": 279,
  "deals": [
+  {
+   "number": 278,
+   "id": "awin:44947525236",
+   "title": "Samsung Jet 75E Pet Cordless Vacuum Cleaner - 60 Minutes Run Time - Mint",
+   "category": "DIY & Tools",
+   "store": "PRC Direct",
+   "now": 189.0,
+   "was": 249.99,
+   "ref": "RRP",
+   "discount": 24,
+   "image": "https://prcdirect.co.uk/script/showimage.php?sku=45618",
+   "link": "https://www.awin1.com/pclick.php?p=44947525236&a=3117788&m=3631",
+   "posted": "2026-11-22T22:09+00:00"
+  },
+  {
+   "number": 277,
+   "id": "awin:37706420642",
+   "title": "Flowers & Plants Co Purple and White Wreath",
+   "category": "Christmas Decor",
+   "store": "Flowers & Plants Co.",
+   "now": 54.99,
+   "was": 54.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0692/8128/4406/files/purple-and-white-wreath-5788027.jpg?v=1775817071",
+   "link": "https://www.awin1.com/pclick.php?p=37706420642&a=3117788&m=20856",
+   "posted": "2026-11-22T22:09+00:00"
+  },
   {
    "number": 276,
    "id": "awin:43750594533",
@@ -1876,20 +1904,6 @@
    "image": "https://bgstatic.net/photos/184114_ml.jpg",
    "link": "https://www.awin1.com/pclick.php?p=42102874919&a=3117788&m=6561",
    "posted": "2026-11-09T16:41+00:00"
-  },
-  {
-   "number": 142,
-   "id": "awin:44466866206",
-   "title": "Sara Miller Duffle - Quilted Travel - Botanic Paradise",
-   "category": "Camping & Travel",
-   "store": "Case Luggage",
-   "now": 34.0,
-   "was": 85.0,
-   "ref": "RRP",
-   "discount": 60,
-   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-duffle-quilted-travel-botanic-paradise-810173-5060388016746-67086636712317.jpg?v=1775638171",
-   "link": "https://www.awin1.com/pclick.php?p=44466866206&a=3117788&m=121020",
-   "posted": "2026-11-08T20:18+00:00"
   }
  ]
 }
