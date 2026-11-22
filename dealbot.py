@@ -835,6 +835,17 @@ def branded_media(deal, today=None):
         return None
 
 
+def with_clickref(link, ref):
+    """Adds an Awin click reference, so Awin's Click Reference report shows where each
+    click came from (pinterest, site-ig, site-yt ...). Other links are left alone."""
+    if "awin1.com" not in link:
+        return link
+    p = urllib.parse.urlsplit(link)
+    q = [(k, v) for k, v in urllib.parse.parse_qsl(p.query, keep_blank_values=True) if k != "clickref"]
+    q.append(("clickref", ref))
+    return urllib.parse.urlunsplit(p._replace(query=urllib.parse.urlencode(q)))
+
+
 def post_pin(token, deal):
     title, desc = make_pin_text(deal)
     media = branded_media(deal) or {"source_type": "image_url", "url": deal["image"]}
@@ -842,7 +853,7 @@ def post_pin(token, deal):
         "board_id": deal["category"]["board_id"],
         "title": title,
         "description": desc,
-        "link": deal["link"],
+        "link": with_clickref(deal["link"], "pinterest"),
         "alt_text": deal["title"][:500],
         "media_source": media,
     }

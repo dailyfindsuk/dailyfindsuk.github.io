@@ -233,6 +233,24 @@ SCRIPT = """
     cat=ch.dataset.cat; chips.forEach(function(o){o.setAttribute('aria-pressed',o===ch)}); apply();
   })});
   q.addEventListener('input',apply);
+  // Tag shop links with where the visitor came from, so Awin's Click Reference
+  // report shows which platform's visitors buy (site-ig, site-yt, site-tiktok ...).
+  var src='site';
+  try{
+    var u=new URLSearchParams(location.search).get('utm_source')||'', r=document.referrer||'';
+    var s=(u+' '+r).toLowerCase();
+    if(/(^|[^a-z])ig([^a-z]|$)|instagram/.test(s)) src='site-ig';
+    else if(/youtu/.test(s)) src='site-yt';
+    else if(/tiktok/.test(s)) src='site-tiktok';
+    else if(/pinterest|pin\\.it/.test(s)) src='site-pinterest';
+    else if(/facebook|fb\\./.test(s)) src='site-fb';
+    else if(/google|bing/.test(s)) src='site-search';
+    if(src!=='site') sessionStorage.setItem('dfsrc',src); else src=sessionStorage.getItem('dfsrc')||'site';
+  }catch(e){}
+  [].slice.call(document.querySelectorAll('a.btn')).forEach(function(a){
+    if(a.href.indexOf('awin1.com')<0) return;
+    try{var x=new URL(a.href); x.searchParams.set('clickref',src); a.href=x.toString();}catch(e){}
+  });
   var h=location.hash.replace('#','');
   if(/^deal-\\d+$/.test(h)){q.value=h.replace('deal-','');apply();}
 })();
