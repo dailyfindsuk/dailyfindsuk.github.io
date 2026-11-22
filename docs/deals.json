@@ -1,6 +1,34 @@
 {
- "next_number": 275,
+ "next_number": 277,
  "deals": [
+  {
+   "number": 276,
+   "id": "awin:43750594533",
+   "title": "Avant Skincare Hydra-Bright Collagen Eye Restoring Pads | Packaging: Essential Pack",
+   "category": "Beauty & Fragrance",
+   "store": "Avant Skincare",
+   "now": 34.0,
+   "was": 59.0,
+   "ref": "was",
+   "discount": 42,
+   "image": "https://cdn.shopify.com/s/files/1/0916/1755/8869/files/AV075-5060762540645-Essential-Pack-3-Hydra-Bright-Collagen-Eye-Restoring-Pads-_3.jpg?v=1757926667",
+   "link": "https://www.awin1.com/pclick.php?p=43750594533&a=3117788&m=19244",
+   "posted": "2026-11-22T18:39+00:00"
+  },
+  {
+   "number": 275,
+   "id": "awin:g43085493338283",
+   "title": "Nomination Gold Classic Red Gift Box Present Charm",
+   "category": "Christmas Gift Ideas",
+   "store": "Mococo Jewellery",
+   "now": 42.0,
+   "was": 42.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0540/7234/4747/files/nom-030272_70_01c.jpg?v=1794309495",
+   "link": "https://www.awin1.com/cread.php?awinmid=87549&awinaffid=3117788&ued=https%3A%2F%2Fwww.mococo.co.uk%2Fproducts%2Fnomination-gold-composable-classic-red-gift-box-present-charm%3Fvariant%3D43085493338283",
+   "posted": "2026-11-22T18:39+00:00"
+  },
   {
    "number": 274,
    "id": "awin:46345997765",
@@ -1862,20 +1890,6 @@
    "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-duffle-quilted-travel-botanic-paradise-810173-5060388016746-67086636712317.jpg?v=1775638171",
    "link": "https://www.awin1.com/pclick.php?p=44466866206&a=3117788&m=121020",
    "posted": "2026-11-08T20:18+00:00"
-  },
-  {
-   "number": 141,
-   "id": "awin:44191203506",
-   "title": "Cherry XTRFY MX 10.1 Wireless Keyboard",
-   "category": "Gaming",
-   "store": "Stormforce Gaming",
-   "now": 89.99,
-   "was": 179.99,
-   "ref": "RRP",
-   "discount": 50,
-   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/03/1910-4048.png",
-   "link": "https://www.awin1.com/pclick.php?p=44191203506&a=3117788&m=24882",
-   "posted": "2026-11-08T17:19+00:00"
   }
  ]
 }
