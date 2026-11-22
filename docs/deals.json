@@ -1,6 +1,34 @@
 {
- "next_number": 271,
+ "next_number": 273,
  "deals": [
+  {
+   "number": 272,
+   "id": "awin:44746785857",
+   "title": "Angel Barocco Classic Baroque Pearl Bracelet",
+   "category": "Gift Ideas",
+   "store": "Angel Barocco",
+   "now": 148.0,
+   "was": 148.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0659/8642/9155/files/Classic_Baroque_Pearl_Bracelet_gold.webp?v=1769817705",
+   "link": "https://www.awin1.com/pclick.php?p=44746785857&a=3117788&m=70252",
+   "posted": "2026-11-22T11:47+00:00"
+  },
+  {
+   "number": 271,
+   "id": "awin:44191203414",
+   "title": "Razer Viper V3 Pro Wireless Gaming Mouse",
+   "category": "Tech & Gadgets",
+   "store": "Stormforce Gaming",
+   "now": 119.99,
+   "was": 159.99,
+   "ref": "RRP",
+   "discount": 25,
+   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2024/05/Hero-Image-Razer-Viper-V3-Pro-Wireless-Gaming-Mouse.webp",
+   "link": "https://www.awin1.com/pclick.php?p=44191203414&a=3117788&m=24882",
+   "posted": "2026-11-22T11:47+00:00"
+  },
   {
    "number": 270,
    "id": "awin:g41950164385973",
@@ -1834,20 +1862,6 @@
    "image": "https://bgstatic.net/photos/149928_ml.jpg",
    "link": "https://www.awin1.com/pclick.php?p=33616404755&a=3117788&m=6561",
    "posted": "2026-11-08T12:20+00:00"
-  },
-  {
-   "number": 139,
-   "id": "awin:24718623317",
-   "title": "Guy Laroche Drakkar Noir Eau de Toilette 100ml Spray",
-   "category": "Beauty & Fragrance",
-   "store": "Perfume Click",
-   "now": 13.35,
-   "was": 63.5,
-   "ref": "RRP",
-   "discount": 79,
-   "image": "https://bgstatic.net/photos/79191_ml.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=24718623317&a=3117788&m=6561",
-   "posted": "2026-11-08T08:31+00:00"
   }
  ]
 }
