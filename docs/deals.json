@@ -1,6 +1,34 @@
 {
- "next_number": 295,
+ "next_number": 297,
  "deals": [
+  {
+   "number": 296,
+   "id": "awin:40224094155",
+   "title": "Playpress Space Station Playset",
+   "category": "Baby & Kids",
+   "store": "PlayPress Toys UK",
+   "now": 18.0,
+   "was": 18.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0522/6804/0384/products/PlayPress-Space-Station-Playset.jpg?v=1632216375",
+   "link": "https://www.awin1.com/pclick.php?p=40224094155&a=3117788&m=101445",
+   "posted": "2026-11-24T16:47+00:00"
+  },
+  {
+   "number": 295,
+   "id": "awin:46823318576",
+   "title": "Delsey 71cm Expandable Spinner Suitcase - Belmont Plus - Tangerine",
+   "category": "Camping & Travel",
+   "store": "Case Luggage",
+   "now": 89.5,
+   "was": 179.0,
+   "ref": "RRP",
+   "discount": 50,
+   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/Delsey_3861820_tangerine_m.jpg?v=1792755281",
+   "link": "https://www.awin1.com/pclick.php?p=46823318576&a=3117788&m=121020",
+   "posted": "2026-11-24T16:47+00:00"
+  },
   {
    "number": 294,
    "id": "awin:46480089702",
@@ -2044,20 +2072,6 @@
    "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Abgstatic.net%2Fphotos%2F174616_ml.jpg&feedId=12281&k=83db021541c2e4e1812a007529cb78e25b06ae19",
    "link": "https://www.awin1.com/pclick.php?p=39101066815&a=3117788&m=6561",
    "posted": "2026-11-10T18:51+00:00"
-  },
-  {
-   "number": 148,
-   "id": "awin:46527733556",
-   "title": "Perroy Pinkfire Eau de Parfum 15ml Spray",
-   "category": "Beauty & Fragrance",
-   "store": "Perfume Click",
-   "now": 15.3,
-   "was": 100.0,
-   "ref": "RRP",
-   "discount": 85,
-   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Abgstatic.net%2Fphotos%2F195916_ml.jpg&feedId=12281&k=383ca0d777a92af50cd89edceff639953de05029",
-   "link": "https://www.awin1.com/pclick.php?p=46527733556&a=3117788&m=6561",
-   "posted": "2026-11-10T15:49+00:00"
   }
  ]
 }
