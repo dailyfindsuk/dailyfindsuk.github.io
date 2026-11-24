@@ -1,6 +1,34 @@
 {
- "next_number": 299,
+ "next_number": 301,
  "deals": [
+  {
+   "number": 300,
+   "id": "awin:g54979236331846",
+   "title": "Emporio Armani Classic AR1714 Women's Watch \u2013 27mm Brown Dial Leather",
+   "category": "Gift Ideas",
+   "store": "Watch Enclave Affiliate Programme",
+   "now": 139.0,
+   "was": 139.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0955/5027/5910/files/emporio-armani-ar1714-quartz-womens-watch-ar1714-6416743.webp?v=1779098594",
+   "link": "https://www.awin1.com/cread.php?awinmid=122382&awinaffid=3117788&ued=https%3A%2F%2Fwatchenclave.co.uk%2Fproducts%2Femporio-armani-ar1714%3Fvariant%3D54979236331846",
+   "posted": "2026-11-24T23:00+00:00"
+  },
+  {
+   "number": 299,
+   "id": "awin:38878027954",
+   "title": "meaco-uk 12L Low Energy Dust Filter",
+   "category": "Home & Kitchen",
+   "store": "Meaco UK",
+   "now": 19.99,
+   "was": 19.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0371/8378/3043/files/UK_Low_Energy-12L_Dust_filter_700x700_1291373f-7e44-4ee1-bcc7-5625161a4abc.jpg?v=1742908537",
+   "link": "https://www.awin1.com/pclick.php?p=38878027954&a=3117788&m=31711",
+   "posted": "2026-11-24T23:00+00:00"
+  },
   {
    "number": 298,
    "id": "awin:g41298250170427",
@@ -2044,48 +2072,6 @@
    "image": "https://media.bunches.co.uk/products/h82666-1.jpg",
    "link": "https://www.awin1.com/pclick.php?p=40103573334&a=3117788&m=488",
    "posted": "2026-11-11T16:26+00:00"
-  },
-  {
-   "number": 152,
-   "id": "awin:42761661364",
-   "title": "Thameen Peacock Throne Gift Set 50ml EDP + 50ml Hair Fragrance Mist",
-   "category": "Christmas Gift Ideas",
-   "store": "Perfume Click",
-   "now": 91.25,
-   "was": 240.0,
-   "ref": "RRP",
-   "discount": 62,
-   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Abgstatic.net%2Fphotos%2F192310_ml.jpg&feedId=12281&k=6e5e3435347af176a0234d7ee6a8556038f5d779",
-   "link": "https://www.awin1.com/pclick.php?p=42761661364&a=3117788&m=6561",
-   "posted": "2026-11-10T22:57+00:00"
-  },
-  {
-   "number": 151,
-   "id": "awin:42931845319",
-   "title": "Sara Miller Half Moon Crossbody Bag - Black Bamboo",
-   "category": "Camping & Travel",
-   "store": "Case Luggage",
-   "now": 35.6,
-   "was": 89.0,
-   "ref": "RRP",
-   "discount": 60,
-   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-half-moon-crossbody-bag-black-bamboo-black-bamboo-798440-5060388016227-67086133526909.jpg?v=1775637538",
-   "link": "https://www.awin1.com/pclick.php?p=42931845319&a=3117788&m=121020",
-   "posted": "2026-11-10T22:57+00:00"
-  },
-  {
-   "number": 150,
-   "id": "awin:44191203511",
-   "title": "Cherry XTRFY H2 Gaming Headset",
-   "category": "Gaming",
-   "store": "Stormforce Gaming",
-   "now": 39.99,
-   "was": 79.99,
-   "ref": "RRP",
-   "discount": 50,
-   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/03/1920-1214.png",
-   "link": "https://www.awin1.com/pclick.php?p=44191203511&a=3117788&m=24882",
-   "posted": "2026-11-10T21:59+00:00"
   }
  ]
 }
