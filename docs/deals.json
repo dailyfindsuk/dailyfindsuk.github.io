@@ -1,6 +1,34 @@
 {
- "next_number": 297,
+ "next_number": 299,
  "deals": [
+  {
+   "number": 298,
+   "id": "awin:g41298250170427",
+   "title": "Craft Buddy \"Holly Berry Garland\" Forever Flowerz",
+   "category": "Christmas Decor",
+   "store": "Craft Buddy Shop",
+   "now": 18.99,
+   "was": 18.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0331/0528/1083/files/hollynew-661789.jpg?v=1765532857",
+   "link": "https://www.awin1.com/cread.php?awinmid=45747&awinaffid=3117788&ued=https%3A%2F%2Fwww.craftbuddyshop.com%2Fproducts%2Fforever-flowerz-holly-berry-garland%3Fvariant%3D41298250170427",
+   "posted": "2026-11-24T19:47+00:00"
+  },
+  {
+   "number": 297,
+   "id": "awin:g55988871102846",
+   "title": "Craft Buddy Christmas Elf Crystal Art Framed Canvas Kit 40x50cm",
+   "category": "Christmas Gift Ideas",
+   "store": "Craft Buddy Shop",
+   "now": 16.99,
+   "was": 16.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0331/0528/1083/files/Christmas-Elf-Crystal-Art-Framed-Canvas-Kit-complete1.png?v=1754054807",
+   "link": "https://www.awin1.com/cread.php?awinmid=45747&awinaffid=3117788&ued=https%3A%2F%2Fwww.craftbuddyshop.com%2Fproducts%2Fchristmas-elf-crystal-art-framed-canvas-kit-40x50cm%3Fvariant%3D55988871102846",
+   "posted": "2026-11-24T19:47+00:00"
+  },
   {
    "number": 296,
    "id": "awin:40224094155",
@@ -2058,20 +2086,6 @@
    "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/03/1920-1214.png",
    "link": "https://www.awin1.com/pclick.php?p=44191203511&a=3117788&m=24882",
    "posted": "2026-11-10T21:59+00:00"
-  },
-  {
-   "number": 149,
-   "id": "awin:39101066815",
-   "title": "Guess Seductive Homme Gift Set 50ml EDT + 226ml Body Spray",
-   "category": "Christmas Gift Ideas",
-   "store": "Perfume Click",
-   "now": 14.05,
-   "was": 36.0,
-   "ref": "RRP",
-   "discount": 61,
-   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Abgstatic.net%2Fphotos%2F174616_ml.jpg&feedId=12281&k=83db021541c2e4e1812a007529cb78e25b06ae19",
-   "link": "https://www.awin1.com/pclick.php?p=39101066815&a=3117788&m=6561",
-   "posted": "2026-11-10T18:51+00:00"
   }
  ]
 }
