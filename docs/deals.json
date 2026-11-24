@@ -1,6 +1,34 @@
 {
- "next_number": 293,
+ "next_number": 295,
  "deals": [
+  {
+   "number": 294,
+   "id": "awin:46480089702",
+   "title": "MSI MAG 274QRFW E20",
+   "category": "Gaming",
+   "store": "Stormforce Gaming",
+   "now": 139.99,
+   "was": 199.99,
+   "ref": "RRP",
+   "discount": 30,
+   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.stormforcegaming.co.uk%2Fwp-content%2Fuploads%2F2026%2F10%2F302432.png&feedId=113989&k=10aad9244528e6e1c221618a341999606fd88748",
+   "link": "https://www.awin1.com/pclick.php?p=46480089702&a=3117788&m=24882",
+   "posted": "2026-11-24T11:47+00:00"
+  },
+  {
+   "number": 293,
+   "id": "awin:g43720079147159",
+   "title": "Nuxe Bio Organic Gift Set Antioxidant Serum 30ml + Micellar Water 200ml",
+   "category": "Christmas Gift Ideas",
+   "store": "The Beauty Store UK",
+   "now": 10.23,
+   "was": 10.23,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0054/6996/2304/files/10037708.jpg?v=1709504830",
+   "link": "https://www.awin1.com/cread.php?awinmid=116255&awinaffid=3117788&ued=https%3A%2F%2Fthebeautystore.com%2Fproducts%2Fnuxe-bio-organic-2-piece-gift-set-antioxidant-serum-30ml-micellar-cleansing-water-200ml%3Fvariant%3D43720079147159",
+   "posted": "2026-11-24T11:47+00:00"
+  },
   {
    "number": 292,
    "id": "awin:39158417728",
