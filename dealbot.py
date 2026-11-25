@@ -303,6 +303,9 @@ def awin_deal(row, rules, posted):
     pid = row.get("aw_product_id") or row.get("merchant_product_id")
     if not pid or f"awin:{pid}" in posted:
         return None
+    # "title:..." entries block a product by name (used when a run's saved list was lost)
+    if f"title:{(row.get('product_name') or '').strip().lower()}" in posted:
+        return None
     stock = str(row.get("in_stock", "1")).strip().lower()
     if stock in ("0", "false", "no", "out of stock"):
         return None
