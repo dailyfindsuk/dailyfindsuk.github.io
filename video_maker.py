@@ -157,97 +157,101 @@ def price_tag(text, scale):
 
 # ---------- frame drawing ----------
 
+def hook_text(deal):
+    """Big first-second headline: the saving for deals, the budget for gift ideas."""
+    if deal["discount"]:
+        saved = (deal.get("was") or 0) - deal["now"]
+        return f"SAVE £{saved:.0f}" if saved >= 5 else f"{int(deal['discount'])}% OFF"
+    now = deal["now"]
+    for cap in (10, 15, 20, 25, 30, 40, 50, 60, 75, 100, 150, 200, 300, 500, 1000):
+        if now <= cap:
+            return f"GIFT UNDER £{cap}"
+    return "GIFT IDEA"
+
+
 def draw_frame(t, deal, base, product, logo):
-    # Everything (price, discount, link) is on screen by ~3.5s and stays there, so any
-    # frame YouTube picks as the Short's cover shows the full deal.
+    # Everything (product, price, saving, link) is on screen from the very first frame:
+    # TikTok viewers decide in under a second, so nothing fades in. Motion comes from
+    # a slow zoom, a pulsing price and a shine across the card.
     frame = base.copy()
     ov = Image.new("RGBA", (W, H), (0, 0, 0, 0))   # text layer, composited last
     d = ImageDraw.Draw(ov)
     num = deal.get("number")
 
-    # Header: logo + name, and #ad label (always visible)
+    # Header: logo + name, and #ad label
     frame.alpha_composite(logo, (70, 150))
     d.text((170, 198), "Daily Finds UK", font=font(44), fill=WHITE, anchor="lm")
     d.rounded_rectangle([W - 190, 168, W - 70, 228], 30, fill=DEEP + (255,))
     d.text((W - 130, 198), "#ad", font=font(34), fill=WHITE, anchor="mm")
 
-    # Hook: "DEAL ALERT" + category (slides in, then stays small)
-    a = ease_out(progress(t, 0.0, 0.6))
-    hook_y = 300 + int((1 - a) * 60)
-    hook = ("DEAL ALERT" if deal["discount"] else "GIFT IDEA") + (f"  ·  #{num}" if num else "")
-    hw = text_w(d, hook, font(54))
-    d.rounded_rectangle([70, hook_y - 8, 70 + hw + 56, hook_y + 74], 41, fill=GOLD)
-    d.text((98, hook_y + 33), hook, font=font(54), fill=(58, 38, 0), anchor="lm")
-    d.text((70, hook_y + 118), deal["category"]["name"].upper(), font=font(36, False),
-           fill=SOFT, anchor="lm")
+    # Hook: big gold "SAVE £40" / "GIFT UNDER £25" pill, with a little bounce
+    bounce = 1.0 + 0.04 * math.sin(t * 2 * math.pi / 1.6)
+    hook = hook_text(deal)
+    hf = font(int(76 * bounce))
+    hw = text_w(d, hook, hf)
+    hy = 300
+    d.rounded_rectangle([70, hy - 10, 70 + hw + 70, hy + 96], 53, fill=GOLD)
+    d.text((105, hy + 43), hook, font=hf, fill=(58, 38, 0), anchor="lm")
+    sub = deal["category"]["name"].upper() + (f"  ·  #{num}" if num else "")
+    d.text((72, hy + 140), sub, font=font(36, False), fill=SOFT, anchor="lm")
 
-    # Product card: rises in, then slow zoom
-    a = ease_out(progress(t, 0.3, 0.8))
-    zoom = 1.0 + 0.06 * clamp((t - 1.1) / (SECONDS - 1.1))
-    size = int(860 * (0.9 + 0.1 * a) * zoom * 0.84)
+    # Product card: full size from frame one, slow zoom throughout
+    zoom = 1.0 + 0.07 * clamp(t / SECONDS)
+    size = int(860 * zoom * 0.84)
     card = rounded(product.resize((size, size), Image.LANCZOS), 48)
-    cx, cy = W // 2, 880 + int((1 - a) * 120)
+    # shine: a soft diagonal light sweeps across the card every 4 seconds
+    sp = (t % 4.0) / 0.9
+    if sp < 1:
+        shine = Image.new("L", (size, size), 0)
+        x = int(-size * 0.6 + sp * size * 2.2)
+        ImageDraw.Draw(shine).polygon([(x, 0), (x + 90, 0), (x - size // 2 + 90, size), (x - size // 2, size)], fill=90)
+        shine = ImageChops.multiply(shine.filter(ImageFilter.GaussianBlur(18)), card.getchannel("A"))
+        card = Image.composite(Image.new("RGBA", (size, size), WHITE + (255,)), card, shine)
+    cx, cy = W // 2, 900
     shadow = Image.new("RGBA", (size + 80, size + 80), (0, 0, 0, 0))
-    ImageDraw.Draw(shadow).rounded_rectangle([40, 50, size + 40, size + 50], 48, fill=(0, 0, 0, int(90 * a)))
+    ImageDraw.Draw(shadow).rounded_rectangle([40, 50, size + 40, size + 50], 48, fill=(0, 0, 0, 90))
     shadow = shadow.filter(ImageFilter.GaussianBlur(26))
     frame.alpha_composite(shadow, (cx - size // 2 - 40, cy - size // 2 - 40))
-    if a > 0:
-        card.putalpha(card.getchannel("A").point(lambda v: int(v * a)))
-        frame.alpha_composite(card, (cx - size // 2, cy - size // 2))
+    frame.alpha_composite(card, (cx - size // 2, cy - size // 2))
 
-    # Discount tag pops onto the card's corner
-    p = progress(t, 2.2, 0.5)
-    if p > 0 and deal["discount"]:
-        tag = price_tag(f"-{int(deal['discount'])}%", pop(p))
+    # Discount tag on the card's corner, gently pulsing
+    if deal["discount"]:
+        tag = price_tag(f"-{int(deal['discount'])}%", 1.0 + 0.06 * max(0, math.sin(t * 2 * math.pi / 1.2)))
         frame.alpha_composite(tag, (cx - size // 2 - 20, cy - size // 2 + 30))
 
     # Title under the card
-    a = ease_out(progress(t, 0.5, 0.5))
-    if a > 0:
-        lines = textwrap.wrap(deal["title"], 30)[:2]
-        if len(textwrap.wrap(deal["title"], 30)) > 2:
-            lines[-1] = lines[-1].rstrip(" ,.-") + "…"
-        y = 1310
-        for line in lines:
-            d.text((W // 2, y + int((1 - a) * 30)), line, font=font(48, False),
-                   fill=WHITE + (int(255 * a),), anchor="mm")
-            y += 64
+    lines = textwrap.wrap(deal["title"], 30)[:2]
+    if len(textwrap.wrap(deal["title"], 30)) > 2:
+        lines[-1] = lines[-1].rstrip(" ,.-") + "…"
+    y = 1330
+    for line in lines:
+        d.text((W // 2, y), line, font=font(48, False), fill=WHITE, anchor="mm")
+        y += 64
 
-    # Prices: WAS appears, gets struck through, NOW pops in
-    py = 1445
-    a = ease_out(progress(t, 0.9, 0.4))
-    if a > 0 and deal["discount"]:
+    # Prices: crossed-out old price and big new price, both visible at once
+    py = 1465
+    if deal["discount"]:
         was = f"£{deal['was']:.2f}"
         wf = font(56, False)
         ww = text_w(d, was, wf)
         wx = W // 2 - 250
-        d.text((wx, py), deal.get("ref", "was"), font=font(34, False), fill=SOFT + (int(255 * a),), anchor="mm")
-        d.text((wx, py + 58), was, font=wf, fill=SOFT + (int(255 * a),), anchor="mm")
-        s = progress(t, 1.4, 0.4)
-        if s > 0:
-            x0 = wx - ww // 2 - 8
-            d.line([x0, py + 60, x0 + int((ww + 16) * ease_out(s)), py + 56], fill=GOLD, width=8)
-    p = progress(t, 1.8, 0.5)
-    if p > 0:
-        sc = pop(p)
-        now = f"£{deal['now']:.2f}"
-        # Deals sit to the right of the crossed-out price; gift ideas (no old price) are centred.
-        nx = W // 2 + 170 if deal["discount"] else W // 2
-        label = "now" if deal["discount"] else "gift idea"
-        d.text((nx, py), label, font=font(34, False), fill=GOLD, anchor="mm")
-        d.text((nx, py + 62), now, font=font(int(96 * sc)), fill=WHITE, anchor="mm")
+        d.text((wx, py), deal.get("ref", "was"), font=font(34, False), fill=SOFT, anchor="mm")
+        d.text((wx, py + 58), was, font=wf, fill=SOFT, anchor="mm")
+        x0 = wx - ww // 2 - 8
+        d.line([x0, py + 60, x0 + ww + 16, py + 56], fill=GOLD, width=8)
+    sc = 1.0 + 0.05 * max(0, math.sin(t * 2 * math.pi / 1.2 + 0.6))
+    now = f"£{deal['now']:.2f}"
+    nx = W // 2 + 170 if deal["discount"] else W // 2
+    label = "now" if deal["discount"] else f"at {deal['store']}"
+    d.text((nx, py), label, font=font(34, False), fill=GOLD, anchor="mm")
+    d.text((nx, py + 66), now, font=font(int(100 * sc)), fill=WHITE, anchor="mm")
 
-    # Call to action slides up for the last seconds
-    a = ease_out(progress(t, 3.0, 0.6))
-    if a > 0:
-        y = 1620 + int((1 - a) * 80)
-        cta = f"Link in bio  ·  search #{num}" if num else "Link in bio for this deal"
-        cw = text_w(d, cta, font(46))
-        d.rounded_rectangle([W // 2 - cw // 2 - 44, y - 50, W // 2 + cw // 2 + 44, y + 50], 50,
-                            fill=WHITE + (int(255 * a),))
-        d.text((W // 2, y), cta, font=font(46), fill=GREEN + (int(255 * a),), anchor="mm")
-    else:
-        d.text((W // 2, 1625), f"at {deal['store']}", font=font(40, False), fill=SOFT, anchor="mm")
+    # Call to action
+    y = 1650
+    cta = f"Link in bio  ·  search #{num}" if num else "Link in bio for this deal"
+    cw = text_w(d, cta, font(46))
+    d.rounded_rectangle([W // 2 - cw // 2 - 44, y - 50, W // 2 + cw // 2 + 44, y + 50], 50, fill=WHITE)
+    d.text((W // 2, y), cta, font=font(46), fill=GREEN, anchor="mm")
     frame.alpha_composite(ov)
     return frame.convert("RGB")
 
@@ -259,12 +263,15 @@ def make_video(deal, out_path):
     base = background()
     product = load_product(deal["image"])
     logo = rounded(Image.open(LOGO).convert("RGBA").resize((84, 84), Image.LANCZOS), 42)
+    from music import music_for_video
+    track = music_for_video(SECONDS, out_path.with_suffix(".music.wav"), seed=deal.get("number"))
     cmd = [ffmpeg_path(), "-y", "-loglevel", "error",
            "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-           "-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100",
+           "-i", str(track),
            # Upscaled to 1440x2560 and encoded at high quality: YouTube gives
            # uploads above 1080p its sharper encoding, so text stays crisp.
-           "-shortest", "-vf", "scale=1440:2560:flags=lanczos",
+           "-t", str(SECONDS), "-vf", "scale=1440:2560:flags=lanczos",
+           "-af", f"afade=t=out:st={SECONDS - 1}:d=1",
            "-c:v", "libx264", "-preset", "slow", "-crf", "14", "-tune", "animation",
            "-pix_fmt", "yuv420p", "-profile:v", "high", "-movflags", "+faststart",
            "-c:a", "aac", "-b:a", "128k", str(out_path)]
@@ -274,6 +281,8 @@ def make_video(deal, out_path):
     proc.stdin.close()
     if proc.wait() != 0:
         raise RuntimeError("ffmpeg failed to make the video")
+    if Path(track).name.endswith(".music.wav"):
+        Path(track).unlink(missing_ok=True)
     return out_path
 
 

@@ -552,6 +552,7 @@ def awin_candidates(cat, rules, posted):
     words = word_re(cat.get("include_words"))
     blocked = word_re(cat.get("exclude_words"))
     shops = word_re(cat.get("merchants"))
+    skip_shops = word_re(cat.get("exclude_merchants"))
     # include_words_for: {Shop: [words]} applies a word filter to that shop only,
     # e.g. Rarewaves sells music and books too, but Stormforce is all gaming.
     shop_words = [(word_re([m]), word_re(w)) for m, w in (cat.get("include_words_for") or {}).items()]
@@ -560,6 +561,8 @@ def awin_candidates(cat, rules, posted):
     for row in rows:
         shop = (row.get("merchant_name") or "").lower()
         if shops and not shops.search(shop):
+            continue
+        if skip_shops and skip_shops.search(shop):
             continue
         name = (row.get("product_name") or "").lower()
         if words and not words.search(name):

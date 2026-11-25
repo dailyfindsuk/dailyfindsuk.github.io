@@ -26,6 +26,7 @@ condition: NEW
 #                  shop name). Shops you haven't joined yet are simply ignored.
 #   include_words  only products whose name contains one of these
 #   exclude_words  skip products whose name contains any of these
+#   exclude_merchants  skip these shops on this board (even if other filters match)
 #   gift: true     always write titles as gifts ("🎁 Gift for him under £30 · 40% off: ...")
 #   gift_for       default "for ..." when the product title doesn't say (e.g. "for pet lovers")
 #   giftable: false  don't use gift titles in the Nov-Dec gift season
@@ -49,7 +50,7 @@ categories:
     min_discount_percent: 20
     full_price_ok: true      # most home shops rarely discount; full price posts as a gift idea
     merchants: [Candles Direct, Flowers & Plants, Geepas, Joybuy, Buy Me Once, William Morris, La Redoute, Lights4fun, Starlight Beds, simbasleep, Panda London, Cult Furniture, Meaco, Ebac, BISSELL, DeubaXXL, Living and Home, The Sleep People]
-    exclude_words: [replacement, spare, adaptor, refill]
+    exclude_words: [replacement, spare, adaptor, refill, filter, filters, cartridge, cartridges, "spare part", "spare parts", "replacement part", "accessory pack"]
 
   - name: Tech & Gadgets
     source: awin
@@ -58,7 +59,7 @@ categories:
     gift_for: "for tech lovers"
     min_discount_percent: 20
     merchants: [Joybuy, Back Market, Arlo, EE, BISSELL, Stormforce, Geepas, Ottocast, Bond Touch, Geek Crate, Meaco]
-    exclude_words: [replacement, spare, adaptor, cable only]
+    exclude_words: [replacement, spare, adaptor, cable only, filter, filters, cartridge, cartridges, "spare part", "spare parts", "replacement part", "accessory pack"]
 
   - name: Gift Ideas
     source: awin
@@ -70,7 +71,7 @@ categories:
     # Gift shops often have no sale on. Gift boards may post a full-price gift,
     # worded as "🎁 Gift idea under £35: ..." with no discount claimed.
     full_price_ok: true
-    exclude_words: [sample, vial, tester, refill, replacement, spare]
+    exclude_words: [sample, vial, tester, refill, replacement, spare, filter, filters, cartridge, cartridges, "spare part", "spare parts", "replacement part", "accessory pack"]
 
   - name: Gifts for Him
     source: awin
@@ -235,7 +236,12 @@ categories:
     include_words: [christmas, xmas, festive, bauble, baubles, wreath, garland, nativity, santa, reindeer, snowman, "fairy lights"]
     # "Santa" also matches brands like Santa Maria Novella, so skip toiletries and perfume.
     exclude_words: [jumper, hamper, chocolate, "gift set", "advent calendar", "santa maria", soap,
-                    shampoo, lotion, perfume, parfum, toilette, cologne, cream, candle wax]
+                    shampoo, lotion, perfume, parfum, toilette, cologne, cream, candle wax,
+                    # clothes and jewellery belong on the gift boards, not decorations
+                    shirt, "t-shirt", tee, hoodie, sweatshirt, socks, brooch, earrings, necklace, pendant, bracelet,
+                    filter, cartridge, replacement]
+    # fresh-flower wreaths and bouquets aren't decorations people keep
+    exclude_merchants: [Flowers & Plants, Bunches]
 
   - name: Valentine's Day
     source: awin
