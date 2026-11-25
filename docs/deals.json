@@ -1,6 +1,34 @@
 {
- "next_number": 301,
+ "next_number": 303,
  "deals": [
+  {
+   "number": 302,
+   "id": "awin:42931845250",
+   "title": "Joules Medium Trolley Spinner Suitcase - Womens Hardside - Tile Diamond",
+   "category": "Gifts for Her",
+   "store": "Case Luggage",
+   "now": 75.6,
+   "was": 189.0,
+   "ref": "RRP",
+   "discount": 60,
+   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/joules-medium-trolley-spinner-suitcase-womens-hardside-tile-diamond-817158-5060388017408-67087377891709.jpg?v=1775633265",
+   "link": "https://www.awin1.com/pclick.php?p=42931845250&a=3117788&m=121020",
+   "posted": "2026-11-25T02:34+00:00"
+  },
+  {
+   "number": 301,
+   "id": "awin:42931846880",
+   "title": "Tumi Global Double Billfold Wallet - Nassau - Brown",
+   "category": "Gifts for Him",
+   "store": "Case Luggage",
+   "now": 98.0,
+   "was": 140.0,
+   "ref": "RRP",
+   "discount": 30,
+   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/tumi-global-double-billfold-wallet-nassau-brown-761260-0742315597713-67084768182653.jpg?v=1775635611",
+   "link": "https://www.awin1.com/pclick.php?p=42931846880&a=3117788&m=121020",
+   "posted": "2026-11-25T02:34+00:00"
+  },
   {
    "number": 300,
    "id": "awin:g54979236331846",
