@@ -1,6 +1,34 @@
 {
- "next_number": 303,
+ "next_number": 305,
  "deals": [
+  {
+   "number": 304,
+   "id": "awin:46935178122",
+   "title": "Avant Skincare 5-Step Rejuvenating Ritual",
+   "category": "Beauty & Fragrance",
+   "store": "Avant Skincare",
+   "now": 25.0,
+   "was": 59.0,
+   "ref": "was",
+   "discount": 58,
+   "image": "https://cdn.shopify.com/s/files/1/0916/1755/8869/files/120326-Avant-AVK304-Lifestyle-2-35071-Edit-3-Square_3_de50352a-b984-4459-be19-1cd621dd3ff1.jpg?v=1780302088",
+   "link": "https://www.awin1.com/pclick.php?p=46935178122&a=3117788&m=19244",
+   "posted": "2026-11-25T07:47+00:00"
+  },
+  {
+   "number": 303,
+   "id": "awin:44536294965",
+   "title": "Simply Bunches Monthly Flower Gift",
+   "category": "Christmas Gift Ideas",
+   "store": "Bunches.co.uk",
+   "now": 25.0,
+   "was": 25.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Amedia.bunches.co.uk%2Fproducts%2F570x570%2Frnval-1.jpg&feedId=488&k=353f1b141228a65e76970762cd758ae4395ea587",
+   "link": "https://www.awin1.com/pclick.php?p=44536294965&a=3117788&m=488",
+   "posted": "2026-11-25T07:47+00:00"
+  },
   {
    "number": 302,
    "id": "awin:42931845250",
@@ -2072,34 +2100,6 @@
    "image": "https://cdn.shopify.com/s/files/1/0916/1755/8869/files/AV184-5060762546746-Single-Pack-De-Puffing-Niacinamide-Eye-Renewal-Pad-_3.jpg?v=1757925806",
    "link": "https://www.awin1.com/pclick.php?p=43632105316&a=3117788&m=19244",
    "posted": "2026-11-11T20:12+00:00"
-  },
-  {
-   "number": 154,
-   "id": "awin:38343166783",
-   "title": "DKNY Men Energizing 100ml Eau De Toilette Spray",
-   "category": "Gifts for Him",
-   "store": "Scentsational",
-   "now": 24.95,
-   "was": 81.0,
-   "ref": "RRP",
-   "discount": 69,
-   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.scentsational.com%2Fimages%2Fproducts%2F1721040497-69504500.png&feedId=53233&k=1b743da6b7d7b186c13d12ffaa4b68c0e438e90c",
-   "link": "https://www.awin1.com/pclick.php?p=38343166783&a=3117788&m=22373",
-   "posted": "2026-11-11T16:26+00:00"
-  },
-  {
-   "number": 153,
-   "id": "awin:40103573334",
-   "title": "Bunches The Box of Indulgence",
-   "category": "Gift Ideas",
-   "store": "Bunches.co.uk",
-   "now": 42.0,
-   "was": 42.0,
-   "ref": "RRP",
-   "discount": 0,
-   "image": "https://media.bunches.co.uk/products/h82666-1.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=40103573334&a=3117788&m=488",
-   "posted": "2026-11-11T16:26+00:00"
   }
  ]
 }
