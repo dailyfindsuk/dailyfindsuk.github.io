@@ -73,4 +73,11 @@ jobs:
           git config user.email "dealbot@users.noreply.github.com"
           git add state/posted.json docs
           git diff --cached --quiet || git commit -m "Update posted items and website"
-          git push
+          # GitHub sometimes rejects a push for a moment; retry so posts are never lost
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            echo "Push failed, retrying in 20s ($i/5)"
+            sleep 20
+            git pull --rebase -q || true
+          done
+          exit 1
