@@ -1,6 +1,34 @@
 {
- "next_number": 319,
+ "next_number": 321,
  "deals": [
+  {
+   "number": 320,
+   "id": "awin:g44490040705195",
+   "title": "Nomination Classic Silver Heart with Santa Hat Charm",
+   "category": "Christmas Decor",
+   "store": "Mococo Jewellery",
+   "now": 27.0,
+   "was": 27.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0540/7234/4747/files/nom-330204_05_01c.jpg?v=1794309539",
+   "link": "https://www.awin1.com/cread.php?awinmid=87549&awinaffid=3117788&ued=https%3A%2F%2Fwww.mococo.co.uk%2Fproducts%2Fnomination-silver-classic-heart-with-santa-hat-charm%3Fvariant%3D44490040705195",
+   "posted": "2026-11-26T16:47+00:00"
+  },
+  {
+   "number": 319,
+   "id": "awin:40846894432",
+   "title": "Avant Skincare Flawless Energising & Oxygenating Caffeine 2-1 Face & Eye Serum | Packaging: Travel Pack",
+   "category": "Beauty & Fragrance",
+   "store": "Avant Skincare",
+   "now": 64.0,
+   "was": 92.0,
+   "ref": "was",
+   "discount": 30,
+   "image": "https://cdn.shopify.com/s/files/1/0916/1755/8869/files/AV127-5060762542731-Discovery-edit-Flawless-Energising-Oxygenating-Caffeine-2-1-Face-Eye-Serum-e_9197_6.jpg?v=1757926597",
+   "link": "https://www.awin1.com/pclick.php?p=40846894432&a=3117788&m=19244",
+   "posted": "2026-11-26T16:47+00:00"
+  },
   {
    "number": 318,
    "id": "awin:g55781580210503",
@@ -2072,34 +2100,6 @@
    "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/03/1920-1217.png",
    "link": "https://www.awin1.com/pclick.php?p=44191203514&a=3117788&m=24882",
    "posted": "2026-11-13T15:43+00:00"
-  },
-  {
-   "number": 168,
-   "id": "awin:46720850261",
-   "title": "Moncler Pour Femme - 100ml Eau De Parfum Spray",
-   "category": "Gifts for Her",
-   "store": "Scentsational",
-   "now": 39.95,
-   "was": 113.0,
-   "ref": "RRP",
-   "discount": 65,
-   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.scentsational.com%2Fimages%2Fproducts%2F1787221718-05054200.png&feedId=53233&k=ab6e20042ae5182403380be454667d5e9ae4f026",
-   "link": "https://www.awin1.com/pclick.php?p=46720850261&a=3117788&m=22373",
-   "posted": "2026-11-13T01:54+00:00"
-  },
-  {
-   "number": 167,
-   "id": "awin:43577705255",
-   "title": "Bunches Whisky Lovers Gift",
-   "category": "Gift Ideas",
-   "store": "Bunches.co.uk",
-   "now": 42.95,
-   "was": 42.95,
-   "ref": "RRP",
-   "discount": 0,
-   "image": "https://media.bunches.co.uk/products/h82313-2.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=43577705255&a=3117788&m=488",
-   "posted": "2026-11-13T01:54+00:00"
   }
  ]
 }
