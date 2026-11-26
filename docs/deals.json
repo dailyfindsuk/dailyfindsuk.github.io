@@ -1,6 +1,34 @@
 {
- "next_number": 311,
+ "next_number": 313,
  "deals": [
+  {
+   "number": 312,
+   "id": "awin:41829841528",
+   "title": "Green & Black's Organic Ultimate Chocolate Bar Gift Set",
+   "category": "Christmas Gift Ideas",
+   "store": "Cadbury Gifts Direct",
+   "now": 24.0,
+   "was": 24.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://www.cadburygiftsdirect.co.uk/media/catalog/product/g/e/gen_g_b_classic.jpg",
+   "link": "https://www.awin1.com/pclick.php?p=41829841528&a=3117788&m=736",
+   "posted": "2026-11-26T00:42+00:00"
+  },
+  {
+   "number": 311,
+   "id": "awin:40224094178",
+   "title": "Playpress Natural History Museum Dino Dig Playset",
+   "category": "Baby & Kids",
+   "store": "PlayPress Toys UK",
+   "now": 10.0,
+   "was": 10.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0522/6804/0384/files/047DinoDigPlaysetAll.jpg?v=1730065319",
+   "link": "https://www.awin1.com/pclick.php?p=40224094178&a=3117788&m=101445",
+   "posted": "2026-11-26T00:42+00:00"
+  },
   {
    "number": 308,
    "id": "awin:46823318582",
@@ -2072,34 +2100,6 @@
    "image": "https://cdn.shopify.com/s/files/1/0916/1755/8869/files/AVK313_Festive_Shoot_2026_Mobile_Banner_2.jpg?v=1789137391",
    "link": "https://www.awin1.com/pclick.php?p=40846894504&a=3117788&m=19244",
    "posted": "2026-11-12T16:20+00:00"
-  },
-  {
-   "number": 160,
-   "id": "awin:35104307281",
-   "title": "Bunches Rose and Lily Bouquet",
-   "category": "Gift Ideas",
-   "store": "Bunches.co.uk",
-   "now": 34.95,
-   "was": 34.95,
-   "ref": "RRP",
-   "discount": 0,
-   "image": "https://media.bunches.co.uk/products/frsly-1.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=35104307281&a=3117788&m=488",
-   "posted": "2026-11-12T02:18+00:00"
-  },
-  {
-   "number": 159,
-   "id": "awin:46307112800",
-   "title": "Avant Skincare Odyssey Beyond: Six Treasures Gift Set",
-   "category": "Christmas Gift Ideas",
-   "store": "Avant Skincare",
-   "now": 69.0,
-   "was": 443.0,
-   "ref": "was",
-   "discount": 84,
-   "image": "https://cdn.shopify.com/s/files/1/0916/1755/8869/files/Avant-Festive-Gift-Set-Images-2026-AVK336-26.1_Sticker.jpg?v=1792164546",
-   "link": "https://www.awin1.com/pclick.php?p=46307112800&a=3117788&m=19244",
-   "posted": "2026-11-12T02:18+00:00"
   }
  ]
 }
