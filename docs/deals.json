@@ -1,6 +1,34 @@
 {
- "next_number": 331,
+ "next_number": 333,
  "deals": [
+  {
+   "number": 332,
+   "id": "awin:g55781579424071",
+   "title": "Bad Shirt Club You Should See the Size of My Sack! Funny Christmas Jumper - Charcoal / S",
+   "category": "Christmas Gift Ideas",
+   "store": "Bad Shirt Club",
+   "now": 29.99,
+   "was": 29.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0900/7084/3719/files/you-should-see-the-size-of-my-sack-funny-christmas-jumper-charcoal.jpg?v=1794506132",
+   "link": "https://www.awin1.com/cread.php?awinmid=66586&awinaffid=3117788&ued=https%3A%2F%2Fbadshirt.club%2Fproducts%2Fyou-should-see-the-size-of-my-sack-funny-christmas-jumper%3Fvariant%3D55781579424071",
+   "posted": "2026-11-27T16:47+00:00"
+  },
+  {
+   "number": 331,
+   "id": "awin:44551483091",
+   "title": "Calvin Klein Eternity Air For Women - 100ml Eau de Parfum Spray",
+   "category": "Gifts for Her",
+   "store": "Scentsational",
+   "now": 20.95,
+   "was": 73.0,
+   "ref": "RRP",
+   "discount": 71,
+   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.scentsational.com%2Fimages%2Fproducts%2F1776782408-51606100.jpg&feedId=53233&k=ec7a5b455694f10697b2c5c6390772427355d3b4",
+   "link": "https://www.awin1.com/pclick.php?p=44551483091&a=3117788&m=22373",
+   "posted": "2026-11-27T16:47+00:00"
+  },
   {
    "number": 330,
    "id": "awin:45865083787",
@@ -2072,34 +2100,6 @@
    "image": "https://media.bunches.co.uk/products/fchval-1.jpg",
    "link": "https://www.awin1.com/pclick.php?p=23958935861&a=3117788&m=488",
    "posted": "2026-11-14T22:32+00:00"
-  },
-  {
-   "number": 180,
-   "id": "awin:25867657469",
-   "title": "Baker Ross Decorative Corrugated Borders Value Pack (Box of 6 Rolls) Classroom Supplies, Border Size 15m x 5.5cm, 6 Assorted Colours",
-   "category": "Baby & Kids",
-   "store": "Baker Ross",
-   "now": 19.99,
-   "was": 19.99,
-   "ref": "RRP",
-   "discount": 0,
-   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.bakerross.co.uk%2Fmedia%2Fcatalog%2Fproduct%2Fd%2Fe%2Fdecorative-corrugated-borders-value-pack-ek544.jpg&feedId=40405&k=cebb21e56cdc0e26e5b5516a364d7073021c8f8d",
-   "link": "https://www.awin1.com/pclick.php?p=25867657469&a=3117788&m=1902",
-   "posted": "2026-11-14T18:44+00:00"
-  },
-  {
-   "number": 179,
-   "id": "awin:42931846954",
-   "title": "Bric's 76cm Spinner Suitcase - Amalfi - Black",
-   "category": "Camping & Travel",
-   "store": "Case Luggage",
-   "now": 260.0,
-   "was": 520.0,
-   "ref": "RRP",
-   "discount": 50,
-   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Acdn.shopify.com%2Fs%2Ffiles%2F1%2F0925%2F7615%2F3981%2Ffiles%2Fbric-s-76cm-spinner-suitcase-amalfi-basic-blue-751551-8016623103679-67084679151997.jpg%3Fv%3D1775634575&feedId=110976&k=26c2cb132598ca4de965e25a45f2c85b20edfd92",
-   "link": "https://www.awin1.com/pclick.php?p=42931846954&a=3117788&m=121020",
-   "posted": "2026-11-14T18:44+00:00"
   }
  ]
 }
