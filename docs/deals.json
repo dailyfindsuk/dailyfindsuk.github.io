@@ -1,6 +1,34 @@
 {
- "next_number": 327,
+ "next_number": 329,
  "deals": [
+  {
+   "number": 328,
+   "id": "awin:46850850980",
+   "title": "MSI MAG 27CQ6F",
+   "category": "Tech & Gadgets",
+   "store": "Stormforce Gaming",
+   "now": 129.99,
+   "was": 169.99,
+   "ref": "RRP",
+   "discount": 24,
+   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2024/10/MSI-MAG-27CQ6F-1.webp",
+   "link": "https://www.awin1.com/pclick.php?p=46850850980&a=3117788&m=24882",
+   "posted": "2026-11-27T07:47+00:00"
+  },
+  {
+   "number": 327,
+   "id": "awin:37453199446",
+   "title": "Geepas | For you. For life. 400ml Turbo Slim Blender & Smoothie Maker With Drinking Bottle",
+   "category": "Home & Kitchen",
+   "store": "Geepas Partner Program",
+   "now": 21.24,
+   "was": 21.24,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0015/3426/3341/files/058f4430-8375-4929-b74f-2c84a7ee4217.jpg?v=1759151446",
+   "link": "https://www.awin1.com/pclick.php?p=37453199446&a=3117788&m=46851",
+   "posted": "2026-11-27T07:47+00:00"
+  },
   {
    "number": 326,
    "id": "awin:g43139021668523",
@@ -2072,34 +2100,6 @@
    "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.scentsational.com%2Fimages%2Fproducts%2F1603895190-62850900.jpg&feedId=53233&k=15bf46a0f743f2540a18518e2a5ca3da8e4cd5b7",
    "link": "https://www.awin1.com/pclick.php?p=44256192606&a=3117788&m=22373",
    "posted": "2026-11-14T14:33+00:00"
-  },
-  {
-   "number": 176,
-   "id": "awin:43577705252",
-   "title": "Bunches Prosecco and Chocolates",
-   "category": "Gift Ideas",
-   "store": "Bunches.co.uk",
-   "now": 22.75,
-   "was": 22.75,
-   "ref": "RRP",
-   "discount": 0,
-   "image": "https://media.bunches.co.uk/products/h82271-1.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=43577705252&a=3117788&m=488",
-   "posted": "2026-11-14T01:29+00:00"
-  },
-  {
-   "number": 175,
-   "id": "awin:45565422685",
-   "title": "Baker Ross Pastel Colours Poster Display Rolls Value Pack 7.5m x 76cm (Pack of 4) Drawing 4 assorted pastel colours - Yellow, Green, Blue and Pink",
-   "category": "Baby & Kids",
-   "store": "Baker Ross",
-   "now": 24.95,
-   "was": 24.95,
-   "ref": "RRP",
-   "discount": 0,
-   "image": "https://www.bakerross.co.uk/media/catalog/product/f/e/fe439x-a.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=45565422685&a=3117788&m=1902",
-   "posted": "2026-11-14T01:29+00:00"
   }
  ]
 }
