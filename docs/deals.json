@@ -1,6 +1,34 @@
 {
- "next_number": 323,
+ "next_number": 325,
  "deals": [
+  {
+   "number": 324,
+   "id": "awin:41400418481",
+   "title": "Playpress Legends Castle",
+   "category": "Baby & Kids",
+   "store": "PlayPress Toys UK",
+   "now": 10.0,
+   "was": 10.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0522/6804/0384/files/54LegendsCastlePlaysetSetBuiltFront.jpg?v=1748028868",
+   "link": "https://www.awin1.com/pclick.php?p=41400418481&a=3117788&m=101445",
+   "posted": "2026-11-27T00:50+00:00"
+  },
+  {
+   "number": 323,
+   "id": "awin:42931845317",
+   "title": "Sara Miller Mini Backpack - Crane Garden",
+   "category": "Camping & Travel",
+   "store": "Case Luggage",
+   "now": 44.0,
+   "was": 89.0,
+   "ref": "RRP",
+   "discount": 51,
+   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-mini-backpack-crane-crane-garden-798402-5060388016203-67086132642173.jpg?v=1775637543",
+   "link": "https://www.awin1.com/pclick.php?p=42931845317&a=3117788&m=121020",
+   "posted": "2026-11-27T00:50+00:00"
+  },
   {
    "number": 322,
    "id": "awin:45313583490",
@@ -2072,34 +2100,6 @@
    "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/03/1910-4049-2.png",
    "link": "https://www.awin1.com/pclick.php?p=44191203507&a=3117788&m=24882",
    "posted": "2026-11-13T22:15+00:00"
-  },
-  {
-   "number": 172,
-   "id": "awin:23958935859",
-   "title": "Bunches Florist's Choice Grande",
-   "category": "Gift Ideas",
-   "store": "Bunches.co.uk",
-   "now": 38.75,
-   "was": 38.75,
-   "ref": "RRP",
-   "discount": 0,
-   "image": "https://media.bunches.co.uk/products/fchtop-1.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=23958935859&a=3117788&m=488",
-   "posted": "2026-11-13T18:47+00:00"
-  },
-  {
-   "number": 171,
-   "id": "awin:25867660113",
-   "title": "Baker Ross Neon Brights Porcelain Paint Pens (Pack of 8) Art Supplies, Art Materials 8 assorted neon colours - Brilliant Blue, Vivid Violet, Hot Pink, Flaming Orange, Yellow, Radiant Red, Glowing Green & Fiery Amber",
-   "category": "Baby & Kids",
-   "store": "Baker Ross",
-   "now": 11.95,
-   "was": 11.95,
-   "ref": "RRP",
-   "discount": 0,
-   "image": "https://www.bakerross.co.uk/media/catalog/product/a/w/aw426e-a_3.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=25867660113&a=3117788&m=1902",
-   "posted": "2026-11-13T18:47+00:00"
   }
  ]
 }
