@@ -1,6 +1,34 @@
 {
- "next_number": 333,
+ "next_number": 335,
  "deals": [
+  {
+   "number": 334,
+   "id": "awin:g41748333461563",
+   "title": "Craft Buddy Festive Crystal Art Stocking Treat Holder",
+   "category": "Christmas Decor",
+   "store": "Craft Buddy Shop",
+   "now": 17.59,
+   "was": 17.59,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0331/0528/1083/files/Crystal-art-festive-treat-holder-angled-1-188899.jpg?v=1720681298",
+   "link": "https://www.awin1.com/cread.php?awinmid=45747&awinaffid=3117788&ued=https%3A%2F%2Fwww.craftbuddyshop.com%2Fproducts%2Ffestive-crystal-art-stocking-treat-holder%3Fvariant%3D41748333461563",
+   "posted": "2026-11-27T19:47+00:00"
+  },
+  {
+   "number": 333,
+   "id": "awin:40846894434",
+   "title": "Avant Skincare Pink Orchid Subtle Restoring Overnight Serum | Packaging: Travel Pack",
+   "category": "Beauty & Fragrance",
+   "store": "Avant Skincare",
+   "now": 62.0,
+   "was": 89.0,
+   "ref": "was",
+   "discount": 30,
+   "image": "https://cdn.shopify.com/s/files/1/0916/1755/8869/files/AV0885060762541352PinkOrchidSubtleRestoringOvernightSerum-_1.jpg?v=1757926571",
+   "link": "https://www.awin1.com/pclick.php?p=40846894434&a=3117788&m=19244",
+   "posted": "2026-11-27T19:47+00:00"
+  },
   {
    "number": 332,
    "id": "awin:g55781579424071",
@@ -2072,34 +2100,6 @@
    "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.scentsational.com%2Fimages%2Fproducts%2F1776782931-01652300.jpg&feedId=53233&k=d5b139f9e5fc5791cd7492678d6261f16a868ce7",
    "link": "https://www.awin1.com/pclick.php?p=44544117294&a=3117788&m=22373",
    "posted": "2026-11-15T03:07+00:00"
-  },
-  {
-   "number": 182,
-   "id": "awin:46785989263",
-   "title": "Calvin Klein Eternity Air For Men - 100ml Eau de Toilette Spray",
-   "category": "Gifts for Him",
-   "store": "Scentsational",
-   "now": 18.5,
-   "was": 59.0,
-   "ref": "RRP",
-   "discount": 69,
-   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.scentsational.com%2Fimages%2Fproducts%2F1694789314-97254200.jpg&feedId=53233&k=b66994a5fbcff64646ef51de36b4660b15d47a61",
-   "link": "https://www.awin1.com/pclick.php?p=46785989263&a=3117788&m=22373",
-   "posted": "2026-11-14T22:32+00:00"
-  },
-  {
-   "number": 181,
-   "id": "awin:23958935861",
-   "title": "Bunches Florist's Choice Chic",
-   "category": "Gift Ideas",
-   "store": "Bunches.co.uk",
-   "now": 28.5,
-   "was": 28.5,
-   "ref": "RRP",
-   "discount": 0,
-   "image": "https://media.bunches.co.uk/products/fchval-1.jpg",
-   "link": "https://www.awin1.com/pclick.php?p=23958935861&a=3117788&m=488",
-   "posted": "2026-11-14T22:32+00:00"
   }
  ]
 }
