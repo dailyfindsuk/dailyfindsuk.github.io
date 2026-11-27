@@ -1,6 +1,34 @@
 {
- "next_number": 329,
+ "next_number": 331,
  "deals": [
+  {
+   "number": 330,
+   "id": "awin:45865083787",
+   "title": "Issey Miyake L'Eau d'Issey Pour Homme Intense - 125ml Eau De Toilette Spray.",
+   "category": "Gifts for Him",
+   "store": "Scentsational",
+   "now": 36.95,
+   "was": 62.0,
+   "ref": "RRP",
+   "discount": 40,
+   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.scentsational.com%2Fimages%2Fproducts%2F1566242475-36741400.jpg&feedId=53233&k=5e687cc34427ab8aeb2f9c1bbf2a9077377cfc36",
+   "link": "https://www.awin1.com/pclick.php?p=45865083787&a=3117788&m=22373",
+   "posted": "2026-11-27T11:47+00:00"
+  },
+  {
+   "number": 329,
+   "id": "awin:37706420532",
+   "title": "Flowers & Plants Co Calathea 'Freddie'",
+   "category": "Gift Ideas",
+   "store": "Flowers & Plants Co.",
+   "now": 16.99,
+   "was": 16.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0692/8128/4406/products/calathea-freddie-2822679.jpg?v=1775817249",
+   "link": "https://www.awin1.com/pclick.php?p=37706420532&a=3117788&m=20856",
+   "posted": "2026-11-27T11:47+00:00"
+  },
   {
    "number": 328,
    "id": "awin:46850850980",
@@ -2072,34 +2100,6 @@
    "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Acdn.shopify.com%2Fs%2Ffiles%2F1%2F0925%2F7615%2F3981%2Ffiles%2Fbric-s-76cm-spinner-suitcase-amalfi-basic-blue-751551-8016623103679-67084679151997.jpg%3Fv%3D1775634575&feedId=110976&k=26c2cb132598ca4de965e25a45f2c85b20edfd92",
    "link": "https://www.awin1.com/pclick.php?p=42931846954&a=3117788&m=121020",
    "posted": "2026-11-14T18:44+00:00"
-  },
-  {
-   "number": 178,
-   "id": "awin:46480089701",
-   "title": "MSI MAG 274QP QD-OLED X24",
-   "category": "Gaming",
-   "store": "Stormforce Gaming",
-   "now": 289.99,
-   "was": 399.99,
-   "ref": "RRP",
-   "discount": 28,
-   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/10/302433.png",
-   "link": "https://www.awin1.com/pclick.php?p=46480089701&a=3117788&m=24882",
-   "posted": "2026-11-14T14:33+00:00"
-  },
-  {
-   "number": 177,
-   "id": "awin:44256192606",
-   "title": "Davidoff Cool Water For Women - 30ml Eau De Toilette Spray",
-   "category": "Gifts for Her",
-   "store": "Scentsational",
-   "now": 11.0,
-   "was": 49.0,
-   "ref": "RRP",
-   "discount": 78,
-   "image": "https://images2.productserve.com/?w=1500&bg=white&trim=5&t=letterbox&url=ssl%3Awww.scentsational.com%2Fimages%2Fproducts%2F1603895190-62850900.jpg&feedId=53233&k=15bf46a0f743f2540a18518e2a5ca3da8e4cd5b7",
-   "link": "https://www.awin1.com/pclick.php?p=44256192606&a=3117788&m=22373",
-   "posted": "2026-11-14T14:33+00:00"
   }
  ]
 }
