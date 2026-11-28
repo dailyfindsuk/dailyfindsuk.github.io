@@ -1,6 +1,34 @@
 {
- "next_number": 339,
+ "next_number": 341,
  "deals": [
+  {
+   "number": 340,
+   "id": "awin:g42452721959127",
+   "title": "Starlight Beds Coil Sprung Mattress - Quality Comfort & Support at Great Value - 3ft Single Mattress (90cm by 190cm)",
+   "category": "Home & Kitchen",
+   "store": "Starlight Beds",
+   "now": 48.44,
+   "was": 48.44,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0414/0859/4076/products/mainfullmattress.jpg?v=1738686124",
+   "link": "https://www.awin1.com/cread.php?awinmid=121884&awinaffid=3117788&ued=https%3A%2F%2Fstarlightbeds.co.uk%2Fproducts%2Fcool-touch-micro-quilted-bonnell-sprung-mattress%3Fvariant%3D42452721959127",
+   "posted": "2026-11-28T07:47+00:00"
+  },
+  {
+   "number": 339,
+   "id": "awin:g42933165752475",
+   "title": "Yankee Candle Red Apple Wreath",
+   "category": "Christmas Decor",
+   "store": "Candles Direct",
+   "now": 23.99,
+   "was": 23.99,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0444/8429/6859/files/Red-Apple-Wreath-Large-Jar-2236218-1.jpg?v=1776719881",
+   "link": "https://www.awin1.com/cread.php?awinmid=13560&awinaffid=3117788&ued=https%3A%2F%2Fcandlesdirect.com%2Fproducts%2Fyankee-candle-red-apple-wreath-signature-large-jar-candle-1629977e%3Fvariant%3D42933165752475",
+   "posted": "2026-11-28T07:47+00:00"
+  },
   {
    "number": 338,
    "id": "awin:g43720078524567",
@@ -2072,34 +2100,6 @@
    "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-half-moon-crossbody-bag-leopard-midnight-leopard-798419-5060388016234-67086136639869.jpg?v=1775637542",
    "link": "https://www.awin1.com/pclick.php?p=42931845320&a=3117788&m=121020",
    "posted": "2026-11-15T14:59+00:00"
-  },
-  {
-   "number": 188,
-   "id": "awin:44191203509",
-   "title": "Cherry XTRFY M64 Wireless Black Gaming Mouse",
-   "category": "Gaming",
-   "store": "Stormforce Gaming",
-   "now": 19.99,
-   "was": 39.99,
-   "ref": "RRP",
-   "discount": 50,
-   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2026/03/1915-5024-1.png",
-   "link": "https://www.awin1.com/pclick.php?p=44191203509&a=3117788&m=24882",
-   "posted": "2026-11-15T11:47+00:00"
-  },
-  {
-   "number": 187,
-   "id": "awin:g43575063478427",
-   "title": "Yankee Candle Christmas Cookie",
-   "category": "Christmas Gift Ideas",
-   "store": "Candles Direct",
-   "now": 19.99,
-   "was": 19.99,
-   "ref": "RRP",
-   "discount": 0,
-   "image": "https://cdn.shopify.com/s/files/1/0444/8429/6859/files/Christmas-Cookie-Medium-Jar-2236266.jpg?v=1777370507",
-   "link": "https://www.awin1.com/cread.php?awinmid=13560&awinaffid=3117788&ued=https%3A%2F%2Fcandlesdirect.com%2Fproducts%2Fyankee-candle-christmas-cookie-signature-medium-jar-candle-1630010e%3Fvariant%3D43575063478427",
-   "posted": "2026-11-15T11:47+00:00"
   }
  ]
 }
