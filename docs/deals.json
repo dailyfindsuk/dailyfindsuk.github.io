@@ -1,6 +1,34 @@
 {
- "next_number": 341,
+ "next_number": 343,
  "deals": [
+  {
+   "number": 342,
+   "id": "awin:44746785850",
+   "title": "Angel Barocco Stars Baroque Pearl Drop Earrings",
+   "category": "Gift Ideas",
+   "store": "Angel Barocco",
+   "now": 68.0,
+   "was": 68.0,
+   "ref": "RRP",
+   "discount": 0,
+   "image": "https://cdn.shopify.com/s/files/1/0659/8642/9155/products/cubic-zirconia-baroque-pearl-earrings-318342.jpg?v=1740261069",
+   "link": "https://www.awin1.com/pclick.php?p=44746785850&a=3117788&m=70252",
+   "posted": "2026-11-28T11:47+00:00"
+  },
+  {
+   "number": 341,
+   "id": "awin:44191203430",
+   "title": "MSI MAG 244C",
+   "category": "Tech & Gadgets",
+   "store": "Stormforce Gaming",
+   "now": 84.99,
+   "was": 108.99,
+   "ref": "RRP",
+   "discount": 22,
+   "image": "https://www.stormforcegaming.co.uk/wp-content/uploads/2025/05/MSI-MAG-244C.webp",
+   "link": "https://www.awin1.com/pclick.php?p=44191203430&a=3117788&m=24882",
+   "posted": "2026-11-28T11:47+00:00"
+  },
   {
    "number": 340,
    "id": "awin:g42452721959127",
@@ -2072,34 +2100,6 @@
    "image": "https://cdn.shopify.com/s/files/1/0692/8128/4406/files/white-christmas-6953800.webp?v=1775817013",
    "link": "https://www.awin1.com/pclick.php?p=43348868390&a=3117788&m=20856",
    "posted": "2026-11-15T15:08+00:00"
-  },
-  {
-   "number": 190,
-   "id": "awin:40224094172",
-   "title": "Playpress Zog Playset: Play the Story",
-   "category": "Baby & Kids",
-   "store": "PlayPress Toys UK",
-   "now": 12.0,
-   "was": 12.0,
-   "ref": "RRP",
-   "discount": 0,
-   "image": "https://cdn.shopify.com/s/files/1/0522/6804/0384/files/044ZogPop-outPlaysetBuiltSet_fedd9510-5278-45c2-8538-15479694948b.jpg?v=1717446105",
-   "link": "https://www.awin1.com/pclick.php?p=40224094172&a=3117788&m=101445",
-   "posted": "2026-11-15T14:59+00:00"
-  },
-  {
-   "number": 189,
-   "id": "awin:42931845320",
-   "title": "Sara Miller Half Moon Crossbody Bag - Midnight Leopard",
-   "category": "Camping & Travel",
-   "store": "Case Luggage",
-   "now": 35.6,
-   "was": 89.0,
-   "ref": "RRP",
-   "discount": 60,
-   "image": "https://cdn.shopify.com/s/files/1/0925/7615/3981/files/sara-miller-london-half-moon-crossbody-bag-leopard-midnight-leopard-798419-5060388016234-67086136639869.jpg?v=1775637542",
-   "link": "https://www.awin1.com/pclick.php?p=42931845320&a=3117788&m=121020",
-   "posted": "2026-11-15T14:59+00:00"
   }
  ]
 }
